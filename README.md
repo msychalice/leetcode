@@ -7,14 +7,14 @@
 1.Use headIndex and endIndex to indicate current substring\
 2.Use hash table curSubstr to store all characters in current substring\
 3.Increase endIndex by 1 until the end\
-    if s[endIndex] is in the hash table\
-        duplicatedCharIndex = curSubstr[s[endIndex]]\
-        remove all the elements from headIndex to duplicatedCharIndex in curSubstr\
-        move headIndex to the right of the duplicated character (headIndex = duplicatedCharIndex + 1)\
-    else\
-        add [s[endIndex]]endIndex to curSubstr\
+    >if s[endIndex] is in the hash table\
+        >>duplicatedCharIndex = curSubstr[s[endIndex]]\
+        >>remove all the elements from headIndex to duplicatedCharIndex in curSubstr\
+        >>move headIndex to the right of the duplicated character (headIndex = duplicatedCharIndex + 1)\
+    >else\
+        >>add [s[endIndex]]endIndex to curSubstr\
 \
-    if length of the current substring is longer than maxSubstrLen, update maxSubstrLen.Otherwise continue\
+    >if length of the current substring is longer than maxSubstrLen, update maxSubstrLen.Otherwise continue\
 
 
 
