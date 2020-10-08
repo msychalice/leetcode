@@ -19,6 +19,18 @@ Increase endIndex by 1 until the end
     if length of the current substring is longer than maxSubstrLen, update maxSubstrLen.Otherwise continue
 ```
 
+## 4. Median of Two Sorted Arrays
+Gist of the algorithm.
+Use binary search to find the boundry that separate both arrays into left and right part.
+Make sure all the elemnts in the left part of the first array are smaller than the elements in the right part of the second array, and the elements in the left part of the second array are smaller than the elements in the right part of the first array.
+
+
+## 70. Climbing Stairs
+```
+f(1) = 1
+f(2) = 2
+f(n) = f(n-2) + f(n-1)
+```
 
 
 
