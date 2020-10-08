@@ -10,8 +10,7 @@
 ```
 Increase endIndex by 1 until the end
     if s[endIndex] is in the hash table
-        duplicatedCharIndex = curSubstr[s[endIndex]]
-        remove all the elements from headIndex to duplicatedCharIndex in curSubstr
+        duplicatedCharIndex = curSubstr[s[endIndex]] remove all the elements from headIndex to duplicatedCharIndex in curSubstr
         move headIndex to the right of the duplicated character (headIndex = duplicatedCharIndex + 1)
     else
         add [s[endIndex]]endIndex to curSubstr
@@ -32,5 +31,9 @@ f(2) = 2
 f(n) = f(n-2) + f(n-1)
 ```
 
+## 973. K Closest Points to Origin
+Intuitively, we can calculate the distance for all the points (O(n)), sort (O(nlog n)) and get the first K points.
+However, we can optimize the previous procedure by using max heap instead of sorting all the points. Since updating an element in max heap is O(log n).
+We can initiate a max heap with the first K points (O(K)) and update the max heap ((n-K)O(log K)).
 
 
