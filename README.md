@@ -53,6 +53,19 @@ This is a typical task that can use the result of smaller scale task.
 Note that when get a new solution, need to compare to the existing solution, only update it if the new one is smaller.
 
 
+## 763. Partition Labels
+```
+for each characters in the input string
+    create a new partition for the character
+    if the character exists in one of the existing partitions
+        combine the found partition with all the following partitions
+        combine the new partition as well
+    else
+        add the new partition into the partition list
+
+```
+
+
 ## 973. K Closest Points to Origin
 Intuitively, we can calculate the distance for all the points (O(n)), sort (O(nlog n)) and get the first K points.
 However, we can optimize the previous procedure by using max heap instead of sorting all the points. Since updating an element in max heap is O(log n).
