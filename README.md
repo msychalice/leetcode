@@ -36,4 +36,8 @@ Intuitively, we can calculate the distance for all the points (O(n)), sort (O(nl
 However, we can optimize the previous procedure by using max heap instead of sorting all the points. Since updating an element in max heap is O(log n).
 We can initiate a max heap with the first K points (O(K)) and update the max heap ((n-K)O(log K)).
 
+## 322. Coin Change
+This is a typical task that can use the result of smaller scale task.
+Note that when get a new solution, need to compare to the existing solution, only update it if the new one is smaller.
+
 
