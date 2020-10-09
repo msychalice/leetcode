@@ -31,13 +31,19 @@ f(2) = 2
 f(n) = f(n-2) + f(n-1)
 ```
 
-## 973. K Closest Points to Origin
-Intuitively, we can calculate the distance for all the points (O(n)), sort (O(nlog n)) and get the first K points.
-However, we can optimize the previous procedure by using max heap instead of sorting all the points. Since updating an element in max heap is O(log n).
-We can initiate a max heap with the first K points (O(K)) and update the max heap ((n-K)O(log K)).
+## 79. Word Search
+1.Define the subtask that checks the existence of subword with a given starting grid.
+2.Set reached flag to true when start checking a grid, but needs to set the flag back to false if the check fails at the grid.
+
 
 ## 322. Coin Change
 This is a typical task that can use the result of smaller scale task.
 Note that when get a new solution, need to compare to the existing solution, only update it if the new one is smaller.
+
+
+## 973. K Closest Points to Origin
+Intuitively, we can calculate the distance for all the points (O(n)), sort (O(nlog n)) and get the first K points.
+However, we can optimize the previous procedure by using max heap instead of sorting all the points. Since updating an element in max heap is O(log n).
+We can initiate a max heap with the first K points (O(K)) and update the max heap ((n-K)O(log K)).
 
 
