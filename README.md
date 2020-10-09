@@ -23,6 +23,18 @@ Gist of the algorithm.
 Use binary search to find the boundry that separate both arrays into left and right part.
 Make sure all the elemnts in the left part of the first array are smaller than the elements in the right part of the second array, and the elements in the left part of the second array are smaller than the elements in the right part of the first array.
 
+## 62. Unique Paths
+Typical DP problem.
+The robot can only move to either right or down, if it moves right, all the left grids are unavailabe, so the problem turns into a smaller scale one (m-1,n).
+Similar case we can get when it moves down.
+Based on these findings we can define our recursive solution as follows.
+```
+findPaths(1, 1) = 1
+findPaths(1, 2) = 1 
+findPaths(2, 1) = 1
+findPaths(m, n) = findPaths(m-1,n) + findPaths(m,n-1)
+```
+Beware of the edge case (1,1), needs to be checked before running the recursive function.
 
 ## 70. Climbing Stairs
 ```
