@@ -23,6 +23,9 @@ Gist of the algorithm.
 Use binary search to find the boundry that separate both arrays into left and right part.
 Make sure all the elemnts in the left part of the first array are smaller than the elements in the right part of the second array, and the elements in the left part of the second array are smaller than the elements in the right part of the first array.
 
+## 21. Merge Two Sorted Lists
+
+
 ## 62. Unique Paths
 Typical DP problem.
 The robot can only move to either right or down, if it moves right, all the left grids are unavailabe, so the problem turns into a smaller scale one (m-1,n).
