@@ -24,6 +24,26 @@ Make sure all the elemnts in the left part of the first array are smaller than t
 
 ## 21. Merge Two Sorted Lists
 
+## 48. Rotate Image
+The new coordinate rotating 90 degrees clockwisely can be get through the following formula
+```
+x' = y
+y' = len - 1 - x
+```
+The major challenge is that allocating another matrix is forbidden.
+We can rotate the matrix by the following steps.
+For example, the maxtrix length is 6.
+|0|1|2|3|4|5|
+|---|---|---|---|---|---|
+|*|*|*|*|*| |
+| |*|*|*| | |
+| | |*| | | |
+| | | | | | |
+| | | | | | |
+| | | | | | |
+For each starred grid in the above matrix, swap the all four related coordinates. For example{{0,0},{0,5},{5,5},{5,0}}
+Beware of the matrix of odd length, it needs to skip this process when it hits the central grid.
+
 ## 62. Unique Paths
 Typical DP problem.
 The robot can only move to either right or down, if it moves right, all the left grids are unavailabe, so the problem turns into a smaller scale one (m-1,n).
