@@ -51,6 +51,10 @@ f(n) = f(n-2) + f(n-1)
 2.Set reached flag to true when start checking a grid, but needs to set the flag back to false if the check fails at the grid.
 
 
+## 133. Clone Graph
+1. Use Depth First Search to traverse the graph
+2. Cache all reached node
+
 ## 322. Coin Change
 This is a typical task that can use the result of smaller scale task.
 Note that when get a new solution, need to compare to the existing solution, only update it if the new one is smaller.
