@@ -1,5 +1,4 @@
 ## 1. Two Sum
-
 1.Build a hash table(key is the value of input array, value is the index of input array)\
 2.Traverse the input array and use the hash table to search for the second number
 
@@ -25,7 +24,6 @@ Make sure all the elemnts in the left part of the first array are smaller than t
 
 ## 21. Merge Two Sorted Lists
 
-
 ## 62. Unique Paths
 Typical DP problem.
 The robot can only move to either right or down, if it moves right, all the left grids are unavailabe, so the problem turns into a smaller scale one (m-1,n).
@@ -45,11 +43,9 @@ f(1) = 1
 f(2) = 2
 f(n) = f(n-2) + f(n-1)
 ```
-
 ## 79. Word Search
 1.Define the subtask that checks the existence of subword with a given starting grid.
 2.Set reached flag to true when start checking a grid, but needs to set the flag back to false if the check fails at the grid.
-
 
 ## 133. Clone Graph
 1. Use Depth First Search to traverse the graph
@@ -59,6 +55,9 @@ f(n) = f(n-2) + f(n-1)
 This is a typical task that can use the result of smaller scale task.
 Note that when get a new solution, need to compare to the existing solution, only update it if the new one is smaller.
 
+## 733. Flood Fill
+1. Cache all reached grids
+2. Use DFS to recursively traverse all the neighbor grids until the grid is either invalid, ,of wrong color, or reached. 
 
 ## 763. Partition Labels
 ```
@@ -72,12 +71,10 @@ for each characters in the input string
 
 ```
 
-
 ## 973. K Closest Points to Origin
 Intuitively, we can calculate the distance for all the points (O(n)), sort (O(nlog n)) and get the first K points.
 However, we can optimize the previous procedure by using max heap instead of sorting all the points. Since updating an element in max heap is O(log n).
 We can initiate a max heap with the first K points (O(K)) and update the max heap ((n-K)O(log K)).
-
 
 ## 994. Rotting Oranges
 Define subtask that checks all the neighbor grids of the given rottedGrids(initial rottedGrids) and recursively call the subtask to check the newly rottedGrids.
