@@ -92,6 +92,23 @@ for each characters in the input string
 
 ```
 
+## 767. Reorganize String
+```
+type charInfo struct {
+    character   byte
+    count       int
+}
+
+for each characters in the input string
+    build the max heap of charInfo, the top element of the heap has the largest count
+
+for len(heap) > 0
+    move the character of the top element and the second top element alternately into the output string
+
+    if len(heap) == 1 && the last character of output is equal to the character of the only element in the heap
+        can not reorganize the input string, break
+```
+
 ## 973. K Closest Points to Origin
 Intuitively, we can calculate the distance for all the points (O(n)), sort (O(nlog n)) and get the first K points.
 However, we can optimize the previous procedure by using max heap instead of sorting all the points. Since updating an element in max heap is O(log n).
