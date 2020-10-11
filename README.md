@@ -64,6 +64,18 @@ f(1) = 1
 f(2) = 2
 f(n) = f(n-2) + f(n-1)
 ```
+## 78. Subsets
+define recursive function getCompositions that can get all the compositions of selecting s nums from total t nums.
+```
+getCompositions(t, s)
+    for each num i in t 
+        combine i before each composition in getCompositions(t-1, s-1)
+
+
+utilize this function to get all the compositions s = 1, 2, 3,... len(t)
+```
+
+
 ## 79. Word Search
 1.Define the subtask that checks the existence of subword with a given starting grid.
 2.Set reached flag to true when start checking a grid, but needs to set the flag back to false if the check fails at the grid.
