@@ -81,7 +81,7 @@ utilize this function to get all the compositions s = 1, 2, 3,... len(t)
 2.Set reached flag to true when start checking a grid, but needs to set the flag back to false if the check fails at the grid.
 
 ## 133. Clone Graph
-1. Use Depth First Search to traverse the graph
+1. Use Depth First Search to traverse the connected and undirected graph
 2. Cache all reached node
 
 ## 322. Coin Change
@@ -120,6 +120,10 @@ for len(heap) > 0
     if len(heap) == 1 && the last character of output is equal to the character of the only element in the heap
         can not reorganize the input string, break
 ```
+
+## 909. Snakes and Ladders
+Do not use DFS to calculate the steps needed to reach the destination grid for each next grid(+1,+2,+3,+4,+5,+6), this may end up having an infinite loop.
+Use BFS to calculate the distance to the start grid for each next gird until hit the destination.
 
 ## 973. K Closest Points to Origin
 Intuitively, we can calculate the distance for all the points (O(n)), sort (O(nlog n)) and get the first K points.
