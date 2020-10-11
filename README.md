@@ -134,3 +134,8 @@ We can initiate a max heap with the first K points (O(K)) and update the max hea
 Define subtask that checks all the neighbor grids of the given rottedGrids(initial rottedGrids) and recursively call the subtask to check the newly rottedGrids.
 Use a counter to store the current number of fresh oranges.
 
+## 1351. Count Negative Numbers in a Sorted Matrix
+Use binary search on the first num of all rows.
+All the nums of the row having a first negative num are negative.
+Use binary search on each row having a first non-negative num.
+
