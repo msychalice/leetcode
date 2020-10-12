@@ -98,6 +98,29 @@ utilize this function to get all the compositions s = 1, 2, 3,... len(t)
 1.Define the subtask that checks the existence of subword with a given starting grid.
 2.Set reached flag to true when start checking a grid, but needs to set the flag back to false if the check fails at the grid.
 
+## 94. Binary Tree Inorder Traversal
+The recursive solution is quite straightforward, but the iterative solution is a little trickier.
+```
+// iterative solution
+set curNode = root
+for curNode != nil
+    if curNode.Left is nil or reached
+        insert curNode.Val into output list
+        flag the curNode as reached
+
+        if curNode.Right is not nil
+            set curNode = curNode.Right
+        else
+            if stackPendingParentNodes is not empty
+                set curNode = the top element of stackPendingParentNodes
+                remove the top element of stackPendingParentNodes
+            else
+                curNode = nil // the end of traversal
+    else 
+        push curNode into stackPendingParentNodes
+        set curNode = curNode.Left
+```
+
 ## 133. Clone Graph
 1. Use Depth First Search to traverse the connected and undirected graph
 2. Cache all reached node
