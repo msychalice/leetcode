@@ -102,6 +102,29 @@ utilize this function to get all the compositions s = 1, 2, 3,... len(t)
 1. Use Depth First Search to traverse the connected and undirected graph
 2. Cache all reached node
 
+## 144. Binary Tree Preorder Traversal
+The recursive solution is quite straightforward, but the iterative solution is a little trickier.
+```
+// iterative solution
+set curNode = root
+for curNode != nil
+    insert curNode.Val into output list
+
+    if curNode has left child
+        push curNode.Right into stackPendingRightNodes
+        set curNode = curNode.Left
+    else
+        if curNode has right child
+            set curNode = curNode.Right
+        else
+            if stackPendingRightNodes is not empty
+                set curNode = the top element of stackPendingRightNodes
+                remove the top element of stackPendingRightNodes
+            else
+                curNode = nil // the end of traversal
+
+```
+
 ## 322. Coin Change
 This is a typical task that can use the result of smaller scale task.
 Note that when get a new solution, need to compare to the existing solution, only update it if the new one is smaller.
