@@ -148,6 +148,29 @@ for curNode != nil
 
 ```
 
+## 145. Binary Tree Postorder Traversal
+The recursive solution is quite straightforward, but the iterative solution is a little trickier.
+```
+// iterative solution
+set curNode = root
+for curNode != nil
+    if both children of curNode are nil or reached 
+        insert curNode.Val into output list
+        flag curNode as reached
+
+        if stackPendingParentNodes is not empty
+            set curNode = the top element of stackPendingParentNodes
+            remove the top element of stackPendingParentNodes
+        else
+            curNode = nil // the end of traversal
+    else if curNode.Left is not nil and not reached
+        push curNode into stackPendingParentNodes
+        set curNode = curNode.Left
+    else if curNode.Right is not nil and not reached
+        push curNode into stackPendingParentNodes
+        set curNode = curNode.Right
+```
+
 ## 322. Coin Change
 This is a typical task that can use the result of smaller scale task.
 Note that when get a new solution, need to compare to the existing solution, only update it if the new one is smaller.
