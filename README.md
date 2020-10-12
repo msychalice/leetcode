@@ -22,6 +22,24 @@ Gist of the algorithm.
 Use binary search to find the boundry that separate both arrays into left and right part.
 Make sure all the elemnts in the left part of the first array are smaller than the elements in the right part of the second array, and the elements in the left part of the second array are smaller than the elements in the right part of the first array.
 
+## 7. Reverse Integer
+The solution is quite straightforward.
+What if we can not use a larger integer(int64) to store the intermediate result?
+How do we check the overflow for the add and multiple operation?
+In golang, it seems there is no way to do that, because compiler will complain once it finds an overflow result.
+However, in C++, the overflow behavior for uint32 is well defined, we can use following tricks to detect an overflow.
+```
+x = a * b;
+if (a != 0 && x / a != b) {
+    // overflow handling
+}
+
+x = a + b;
+if (x < a) {
+    // overflow handling
+}
+```
+
 ## 21. Merge Two Sorted Lists
 
 ## 48. Rotate Image
