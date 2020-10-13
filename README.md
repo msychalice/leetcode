@@ -189,6 +189,13 @@ for curNode != nil
         set curNode = curNode.Right
 ```
 
+## 278. First Bad Version
+Typical binary search problem.
+If n is bad and n-1 is good, n is the first bad version.
+Use binary search to find the first bad version.
+A possible optimization is to store all intermediate return results of calling isBadVersion Api.
+
+
 ## 322. Coin Change
 This is a typical task that can use the result of smaller scale task.
 Note that when get a new solution, need to compare to the existing solution, only update it if the new one is smaller.
@@ -241,6 +248,6 @@ Use a counter to store the current number of fresh oranges.
 
 ## 1351. Count Negative Numbers in a Sorted Matrix
 Use binary search on the first num of all rows.
-All the nums of the row having a first negative num are negative.
-Use binary search on each row having a first non-negative num.
+All the nums of the row that has a first negative num are negative.
+Use binary search on each row that has a first non-negative num.
 
