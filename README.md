@@ -224,6 +224,8 @@ A possible optimization is to store all intermediate return results of calling i
 This is a typical task that can use the result of smaller scale task.
 Note that when get a new solution, need to compare to the existing solution, only update it if the new one is smaller.
 
+## 389. Find the Difference
+
 ## 733. Flood Fill
 1. Cache all reached grids
 2. Use DFS to recursively traverse all the neighbor grids until the grid is either invalid, ,of wrong color, or reached. 
