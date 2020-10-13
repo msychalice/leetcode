@@ -208,6 +208,12 @@ Pop()
         PopFromStack()
 ```
 
+## 215. Kth Largest Element in an Array
+The first attempt is to sort the input array and then find the Kth largest element. The time complexity is O(nlogn).
+
+A better way is to use max heap. Build the max heap is O(n), and pop the top element and rebuild the heap is O(logn).
+The overall time complexity is O(n + Klogn)
+
 ## 278. First Bad Version
 Typical binary search problem.
 If n is bad and n-1 is good, n is the first bad version.
