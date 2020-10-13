@@ -189,12 +189,30 @@ for curNode != nil
         set curNode = curNode.Right
 ```
 
+## 155. Min Stack
+It's pretty easy to implement a stack except the GetMin() which requires in constant time as well.
+The idea is to cache all the previous min number in the stack.
+``` 
+Push(x)
+    if min >= x         // beware of the equal case which also needs to be cached
+        PushInStack(min)
+        min = x
+    PushInStack(x)
+
+Pop()
+    if Top() == min     // if Pop the min number, needs to restore the cached min number
+        PopFromStack()
+        if Stack is not empty
+            min = PopFromStack()
+    else
+        PopFromStack()
+```
+
 ## 278. First Bad Version
 Typical binary search problem.
 If n is bad and n-1 is good, n is the first bad version.
 Use binary search to find the first bad version.
 A possible optimization is to store all intermediate return results of calling isBadVersion Api.
-
 
 ## 322. Coin Change
 This is a typical task that can use the result of smaller scale task.
