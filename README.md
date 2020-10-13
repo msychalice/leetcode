@@ -42,6 +42,7 @@ if (x < a) {
 
 ## 21. Merge Two Sorted Lists
 
+
 ## 48. Rotate Image
 The new coordinate rotating 90 degrees clockwisely can be get through the following formula
 ```
@@ -120,6 +121,23 @@ for curNode != nil
         push curNode into stackPendingParentNodes
         set curNode = curNode.Left
 ```
+
+## 102. Binary Tree Level Order Traversal
+```
+func calcLayer(parentLayer int, curNode *TreeNode)
+    add curNode's value into (parentLayer+1) layer
+
+    //recursively calculate layer for its left and right child node
+    if curNode.Left != nil
+        calcLayer(parentLayer+1, curNode.Left)
+    if curNode.Right != nil
+        calcLayer(parentLayer+1, curNode.Right)
+
+
+//initial call
+calcLayer(-1, root)
+```
+
 
 ## 133. Clone Graph
 1. Use Depth First Search to traverse the connected and undirected graph
