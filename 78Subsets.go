@@ -8,40 +8,40 @@ func subsets(nums []int) [][]int {
 	output := [][]int{{}}
 	lenNums := len(nums)
 
-	var getCompositions func(int, int) [][]int
-	getCompositions = func(totalNum int, selectNum int) [][]int {
-		compositions := [][]int{}
+	var getCombinations func(int, int) [][]int
+	getCombinations = func(totalNum int, selectNum int) [][]int {
+		combinations := [][]int{}
 		if selectNum == 0 || selectNum > totalNum {
-			return compositions
+			return combinations
 		}
 
 		for i := 0; i <= totalNum-selectNum; i++ {
-			compositionsOfAllRightNums := getCompositions(totalNum-i-1, selectNum-1)
-			if len(compositionsOfAllRightNums) == 0 {
-				compositions = append(compositions, []int{i})
+			combinationsOfAllRightNums := getCombinations(totalNum-i-1, selectNum-1)
+			if len(combinationsOfAllRightNums) == 0 {
+				combinations = append(combinations, []int{i})
 				continue
 			}
 
-			for _, compOfAllRightNums := range compositionsOfAllRightNums {
-				comp := []int{}
-				comp = append(comp, i)
-				for _, selectNums := range compOfAllRightNums {
-					comp = append(comp, selectNums+i+1)
+			for _, combOfAllRightNums := range combinationsOfAllRightNums {
+				comb := []int{}
+				comb = append(comb, i)
+				for _, selectNums := range combOfAllRightNums {
+					comb = append(comb, selectNums+i+1)
 				}
-				compositions = append(compositions, comp)
+				combinations = append(combinations, comb)
 			}
 		}
-		return compositions
+		return combinations
 	}
 
 	for i := 1; i <= lenNums; i++ {
-		compositions := getCompositions(lenNums, i)
-		for _, comp := range compositions {
-			finalComp := []int{}
-			for _, index := range comp {
-				finalComp = append(finalComp, nums[index])
+		combinations := getCombinations(lenNums, i)
+		for _, comb := range combinations {
+			finalComb := []int{}
+			for _, index := range comb {
+				finalComb = append(finalComb, nums[index])
 			}
-			output = append(output, finalComp)
+			output = append(output, finalComb)
 		}
 	}
 

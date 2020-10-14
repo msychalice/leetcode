@@ -89,20 +89,44 @@ f(2) = 2
 f(n) = f(n-2) + f(n-1)
 ```
 ## 78. Subsets
-define recursive function getCompositions that can get all the compositions of selecting s nums from total t nums.
+define recursive function getCombinations that can get all the combinations of selecting s nums from total t nums.
 ```
-getCompositions(t, s)
+getCombinations(t, s)
     for each num i in t 
-        combine i before each composition in getCompositions(t-1, s-1)
+        combine i before each combination in getCombinations(t-1, s-1)
 
 
-utilize this function to get all the compositions s = 1, 2, 3,... len(t)
+utilize this function to get all the combinations s = 1, 2, 3,... len(t)
 ```
-
 
 ## 79. Word Search
 1.Define the subtask that checks the existence of subword with a given starting grid.
 2.Set reached flag to true when start checking a grid, but needs to set the flag back to false if the check fails at the grid.
+
+## 90. Subsets II
+We can use the similar algorithm to get all combinations in #78, but needs to check if the newly generated combination is duplicated.
+Use hash table (key: number of elements, value: alll the combinations that have the same number of elements) to do the comparison.
+Note that the newly generated combination needs to be sorted before inserting into the above hash table or doing the comparison.
+
+---
+The better and more offical solution is to use DFS and backtracking.
+For an input s having n numbers, the solution is to DFS following tree.
+
+```
+                                                        []
+                                 /                       |                     \
+                              [0]                       [1]         ...       [n-1]
+                 /             |      \              /   |       \              | 
+            [0,1]            [0,2] ... [0,n-1]   [1,2]  [1,3] ... [1,n-1]      nil
+        / | ... \             /|\
+[0,1,2] [0,1,3] [0,1,n-1]     ...
+```
+Sort the input s
+DFS the above tree and check the current node with its previous sibling node, if they are the same, we can skip the current node.
+For exampe, if [s[1]] == [s[0]] we can skip the search for the subtree s[1].
+
+
+
 
 ## 94. Binary Tree Inorder Traversal
 The recursive solution is quite straightforward, but the iterative solution is a little trickier.
