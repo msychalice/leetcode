@@ -44,6 +44,8 @@ if (x < a) {
 
 ## 27. Remove Element
 
+## 28. Implement strStr()
+
 ## 48. Rotate Image
 The new coordinate rotating 90 degrees clockwisely can be get through the following formula
 ```
