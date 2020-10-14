@@ -42,6 +42,7 @@ if (x < a) {
 
 ## 21. Merge Two Sorted Lists
 
+## 27. Remove Element
 
 ## 48. Rotate Image
 The new coordinate rotating 90 degrees clockwisely can be get through the following formula
