@@ -80,6 +80,8 @@ findPaths(m, n) = findPaths(m-1,n) + findPaths(m,n-1)
 ```
 Beware of the edge case (1,1), needs to be checked before running the recursive function.
 
+## 66. Plus One
+
 ## 70. Climbing Stairs
 ```
 f(1) = 1
