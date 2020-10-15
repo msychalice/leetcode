@@ -256,6 +256,16 @@ The first attempt is to sort the input array and then find the Kth largest eleme
 A better way is to use max heap. Build the max heap is O(n), and pop the top element and rebuild the heap is O(logn).
 The overall time complexity is O(n + Klogn)
 
+## 232. Implement Queue using Stacks
+```
+Given two stacks, stackPop and stackPush
+
+For the Push operation:
+    move all the elements from stackPop to stackPush
+	push the new element to stackPush
+	move all the elements back from stackPush to stackPop
+```
+
 ## 278. First Bad Version
 Typical binary search problem.
 If n is bad and n-1 is good, n is the first bad version.
