@@ -78,7 +78,11 @@ findPaths(1, 2) = 1
 findPaths(2, 1) = 1
 findPaths(m, n) = findPaths(m-1,n) + findPaths(m,n-1)
 ```
+Need to check the hash table that caches all the intermediate results.
 Beware of the edge case (1,1), needs to be checked before running the recursive function.
+
+## 63. Unique Paths II
+The solution is similar to #62
 
 ## 66. Plus One
 
@@ -113,20 +117,17 @@ The better and more offical solution is to use DFS and backtracking.
 For an input s having n numbers, the solution is to DFS following tree.
 
 ```
-                                                        []
-                                 /                       |                     \
-                              [0]                       [1]         ...       [n-1]
-                 /             |      \              /   |       \              | 
-            [0,1]            [0,2] ... [0,n-1]   [1,2]  [1,3] ... [1,n-1]      nil
-        / | ... \             /|\
-[0,1,2] [0,1,3] [0,1,n-1]     ...
+                                                     []
+                             /                        |                     \
+                            [0]                      [1]         ...       [n-1]
+               /             |      \             /   |       \              | 
+          [0,1]            [0,2] ... [0,n-1]  [1,2]  [1,3] ... [1,n-1]      nil
+        / | ... \           /|\
+[0,1,2] [0,1,3] [0,1,n-1]   ...
 ```
 Sort the input s
 DFS the above tree and check the current node with its previous sibling node, if they are the same, we can skip the current node.
 For exampe, if [s[1]] == [s[0]] we can skip the search for the subtree s[1].
-
-
-
 
 ## 94. Binary Tree Inorder Traversal
 The recursive solution is quite straightforward, but the iterative solution is a little trickier.
