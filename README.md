@@ -245,6 +245,9 @@ Pop()
         PopFromStack()
 ```
 
+## 200. Number of Islands
+Use DFS to search for an island.
+
 ## 206. Reverse Linked List
 
 ## 215. Kth Largest Element in an Array
