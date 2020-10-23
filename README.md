@@ -293,7 +293,34 @@ DFS(u):
     listPath.push_front(u)
 ```
 
+We can also optimize the above algorithm by using min heap, so we can save the sort in step 2.
+
 ## 389. Find the Difference
+
+## 399. Evaluate Division
+1. convert all variable names into int index.
+2. build a two dimension array calcResult to store division results.
+
+calcResult[v0][v1] = v0 / v1
+calcResult[v1][v0] = 1 / calcResult[v0][v1]
+calcResult[v0][v0] = 1
+
+```
+DFS(u, v, mapVisited):
+    if calcResult[u][v] != 0
+        return calcResult[u][v]
+
+    while u has unvisited neighbor n
+        mark u visited
+        result = DFS(n, v, mapVisited)
+        if result > 0 
+            result = calcResult[u][n] * result
+            calcResult[u][v] = result
+            calcResult[v][u] = 1 / result
+            return result
+
+    return -1
+```
 
 ## 733. Flood Fill
 1. Cache all reached grids
