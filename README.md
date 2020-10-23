@@ -265,6 +265,7 @@ For the Push operation:
 	push the new element to stackPush
 	move all the elements back from stackPush to stackPop
 ```
+See code for an optimized solution that can reduce the time complexity of Push operation from O(n) to O(1).
 
 ## 278. First Bad Version
 Typical binary search problem.
@@ -275,6 +276,22 @@ A possible optimization is to store all intermediate return results of calling i
 ## 322. Coin Change
 This is a typical task that can use the result of smaller scale task.
 Note that when get a new solution, need to compare to the existing solution, only update it if the new one is smaller.
+
+## 332. Reconstruct Itinerary
+1. build graph
+2. for each vertices, sort its edges
+3. DFS(root)
+
+```
+listPath
+
+DFS(u):
+    while u has unvisited edge(u,v)
+        mark edge(u,v) visited
+        DFS(v)
+
+    listPath.push_front(u)
+```
 
 ## 389. Find the Difference
 
