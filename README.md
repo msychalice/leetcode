@@ -322,6 +322,10 @@ DFS(u, v, mapVisited):
     return -1
 ```
 
+## 480. Sliding Window Median
+Use balanced binary search tree to store the sliding window.
+Note that we only need to keep the root node is balanced.
+
 ## 733. Flood Fill
 1. Cache all reached grids
 2. Use DFS to recursively traverse all the neighbor grids until the grid is either invalid, ,of wrong color, or reached. 
