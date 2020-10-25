@@ -323,8 +323,13 @@ DFS(u, v, mapVisited):
 ```
 
 ## 480. Sliding Window Median
-Use balanced binary search tree to store the sliding window.
-Note that we only need to keep the root node is balanced.
+Use multiset in C++ to store the sliding window, which is a binary search tree.
+The tricky is to maintain the iterator of the left mid, which is the median for a odd window and left median for an even window.
+
+It is worth noting that inserting a value that is already existed in the multiset will add the new value *after* those existed values.
+1 2 3 3 *3(new)* 4 4
+However, using erase(lower_bound()) will remove the front of those existed values.
+1 2 *3(removed)* 3 3 4 4
 
 ## 733. Flood Fill
 1. Cache all reached grids
