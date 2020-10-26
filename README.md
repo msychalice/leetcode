@@ -331,6 +331,14 @@ It is worth noting that inserting a value that is already existed in the multise
 However, using erase(lower_bound()) will remove the front of those existed values.
 1 2 *3(removed)* 3 3 4 4
 
+## 547. Friend Circles
+Typeical disjoint sets problem, use union find to solve it.
+Use -1 as the initial root value for each node.
+-2 means it's a root node and there are 2 nodes in the set.
+We can utilize this to merge smaller sets into larger sets when performing union operation.
+This will reduce overall cost of find operation.
+We also use path compression in find operation.
+
 ## 733. Flood Fill
 1. Cache all reached grids
 2. Use DFS to recursively traverse all the neighbor grids until the grid is either invalid, ,of wrong color, or reached. 
