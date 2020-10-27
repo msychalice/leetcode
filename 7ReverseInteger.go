@@ -43,6 +43,7 @@ func main() {
 	output1 := reverse(-123)
 	output2 := reverse(120)
 	output3 := reverse(0)
+	output4 := reverse(1534236469)
 
-	fmt.Println("\n******** output *********\n", output, output1, output2, output3)
+	fmt.Println("\n******** output *********\n", output, output1, output2, output3, output4)
 }
