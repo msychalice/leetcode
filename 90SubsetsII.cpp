@@ -9,6 +9,7 @@
 #include <stack>
 #include <unordered_set>
 #include <queue>
+#include <algorithm>
 
 using namespace std;
 
@@ -56,7 +57,8 @@ void print2DimVec(const vector<vector<T>>& container) {
 
 class Solution {
 public:
-    vector<vector<int>> subsets(vector<int>& nums) {
+    vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
         vector<vector<int>> output;
         output.push_back(vector<int>{});
 
@@ -72,7 +74,13 @@ public:
                     curIndex = *(preVec.end()-1) + 1;
                 }
 
+                int mostLeftNodeIndex = curIndex;
+
                 for (;curIndex <= endIndex; curIndex++) {
+                    if (curIndex > mostLeftNodeIndex && nums[curIndex] == nums[curIndex - 1]) { //find duplicate node
+                        continue;
+                    }
+
                     vector<int> newNode(preVec);
                     newNode.push_back(curIndex);
                     vector<int> subset;
@@ -91,11 +99,10 @@ public:
     }
 };
 
-
 int main(){
     Solution s;
-    vector<int> input = vector<int>{1, 2, 3};
-	auto output = s.subsets(input);
+    vector<int> input = vector<int>{1, 2, 2};
+	auto output = s.subsetsWithDup(input);
 
     cout << "*************output*************" << endl;
     print2DimVec(output);
