@@ -48,6 +48,15 @@ if (x < a) {
 
 ## 35. Search Insert Position
 
+## 45. Jump Game II
+```
+4 0 3 4 1 4 2 1
+---------
+  - 
+    -------
+      ---------
+```
+
 ## 48. Rotate Image
 The new coordinate rotating 90 degrees clockwisely can be get through the following formula
 ```
