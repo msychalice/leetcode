@@ -52,6 +52,7 @@ func main() {
 	output := exist([][]byte{{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}}, "ABCCED")
 	output1 := exist([][]byte{{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}}, "SEE")
 	output2 := exist([][]byte{{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}}, "ABCB")
+	output3 := exist([][]byte{{'a'}}, "a")
 
-	fmt.Println("\n******** output *********\n", output, output1, output2)
+	fmt.Println("\n******** output *********\n", output, output1, output2, output3)
 }
