@@ -81,6 +81,8 @@ func findItinerary(tickets [][]string) []string {
 func main() {
 	output := findItinerary([][]string{{"MUC", "LHR"}, {"JFK", "MUC"}, {"SFO", "SJC"}, {"LHR", "SFO"}})
 	output1 := findItinerary([][]string{{"JFK", "SFO"}, {"JFK", "ATL"}, {"SFO", "ATL"}, {"ATL", "JFK"}, {"ATL", "SFO"}})
+	output2 := findItinerary([][]string{{"EZE", "AXA"}, {"TIA", "ANU"}, {"ANU", "JFK"}, {"JFK", "ANU"}, {"ANU", "EZE"},
+		{"TIA", "ANU"}, {"AXA", "TIA"}, {"TIA", "JFK"}, {"ANU", "TIA"}, {"JFK", "TIA"}})
 
-	fmt.Println("\n******** output *********\n", output, output1)
+	fmt.Println("\n******** output *********\n", output, output1, output2)
 }

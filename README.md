@@ -304,6 +304,8 @@ DFS(u):
 
 We can also optimize the above algorithm by using min heap, so we can save the sort in step 2.
 
+It's worth noting that we can have multiple identical tickets.
+
 ## 389. Find the Difference
 
 ## 399. Evaluate Division
