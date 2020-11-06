@@ -111,89 +111,59 @@ void printList(const ListNode* node) {
 class Solution {
 public:
     vector<string> findItinerary(vector<vector<string>>& tickets) {
-        vector<string> vecVertices;
-        set<string> setVertices;
+        vector<string> output;
+        unordered_map<string, vector<string>> unvisitedEdges;
+
         for (const auto& edge : tickets) {
-            setVertices.insert(edge[0]);
-            setVertices.insert(edge[1]);
-        }
+            const auto& fromVertex = edge[0];
+            const auto& toVertex = edge[1];
 
-        //index of "JFK"
-        int startVertexIndex = distance(setVertices.begin(), setVertices.find("JFK"));
-
-        unordered_map<string, int> name2Index;
-        for (auto& vertex : setVertices) {
-            vecVertices.push_back(move(vertex));
-            name2Index.emplace(vecVertices[vecVertices.size()-1], vecVertices.size()-1);
-        }
-
-        unordered_map<int, map<int, int>> mapNeighbors; //can have multiple identical tickets, use map to store count
-        for (const auto& edge: tickets) {
-            int startVertexIndex = name2Index[edge[0]];
-            int endVertexIndex = name2Index[edge[1]];
-
-            auto it = mapNeighbors.find(startVertexIndex);
-            if (it != mapNeighbors.end()) {
-                auto& neighborCount = it->second;
-                auto itCount = neighborCount.find(endVertexIndex);
-                if (itCount != neighborCount.end()) {
-                    itCount->second++;
-                } else {
-                    neighborCount.emplace(endVertexIndex, 1);
-                }
+            auto itMap = unvisitedEdges.find(fromVertex);
+            if (itMap != unvisitedEdges.end()) {
+                auto& vecEdges = itMap->second;
+                vecEdges.push_back(toVertex);
+                push_heap(vecEdges.begin(), vecEdges.end(), greater<string>());
             } else {
-                mapNeighbors.emplace(startVertexIndex, map<int, int>{{endVertexIndex, 1}});
+                unvisitedEdges.emplace(fromVertex, vector<string>{toVertex});
             }
         }
 
-        int vertexCount = vecVertices.size();
-        auto visited = vector<vector<int>>(vertexCount, vector<int>(vertexCount, 0));
-        deque<int> deqPath;
+        function<void(const string&)> dfs = [&dfs, &unvisitedEdges, &output](const string& fromVertex) {
+            auto itEdges = unvisitedEdges.find(fromVertex);
 
-        function<void(int)> dfs = [&dfs, &visited, &mapNeighbors, &deqPath](int vertexIndex) {
-            for (const auto& neighbor : mapNeighbors[vertexIndex]) {
-                int neighborIndex = neighbor.first;
-                int neighborCount = neighbor.second;
-                if (visited[vertexIndex][neighborIndex] < neighborCount) {
-                    visited[vertexIndex][neighborIndex]++;
-                    dfs(neighborIndex);
-                }
+            while (itEdges != unvisitedEdges.end() && !itEdges->second.empty()) {
+                auto& vecEdges = itEdges->second;
+                auto edge = vecEdges.front();
+                pop_heap(vecEdges.begin(), vecEdges.end(), greater<string>());
+                vecEdges.pop_back();
+                dfs(edge);
             }
 
-            deqPath.push_front(vertexIndex);
+            output.push_back(fromVertex);
         };
 
-        dfs(startVertexIndex);
+        dfs("JFK");
 
-        vector<string> output;
-        for (const auto& index : deqPath) {
-            output.push_back(vecVertices[index]);
-        }
-
-        return output;
+        return vector<string>(output.rbegin(), output.rend());
     }
 };
 
 int main(){
     Solution s;
 
-    /*
     vector<vector<string>> input{{"MUC", "LHR"}, {"JFK", "MUC"}, {"SFO", "SJC"}, {"LHR", "SFO"}};
 	auto output = s.findItinerary(input);
 
     vector<vector<string>> input1{{"JFK", "SFO"}, {"JFK", "ATL"}, {"SFO", "ATL"}, {"ATL", "JFK"}, {"ATL", "SFO"}};
 	auto output1 = s.findItinerary(input1);
-    */
 
     vector<vector<string>> input2{{"EZE","AXA"},{"TIA","ANU"},{"ANU","JFK"},{"JFK","ANU"},{"ANU","EZE"},
         {"TIA","ANU"},{"AXA","TIA"},{"TIA","JFK"},{"ANU","TIA"},{"JFK","TIA"}};
 	auto output2 = s.findItinerary(input2);
 
     cout << "*************output*************" << endl;
-    /*
     printContainer(output);
     printContainer(output1);
-    */
     printContainer(output2);
 
     return 0;
