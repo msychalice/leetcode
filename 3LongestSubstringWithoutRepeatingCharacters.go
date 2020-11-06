@@ -42,8 +42,9 @@ func main() {
 	output3 := lengthOfLongestSubstring("")
 	output4 := lengthOfLongestSubstring(" ")
 	output5 := lengthOfLongestSubstring("a")
+	output6 := lengthOfLongestSubstring("tmmzuxt")
 
 	fmt.Println("\n******** output *********\n",
-		output, output1, output2, output3, output4, output5)
+		output, output1, output2, output3, output4, output5, output6)
 
 }
