@@ -117,7 +117,9 @@ public:
 
         int output = -1;
 
-        vector<int> cachedResults(amount + 1, numeric_limits<int>::max());
+        int cachedResults[amount + 1];
+        fill_n(cachedResults, amount+1, numeric_limits<int>::max());
+
         for (int cur = 1; cur <= amount; cur++) {
             int result = numeric_limits<int>::max();
             for (int coin : coins) {
