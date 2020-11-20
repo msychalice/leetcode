@@ -2,6 +2,7 @@
 1.Build a hash table(key is the value of input array, value is the index of input array)\
 2.Traverse the input array and use the hash table to search for the second number
 
+
 ## 3. Longest Substring Without Repeating Characters
 1.Use headIndex and endIndex to indicate current substring\
 2.Use hash table curSubstr to store all characters in current substring\
@@ -17,10 +18,12 @@ Increase endIndex by 1 until the end
     if length of the current substring is longer than maxSubstrLen, update maxSubstrLen.Otherwise continue
 ```
 
+
 ## 4. Median of Two Sorted Arrays
 Gist of the algorithm.
 Use binary search to find the boundry that separate both arrays into left and right part.
 Make sure all the elemnts in the left part of the first array are smaller than the elements in the right part of the second array, and the elements in the left part of the second array are smaller than the elements in the right part of the first array.
+
 
 ## 7. Reverse Integer
 The solution is quite straightforward.
@@ -40,15 +43,21 @@ if (x < a) {
 }
 ```
 
+
 ## 21. Merge Two Sorted Lists
+
 
 ## 26. Remove Duplicates from Sorted Array
 
+
 ## 27. Remove Element
+
 
 ## 28. Implement strStr()
 
+
 ## 35. Search Insert Position
+
 
 ## 45. Jump Game II
 ```
@@ -58,6 +67,7 @@ if (x < a) {
     -------
       ---------
 ```
+
 
 ## 48. Rotate Image
 The new coordinate rotating 90 degrees clockwisely can be get through the following formula
@@ -80,8 +90,10 @@ For example, the maxtrix length is 6.
 For each starred grid in the above matrix, swap the all four related coordinates. For example{{0,0},{0,5},{5,5},{5,0}}
 Beware of the matrix of odd length, it needs to skip this process when it hits the central grid.
 
+
 ## 54. Spiral Matrix
 See code
+
 
 ## 62. Unique Paths
 Typical DP problem.
@@ -97,10 +109,13 @@ findPaths(m, n) = findPaths(m-1,n) + findPaths(m,n-1)
 Need to check the hash table that caches all the intermediate results.
 Beware of the edge case (1,1), needs to be checked before running the recursive function.
 
+
 ## 63. Unique Paths II
 The solution is similar to #62
 
+
 ## 66. Plus One
+
 
 ## 70. Climbing Stairs
 ```
@@ -108,6 +123,8 @@ f(1) = 1
 f(2) = 2
 f(n) = f(n-2) + f(n-1)
 ```
+
+
 ## 78. Subsets
 define recursive function getCombinations that can get all the combinations of selecting s nums from total t nums.
 ```
@@ -119,9 +136,11 @@ getCombinations(t, s)
 utilize this function to get all the combinations s = 1, 2, 3,... len(t)
 ```
 
+
 ## 79. Word Search
 1.Define the subtask that checks the existence of subword with a given starting grid.
 2.Set reached flag to true when start checking a grid, but needs to set the flag back to false if the check fails at the grid.
+
 
 ## 90. Subsets II
 We can use the similar algorithm to get all combinations in #78, but needs to check if the newly generated combination is duplicated.
@@ -144,6 +163,7 @@ For an input s having n numbers, the solution is to DFS following tree.
 Sort the input s
 DFS the above tree and check the current node with its previous sibling node, if they are the same, we can skip the current node.
 For exampe, if [s[1]] == [s[0]] we can skip the search for the subtree s[1].
+
 
 ## 94. Binary Tree Inorder Traversal
 The recursive solution is quite straightforward, but the iterative solution is a little trickier.
@@ -168,7 +188,9 @@ for curNode != nil
         set curNode = curNode.Left
 ```
 
+
 ## 100. Same Tree
+
 
 ## 102. Binary Tree Level Order Traversal
 ```
@@ -190,6 +212,7 @@ calcLayer(-1, root)
 ## 133. Clone Graph
 1. Use Depth First Search to traverse the connected and undirected graph
 2. Cache all reached node
+
 
 ## 144. Binary Tree Preorder Traversal
 The recursive solution is quite straightforward, but the iterative solution is a little trickier.
@@ -214,6 +237,7 @@ for curNode != nil
 
 ```
 
+
 ## 145. Binary Tree Postorder Traversal
 The recursive solution is quite straightforward, but the iterative solution is a little trickier.
 ```
@@ -237,6 +261,7 @@ for curNode != nil
         set curNode = curNode.Right
 ```
 
+
 ## 155. Min Stack
 It's pretty easy to implement a stack except the GetMin() which requires in constant time as well.
 The idea is to cache all the previous min number in the stack.
@@ -256,16 +281,20 @@ Pop()
         PopFromStack()
 ```
 
+
 ## 200. Number of Islands
 Use DFS to search for an island.
 
+
 ## 206. Reverse Linked List
+
 
 ## 215. Kth Largest Element in an Array
 The first attempt is to sort the input array and then find the Kth largest element. The time complexity is O(nlogn).
 
 A better way is to use max heap. Build the max heap is O(n), and pop the top element and rebuild the heap is O(logn).
 The overall time complexity is O(n + Klogn)
+
 
 ## 232. Implement Queue using Stacks
 ```
@@ -278,15 +307,18 @@ For the Push operation:
 ```
 See code for an optimized solution that can reduce the time complexity of Push operation from O(n) to O(1).
 
+
 ## 278. First Bad Version
 Typical binary search problem.
 If n is bad and n-1 is good, n is the first bad version.
 Use binary search to find the first bad version.
 A possible optimization is to store all intermediate return results of calling isBadVersion Api.
 
+
 ## 322. Coin Change
 This is a typical task that can use the result of smaller scale task.
 Note that when get a new solution, need to compare to the existing solution, only update it if the new one is smaller.
+
 
 ## 332. Reconstruct Itinerary
 1. build graph
@@ -308,7 +340,9 @@ We can also optimize the above algorithm by using min heap, so we can save the s
 
 It's worth noting that we can have multiple identical tickets.
 
+
 ## 389. Find the Difference
+
 
 ## 399. Evaluate Division
 1. convert all variable names into int index.
@@ -335,6 +369,47 @@ DFS(u, v, mapVisited):
     return -1
 ```
 
+
+## 416. Partition Equal Subset Sum
+It is similar to the Knapsack problem and we can use DP to solve it as well.
+1. Check if the totalSum is even or not. If it is not even, return false.
+```
+target = totalSum / 2
+lenNums = size of the nums
+
+cachedResult[lenNums+1][target+1]
+
+for i = 1; i <= lenNums; i++   // first i nums
+    curNum = nums[i-1]
+    for j = 1; j<= target; j++  // possible target
+        if j < curNum // newly added num is less than target, which mean the newly added num is useless.
+            cachedResult[i][j] = cachedResult[i-1][j]
+        if j == curNum // found an answer
+            cachedResult[i][j] = true
+        if j > curNum // 
+            cachedResult[i][j] = cachedResult[i-1][j] || cachedResult[i-1][j-curNum]
+
+
+return cachedResult[lenNums][target]
+```
+
+It is worth noting that cachedResult[i][j] is only related to cachedResult[i-1][j], so we can use 1D array to reduce space complexity.
+```
+cachedResult[target+1]
+
+for i = 1; i <= lenNums; i++   // first i nums
+    curNum = nums[i-1]
+    for j = target; j>= curNum; j--  // update from right to left, so we don't overwrite the last results
+        if j == curNum // found an answer
+            cachedResult[j] = true
+        if j > curNum // 
+            cachedResult[j] = cachedResult[j] || cachedResult[j-curNum]
+
+
+return cachedResult[target]
+```
+
+
 ## 480. Sliding Window Median
 Use multiset in C++ to store the sliding window, which is a binary search tree.
 The tricky is to maintain the iterator of the left mid, which is the median for a odd window and left median for an even window.
@@ -344,6 +419,7 @@ It is worth noting that inserting a value that is already existed in the multise
 However, using erase(lower_bound()) will remove the front of those existed values.
 1 2 *3(removed)* 3 3 4 4
 
+
 ## 547. Friend Circles
 Typeical disjoint sets problem, use union find to solve it.
 Use -1 as the initial root value for each node.
@@ -352,9 +428,11 @@ We can utilize this to merge smaller sets into larger sets when performing union
 This will reduce overall cost of find operation.
 We also use path compression in find operation.
 
+
 ## 733. Flood Fill
 1. Cache all reached grids
 2. Use DFS to recursively traverse all the neighbor grids until the grid is either invalid, ,of wrong color, or reached. 
+
 
 ## 763. Partition Labels
 ```
@@ -367,6 +445,7 @@ for each characters in the input string
         add the new partition into the partition list
 
 ```
+
 
 ## 767. Reorganize String
 ```
@@ -385,18 +464,22 @@ for len(heap) > 0
         can not reorganize the input string, break
 ```
 
+
 ## 909. Snakes and Ladders
 Do not use DFS to calculate the steps needed to reach the destination grid for each next grid(+1,+2,+3,+4,+5,+6), this may end up having an infinite loop.
-Use BFS to calculate the distance to the start grid for each next gird until hit the destination.
+Use BFS to calculate the distance to the start grid for each next grid until hit the destination.
+
 
 ## 973. K Closest Points to Origin
 Intuitively, we can calculate the distance for all the points (O(n)), sort (O(nlog n)) and get the first K points.
 However, we can optimize the previous procedure by using max heap instead of sorting all the points. Since updating an element in max heap is O(log n).
 We can initiate a max heap with the first K points (O(K)) and update the max heap ((n-K)O(log K)).
 
+
 ## 994. Rotting Oranges
 Define subtask that checks all the neighbor grids of the given rottedGrids(initial rottedGrids) and recursively call the subtask to check the newly rottedGrids.
 Use a counter to store the current number of fresh oranges.
+
 
 ## 1351. Count Negative Numbers in a Sorted Matrix
 Use binary search on the first num of all rows.
