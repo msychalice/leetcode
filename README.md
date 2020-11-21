@@ -296,6 +296,9 @@ A better way is to use max heap. Build the max heap is O(n), and pop the top ele
 The overall time complexity is O(n + Klogn)
 
 
+## 226. Invert Binary Tree
+
+
 ## 232. Implement Queue using Stacks
 ```
 Given two stacks, stackPop and stackPush
