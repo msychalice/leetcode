@@ -341,6 +341,9 @@ We can also optimize the above algorithm by using min heap, so we can save the s
 It's worth noting that we can have multiple identical tickets.
 
 
+## 383. Ransom Note
+
+
 ## 389. Find the Difference
 
 
