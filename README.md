@@ -311,6 +311,14 @@ For the Push operation:
 See code for an optimized solution that can reduce the time complexity of Push operation from O(n) to O(1).
 
 
+## 277. Find the Celebrity
+By calling knows(i,j) we can identify i or j is not a celebrity.
+If i knows j, i is not a celebrity. If i doesn't know j, j is not a celebrity.
+We can use two passes to find the celebrity.
+1.Find a celebrity candidate by ruling out those who can be identified not a celebrity.
+2.Make sure the candidate doesn't know anyone and is known by all the others.
+
+
 ## 278. First Bad Version
 Typical binary search problem.
 If n is bad and n-1 is good, n is the first bad version.
