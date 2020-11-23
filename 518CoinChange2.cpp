@@ -135,32 +135,14 @@ public:
             return 0;
         }
 
-        sort(coins.begin(), coins.end());
 
         vector<int> cachedResult(amount + 1, 0);
+        cachedResult[0] = 1;
 
-        // only has the smallest coin
-        int curCoin = coins[0];
-        for (int i = 1; i <= amount; i++) {
-            cachedResult[i] = i % curCoin == 0 ? 1 : 0;
-        }
-
-        for (int i = 1; i <= coins.size() - 1; i++) {
-            curCoin = coins[i];
-            for (int j = amount; j >= 1; j--) {
-                if (j < curCoin) {
-                    // empty
-                } else if (j == curCoin) {
-                    cachedResult[j]++;
-                } else {
-                    for (int n = 1; n * curCoin <= j; n++) {
-                        if (n * curCoin == j) {
-                            cachedResult[j]++;
-                        } else {
-                            cachedResult[j] += cachedResult[j - n * curCoin];
-                        }
-                    }
-                }
+        for (int i = 1; i <= coins.size(); i++) {
+            int curCoin = coins[i - 1];
+            for (int j = curCoin; j <= amount; j++) {
+                cachedResult[j] += cachedResult[j - curCoin];
             }
         }
 
