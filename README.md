@@ -434,6 +434,38 @@ However, using erase(lower_bound()) will remove the front of those existed value
 1 2 *3(removed)* 3 3 4 4
 
 
+## 518. Coin Change 2
+My first attempt is to use naive DP.
+```
+f[i][j] means using first i coins to make the changes for j amount.
+
+f[0][...] = 0 // first row is assigned to 0
+f[...][0] = 1 // first column is assigned to 0, if amount is 0, we only have one combination which is not using any coins.
+
+for i=1; i<=coins.size(); i++
+    for j=1; j<=amount; j++
+        f[i][j] = f[i-1][j] + f[i-1][j-coins[i-1]] + f[i-1][j-coins[i-1]*2] + f[i-1][j-coins[i-1]*3] + ...
+```
+
+Take a closer look we can find out that the second part of f[i][j] is the case using coins[i-1], which is equal to f[i][j-coins[i-1]]
+So we can optimize the above solution as follows
+```
+for i=1; i<=coins.size(); i++
+    for j=1; j<=amount; j++
+        f[i][j] = f[i-1][j] + f[i][j-coins[i-1]]
+```
+Furthermore, we can use the similar technique used in 0/1 Knapsack problem to reduce the f from 2D to 1D.
+
+```
+f[0] = 1 // if amount is 0, we only have one combination which is not using any coins.
+f[1..] = 0
+
+for i=1; i<=coins.size(); i++
+    for j=coins[i-1]; j<=amount; j++
+        f[j] = f[j] + f[j-coins[i-1]]
+```
+
+
 ## 547. Friend Circles
 Typeical disjoint sets problem, use union find to solve it.
 Use -1 as the initial root value for each node.
