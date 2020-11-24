@@ -5,45 +5,24 @@ import (
 )
 
 func subsets(nums []int) [][]int {
-	output := [][]int{{}}
-	lenNums := len(nums)
+	var output [][]int
+	output = append(output, []int{})
 
-	var getCombinations func(int, int) [][]int
-	getCombinations = func(totalNum int, selectNum int) [][]int {
-		combinations := [][]int{}
-		if selectNum == 0 || selectNum > totalNum {
-			return combinations
-		}
+	var curPath []int
 
-		for i := 0; i <= totalNum-selectNum; i++ {
-			combinationsOfAllRightNums := getCombinations(totalNum-i-1, selectNum-1)
-			if len(combinationsOfAllRightNums) == 0 {
-				combinations = append(combinations, []int{i})
-				continue
-			}
-
-			for _, combOfAllRightNums := range combinationsOfAllRightNums {
-				comb := []int{}
-				comb = append(comb, i)
-				for _, selectNums := range combOfAllRightNums {
-					comb = append(comb, selectNums+i+1)
-				}
-				combinations = append(combinations, comb)
-			}
-		}
-		return combinations
-	}
-
-	for i := 1; i <= lenNums; i++ {
-		combinations := getCombinations(lenNums, i)
-		for _, comb := range combinations {
-			finalComb := []int{}
-			for _, index := range comb {
-				finalComb = append(finalComb, nums[index])
-			}
-			output = append(output, finalComb)
+	var backtrack func([]int)
+	backtrack = func(curChoice []int) {
+		for i := 0; i < len(curChoice); i++ {
+			curPath = append(curPath, curChoice[i])
+			tmp := make([]int, len(curPath))
+			copy(tmp, curPath)
+			output = append(output, tmp)
+			backtrack(curChoice[i+1:])
+			curPath = curPath[:len(curPath)-1]
 		}
 	}
+
+	backtrack(nums)
 
 	return output
 }

@@ -58,34 +58,21 @@ class Solution {
 public:
     vector<vector<int>> subsets(vector<int>& nums) {
         vector<vector<int>> output;
-        output.push_back(vector<int>{});
+        output.emplace_back(vector<int>{});
+        vector<int> curPath;
 
-        if (nums.empty()) {
-            return output;
-        }
-
-        function<void(vector<int>&&)> dfs =
-            [&dfs, &nums, &output](vector<int>&& preVec) {
-                int curIndex = 0;
-                int endIndex = nums.size() - 1;
-                if (!preVec.empty()) {
-                    curIndex = *(preVec.end()-1) + 1;
+        function<void(vector<int> &&)> backtrack =
+            [&](vector<int>&& curChoices) {
+                for (auto it = curChoices.begin(); it != curChoices.end();
+                     it++) {
+                    curPath.push_back(*it);
+                    output.push_back(curPath);
+                    backtrack(vector<int>(next(it), curChoices.end()));
+                    curPath.pop_back();
                 }
+            };
 
-                for (;curIndex <= endIndex; curIndex++) {
-                    vector<int> newNode(preVec);
-                    newNode.push_back(curIndex);
-                    vector<int> subset;
-                    for (auto i : newNode) {
-                        subset.push_back(nums[i]);
-                    }
-                    output.push_back(move(subset));
-
-                    dfs(move(newNode));
-                }
-        };
-
-        dfs(vector<int>{});
+        backtrack(move(nums));
 
         return output;
     }
