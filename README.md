@@ -69,6 +69,11 @@ if (x < a) {
 ```
 
 
+## 46. Permutations
+Typical backtracking problem.
+Beware of updating both curPath and curSelection.
+
+
 ## 48. Rotate Image
 The new coordinate rotating 90 degrees clockwisely can be get through the following formula
 ```
