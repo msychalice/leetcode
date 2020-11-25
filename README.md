@@ -221,6 +221,10 @@ calcLayer(-1, root)
 ```
 
 
+## 111. Minimum Depth of Binary Tree
+BFS
+
+
 ## 133. Clone Graph
 1. Use Depth First Search to traverse the connected and undirected graph
 2. Cache all reached node
