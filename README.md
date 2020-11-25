@@ -96,6 +96,13 @@ For each starred grid in the above matrix, swap the all four related coordinates
 Beware of the matrix of odd length, it needs to skip this process when it hits the central grid.
 
 
+## 51. N-Queens
+This is a similar problem with 46Permutations which can be solved by backtracking.
+The ith layer of the decision tree represents selected columns for ith row of the chessboard.
+The way of checking two queens are in same diagonal is by checking abs(row1-row2) == abs(col1-col2)
+
+
+
 ## 54. Spiral Matrix
 See code
 
