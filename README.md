@@ -18,6 +18,9 @@ Increase endIndex by 1 until the end
     if length of the current substring is longer than maxSubstrLen, update maxSubstrLen.Otherwise continue
 ```
 
+solution2.
+Sliding window. The most important part is to find the place where to update the final result.
+
 
 ## 4. Median of Two Sorted Arrays
 Gist of the algorithm.
@@ -503,6 +506,11 @@ Use -1 as the initial root value for each node.
 We can utilize this to merge smaller sets into larger sets when performing union operation.
 This will reduce overall cost of find operation.
 We also use path compression in find operation.
+
+
+## 567. Permutation in String
+Sliding window.
+Beware that the target is to find a substring not a subset, so any incontinuous candidate in window needs to be ruled out.
 
 
 ## 733. Flood Fill
