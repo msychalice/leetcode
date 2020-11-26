@@ -56,6 +56,11 @@ if (x < a) {
 ## 28. Implement strStr()
 
 
+## 34. Find First and Last Position of Element in Sorted Array
+Use binary search to find the first and last index.
+It's worth noting that we can use the first index as min to optimize the process of finding the last index.
+
+
 ## 35. Search Insert Position
 
 
