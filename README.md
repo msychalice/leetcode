@@ -483,7 +483,7 @@ for i=1; i<=coins.size(); i++
 
 
 ## 547. Friend Circles
-Typeical disjoint sets problem, use union find to solve it.
+Typical disjoint sets problem, use union find to solve it.
 Use -1 as the initial root value for each node.
 -2 means it's a root node and there are 2 nodes in the set.
 We can utilize this to merge smaller sets into larger sets when performing union operation.
@@ -494,6 +494,10 @@ We also use path compression in find operation.
 ## 733. Flood Fill
 1. Cache all reached grids
 2. Use DFS to recursively traverse all the neighbor grids until the grid is either invalid, ,of wrong color, or reached. 
+
+
+## 752. Open the Lock
+BFS. The start node is "0000" and it has 8 neighbors.
 
 
 ## 763. Partition Labels
