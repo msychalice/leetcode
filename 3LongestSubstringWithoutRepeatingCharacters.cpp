@@ -119,28 +119,20 @@ public:
         int output = 0;
 
         unordered_map<char, int> window;
+        int left = 0;
+        int right = 0;
+        while (right < s.size()) {
+            char rChar = s[right];
+            window[rChar]++;
+            right++;
 
-        int begin = 0;
-        int cur = 0;
-        for (; cur < lenStr; cur++) {
-            char curChar = s[cur];
-            auto it = window.find(curChar);
-            if (it != window.end()) {
-                int curLen = cur - begin;
-                output = max(curLen, output);
-
-                for (int i = begin; i < it->second; i++) {
-                    window.erase(s[i]);
-                }
-                begin = it->second + 1;
-                it->second = cur;
-            } else {
-                window.emplace(curChar, cur);
-                if (cur + 1 == lenStr) {
-                    int curLen = cur - begin + 1;
-                    output = max(curLen, output);
-                }
+            while (window[rChar] > 1) {
+                char lChar = s[left];
+                window[lChar]--;
+                left++;
             }
+
+            output = max(output, right - left);
         }
 
         return output;
