@@ -142,6 +142,15 @@ f(n) = f(n-2) + f(n-1)
 ```
 
 
+## 76. Minimum Window Substring
+Sliding window.
+1. Use start and len to store the valid minimum substring.
+2. Use left and right to store the window index [left, right).
+3. Move right index until the end of source string.
+4. Move left index only when there is a valid substring found in the window.
+4. Only update the start and len when moving left index.
+
+
 ## 78. Subsets
 define recursive function getCombinations that can get all the combinations of selecting s nums from total t nums.
 ```
