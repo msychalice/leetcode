@@ -248,18 +248,18 @@ DP.
 1 <= i <= prices.size()  // ith day
 1 <= k <= K             // max transaction
 
-                      rest                    sell
-dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i-1])
+                                rest                    sell
+dp[i][k][no_stock] = max(dp[i-1][k][no_stock], dp[i-1][k][has_stock] + prices[i-1])
 
-                      rest                    buy
-dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i-1])
+                                rest                    buy
+dp[i][k][has_stock] = max(dp[i-1][k][has_stock], dp[i-1][k-1][no_stock] - prices[i-1])
 
-dp[0][k][0] = 0                             // 0th day has no stock. The profit is 0.
-dp[0][k][1] = numeric_limits<int>::min()    // 0th day has stock, which is impossible. Set it to minus infinity.
-dp[i][0][0] = 0                             // transaction is not allowed and has no stock. The profit is 0.
-dp[i][0][1] = numeric_limits<int>::min()    // transaction is not allowd and has stock, which is impossible. Set it to minus infinity.
+dp[0][k][no_stock] = 0                             // 0th day has no stock. The profit is 0.
+dp[0][k][has_stock] = numeric_limits<int>::min()    // 0th day has stock, which is impossible. Set it to minus infinity.
+dp[i][0][no_stock] = 0                             // transaction is not allowed and has no stock. The profit is 0.
+dp[i][0][has_stock] = numeric_limits<int>::min()    // transaction is not allowd and has stock, which is impossible. Set it to minus infinity.
 
-return dp[i][k][0]  // ith day with k transaction and no stock
+return dp[i][k][no_stock]  // ith day with k transaction and no stock
 ```
 
 
@@ -396,6 +396,24 @@ Typical binary search problem.
 If n is bad and n-1 is good, n is the first bad version.
 Use binary search to find the first bad version.
 A possible optimization is to store all intermediate return results of calling isBadVersion Api.
+
+
+## 309. Best Time to Buy and Sell Stock with Cooldown
+Use the same algorithm in 121, except k is infinity and has cooldown limit.
+Since k is infinity, we can ignore it.
+Since we have cooldown limit, we need to introduce the third state "in_cooldown"
+
+```
+dp[i][in_cooldown] = dp[i-1][has_stock] + prices[i-1]                       //sell
+dp[i][no_stock] = max(dp[i-1][no_stock], dp[i-1][in_cooldown])              //rest
+dp[i][has_stock] = max(dp[i-1][has_stock], dp[i-1][no_stock] - prices[i-1]) //rest or buy
+
+dp[0][in_cooldown] = numeric_limits<int>::min()
+dp[0][no_stock] = 0
+dp[0][has_stock] = numeric_limits<int>::min()
+
+return max(dp[i][k][no_stock], dp[i][k][in_cooldown])
+```
 
 
 ## 322. Coin Change
