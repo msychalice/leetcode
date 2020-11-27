@@ -574,6 +574,10 @@ Sliding window.
 Beware that the target is to find a substring not a subset, so any incontinuous candidate in window needs to be ruled out.
 
 
+## 714. Best Time to Buy and Sell Stock with Transaction Fee
+Use the same algorithm in 121, except k is infinity and fee will be deducted from profit for each sell.
+
+
 ## 733. Flood Fill
 1. Cache all reached grids
 2. Use DFS to recursively traverse all the neighbor grids until the grid is either invalid, ,of wrong color, or reached. 
