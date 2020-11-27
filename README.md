@@ -242,6 +242,27 @@ calcLayer(-1, root)
 BFS
 
 
+## 121. Best Time to Buy and Sell Stock
+DP.
+```
+1 <= i <= prices.size()  // ith day
+1 <= k <= K             // max transaction
+
+                      rest                    sell
+dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i-1])
+
+                      rest                    buy
+dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i-1])
+
+dp[0][k][0] = 0                             // 0th day has no stock. The profit is 0.
+dp[0][k][1] = numeric_limits<int>::min()    // 0th day has stock, which is impossible. Set it to minus infinity.
+dp[i][0][0] = 0                             // transaction is not allowed and has no stock. The profit is 0.
+dp[i][0][1] = numeric_limits<int>::min()    // transaction is not allowd and has stock, which is impossible. Set it to minus infinity.
+
+return dp[i][k][0]  // ith day with k transaction and no stock
+```
+
+
 ## 133. Clone Graph
 1. Use Depth First Search to traverse the connected and undirected graph
 2. Cache all reached node
