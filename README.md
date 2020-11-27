@@ -267,6 +267,11 @@ return dp[i][k][0]  // ith day with k transaction and no stock
 Use the same algorithm in 121, except k is infinity.
 
 
+## 123. Best Time to Buy and Sell Stock III
+Use the same algorithm in 121, except 1 <= k <= 2.
+We have to use 3 dimension dp, compression is not feasible.
+
+
 ## 133. Clone Graph
 1. Use Depth First Search to traverse the connected and undirected graph
 2. Cache all reached node
@@ -338,6 +343,15 @@ Pop()
     else
         PopFromStack()
 ```
+
+
+## 188. Best Time to Buy and Sell Stock IV
+Use the same algorithm in 121, except 1 <= k <= K.
+
+Because every transaction needs days at least,
+when k is greater or equal to prices.size()/2, we can treat k as infinity.
+In such case, k == k - 1, and we can compress the dp to 2 dimension.
+But when k is less than prices.size()/2, we can't apply this compression.
 
 
 ## 200. Number of Islands
