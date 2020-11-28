@@ -354,6 +354,21 @@ In such case, k == k - 1, and we can compress the dp to 2 dimension.
 But when k is less than prices.size()/2, we can't apply this compression.
 
 
+## 198. House Robber
+DP.
+```
+1 <= i <= nums.size()
+
+dp[i][rob] = dp[i-1][notrob] + nums[i-1]
+dp[i][notrob] = max(dp[i-1][notrob], dp[i-1][rob])
+
+dp[0][rob] = -infinity // impossible
+dp[0][notrob] = 0
+
+return max(dp[nums.size()][rob], dp[nums.size()][notrob])
+```
+
+
 ## 200. Number of Islands
 Use DFS to search for an island.
 
