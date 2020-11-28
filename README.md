@@ -376,6 +376,33 @@ Use DFS to search for an island.
 ## 206. Reverse Linked List
 
 
+## 213. House Robber II
+DP.
+The solution is similar to 198, but it needs to add a new state "firstrob/firstnotrob".
+The new state needs to be passed down all the way to the last one.
+```
+2 <= i <= nums.size()
+
+// if the first one is robbed, the last one can not be robbed.
+dp[i][rob][firstrob] = i == nums.size() ? -infinity : dp[i-1][notrob][firstrob] + nums[i-1] 
+dp[i][notrob][firstrob] = max(dp[i-1][notrob][firstrob], dp[i-1][rob][firstrob])
+
+dp[i][rob][firstnotrob] = dp[i-1][notrob][firstnotrob] + nums[i-1] 
+dp[i][notrob][firstnotrob] = max(dp[i-1][notrob][firstnotrob], dp[i-1][rob][firstnotrob])
+
+// base case
+dp[1][rob][firstrob] = nums[0]
+dp[1][notrob][firstrob] = -infinity // impossible
+dp[1][rob][firstnotrob] = -infinity // impossible
+dp[1][notrob][firstnotrob] = 0
+
+
+//get the maximum one of the above four cases. 
+//It is interesting that when i == 1, the result is dp[i][rob][firstrob], but when i > 1, dp[i][rob][firstrob] is -infinity
+return max(dp[nums.size()][rob][firstrob], dp[nums.size()][notrob][firstrob], dp[nums.size()][rob][firstnotrob], dp[nums.size()][notrob][firstnotrob])
+```
+
+
 ## 215. Kth Largest Element in an Array
 The first attempt is to sort the input array and then find the Kth largest element. The time complexity is O(nlogn).
 
