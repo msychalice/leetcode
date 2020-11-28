@@ -484,6 +484,27 @@ We can also optimize the above algorithm by using min heap, so we can save the s
 It's worth noting that we can have multiple identical tickets.
 
 
+## 337. House Robber III
+DP.
+Set the root node as the target, and the bottom up procedure is to use postorder traversal.
+```
+postorder(root)
+    if root == nullptr 
+        return 0,0
+
+    leftRob, leftNotRob = postorder(root.left)
+    rightRob, rightNotRob = postorder(root.right)
+
+    rob = root.val + lefNotRob + rightNotRob
+    notRob = max(leftNotRob, leftRob) + max(rightNotRob, rightRob)
+
+    return rob,notRob
+
+rootRob, rootNotRob = postorder(root)
+return max(rootRob, rootNotRob)
+```
+
+
 ## 383. Ransom Note
 
 
