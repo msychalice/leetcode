@@ -697,6 +697,9 @@ Define subtask that checks all the neighbor grids of the given rottedGrids(initi
 Use a counter to store the current number of fresh oranges.
 
 
+## 1288. Remove Covered Intervals
+
+
 ## 1351. Count Negative Numbers in a Sorted Matrix
 Use binary search on the first num of all rows.
 All the nums of the row that has a first negative num are negative.
