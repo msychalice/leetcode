@@ -115,6 +115,9 @@ The way of checking two queens are in same diagonal is by checking abs(row1-row2
 See code
 
 
+## 56. Merge Intervals
+
+
 ## 62. Unique Paths
 Typical DP problem.
 The robot can only move to either right or down, if it moves right, all the left grids are unavailabe, so the problem turns into a smaller scale one (m-1,n).
