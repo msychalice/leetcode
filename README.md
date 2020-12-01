@@ -47,6 +47,33 @@ if (x < a) {
 ```
 
 
+## 15. 3Sum
+Sort the input vector, convert it to a 2sum problem and use two pointer algorithm.
+Beware of skipping all the duplicate answers.
+```
+sort(nums)
+
+for (i = 0; i < nums.size(); i++) 
+    target = -nums[i]
+
+    // convert the 3sum problem to 2sum problem
+    low = i + 1
+    high = nums.size() - 1
+
+    while (low < high) 
+        if (nums[low] + nums[high] == target)  // found an answer
+            //skip all the duplicates by moving low rightwards and high leftwards
+        else if (nums[low] + nums[high] < target)
+            //move low rightwards
+        else if (nums[low] + nums[high] > target)
+            //move high leftwards
+
+
+    //skip all the duplicates by moving i rightwards
+
+```
+
+
 ## 21. Merge Two Sorted Lists
 
 
