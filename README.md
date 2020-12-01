@@ -48,7 +48,7 @@ if (x < a) {
 
 
 ## 15. 3Sum
-Sort the input vector, convert it to a 2sum problem and use two pointer algorithm.
+Sort the input vector, convert it to a 2sum problem and use two pointers algorithm.
 Beware of skipping all the duplicate answers.
 ```
 sort(nums)
@@ -72,6 +72,11 @@ for (i = 0; i < nums.size(); i++)
     //skip all the duplicates by moving i rightwards
 
 ```
+
+
+## 18. 4Sum
+Implement a recursive kSum solution.
+When k == 2, use two pointers to solve it.
 
 
 ## 21. Merge Two Sorted Lists
