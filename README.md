@@ -716,6 +716,81 @@ for len(heap) > 0
 ```
 
 
+## 887. Super Egg Drop
+This is a hard problem.
+If we can have unlimited eggs, we definitely can use binary search to find the answer.
+However now we only have K eggs, when K == 1, we have to use linear search to find the answer.
+How about using binary search when K >= 1 and turn to linear search when K == 1?
+Unfortunately this won't lead to the correct answer.
+For example, given K == 2, N == 100, using the above algorithm we will get the answer 50, which is not correct.
+A simple better answer, which is still not the optimal one, is to throw the first egg at 10,20,30,...90th floor, and this will only needs about 20 times.
+
+So we have to use DP to solve this problem.
+Define the state, base case, target case and state transition function as follows
+```
+//state transition function
+K >= 2, N >=1
+dp[K][N] = min(
+    max(dp[K-1][0], dp[K][N-1]) + 1, // throw the egg at the 1th floor
+    max(dp[K-1][1], dp[K][N-2]) + 1, // throw the egg at the 2th floor
+    ...
+    ...
+    max(dp[K-1][N-1], dp[K][0]) + 1 // throw the egg at the Nth floor
+)
+
+//base case
+dp[K][0] = 0
+dp[1][N] = N
+
+//target case
+dp[K][N]
+```
+
+The above algorithm does give me the correct answer, but it exceeds the time limit...
+The problem is the state transition function searches all the possible states linearly, which is not efficient.
+dp[K][N] is related to dp[K-1][i] and dp[K][N-i-1], 0 <= i <= N-1
+Given the monotonicity of both dp[K-1][i] and dp[K][N-i-1], we can use binary search to accelerate the searching.
+It is worth noting that using binary search needs to jump to different states, so we can not use bottom-up technique that requires changing state sequentially.
+```
+K >= 2, N >=1
+
+mem[K-1][N] // K >= 2, N >= 1, only needs K-1 rows, N columns
+
+dp(K, N)
+    //base case
+    if K == 1
+        return N
+    if N == 0
+        return 0
+
+    //memoization
+    if mem[K-2][N-1] has value
+        return mem[K-2][N-1]
+
+    result = infinity
+    lo = 1
+    hi = N + 1;
+    // binary search, right-mid mode
+    while (lo < hi)
+        mid = (lo + hi) / 2
+        broken = dp(K - 1, mid - 1)
+        notBroken = dp(K, N - mid)
+        if broken < notBroken // move mid rightwards
+            lo = mid + 1
+            result = min(result, notBroken + 1)
+        else
+            hi = mid
+            result = min(result, broken + 1)
+
+    mem[K - 2][N - 1] = result
+    return result
+
+
+//target case
+return dp(K, N)
+```
+
+
 ## 909. Snakes and Ladders
 Do not use DFS to calculate the steps needed to reach the destination grid for each next grid(+1,+2,+3,+4,+5,+6), this may end up having an infinite loop.
 Use BFS to calculate the distance to the start grid for each next grid until hit the destination.
