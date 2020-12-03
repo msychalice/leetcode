@@ -283,6 +283,27 @@ calcLayer(-1, root)
 BFS
 
 
+## 116. Populate Next Right Pointers in Each Node
+Extra space is not allowed, so at first I ruled out using BFS which normally needs a queue.
+But after trying to find out a recursive solution and failed, I rethink about the iterative solution.
+Actually I can use the result of current level and traverse all the nodes at the same level from left to right.
+
+Recursive solution can be done as follows, 
+however it's slower than the iterative one, since there are lots of nodes(middle ones on each level) will be handled twice.
+```
+connectNode(cur, next)
+    if cur == nullptr 
+        return
+
+    cur->next = next
+    connectNode(cur->left, cur->right)
+    connectNode(cur->right, next->left)     // cur->right is handled twice
+    connectNode(next->left, next->right)    // next->left is handled twice
+
+connectNode(root->left, root->right)
+```
+
+
 ## 121. Best Time to Buy and Sell Stock
 DP.
 ```
