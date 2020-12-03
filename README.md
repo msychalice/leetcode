@@ -82,6 +82,9 @@ When k == 2, use two pointers to solve it.
 ## 21. Merge Two Sorted Lists
 
 
+## 25. Reverse Nodes in k-Group
+
+
 ## 26. Remove Duplicates from Sorted Array
 
 
@@ -461,6 +464,12 @@ For the Push operation:
 	move all the elements back from stackPush to stackPop
 ```
 See code for an optimized solution that can reduce the time complexity of Push operation from O(n) to O(1).
+
+
+## 234. Palindrome Linked List
+1. Calculate the length
+2. Reverse the first length/2 nodes
+3. Compare the first length/2 nodes with the last length/2 nodes
 
 
 ## 277. Find the Celebrity
