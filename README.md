@@ -304,6 +304,10 @@ connectNode(root->left, root->right)
 ```
 
 
+## 117. Populate Next Right Pointers in Each Node II
+Similar idea to 116, but needs to change the way of finding the head of each level and the next non-nullptr sibling node.
+
+
 ## 121. Best Time to Buy and Sell Stock
 DP.
 ```
