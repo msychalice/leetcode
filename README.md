@@ -283,6 +283,9 @@ calcLayer(-1, root)
 BFS
 
 
+## 114. Flatten Binary Tree to Linked List
+
+
 ## 116. Populate Next Right Pointers in Each Node
 Extra space is not allowed, so at first I ruled out using BFS which normally needs a queue.
 But after trying to find out a recursive solution and failed, I rethink about the iterative solution.
