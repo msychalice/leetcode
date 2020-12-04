@@ -287,11 +287,13 @@ calcLayer(-1, root)
 3. Use the length of the left subtree, we can separate the preorder array into two parts,
     which represent the left subtree and the right subtree.
 
+```
            root "left"  "    right   "
 preorder = [3,    9,    20,   15,    7]
 
          "left"  root   "    right   "
 inorder = [9,     3,    15,   20,    7]
+```
 
 
 ## 111. Minimum Depth of Binary Tree
