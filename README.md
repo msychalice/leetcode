@@ -279,6 +279,21 @@ calcLayer(-1, root)
 ```
 
 
+## 105. Construct Binary Tree from Preorder and Inorder Traversal
+1. The first node of preorder array is the root.
+2. Find the root index in inorder array.
+    All the left nodes belong to the left subtree and right nodes are the right subtree.
+    We can also know how many nodes the left subtree has.
+3. Use the length of the left subtree, we can separate the preorder array into two parts,
+    which represent the left subtree and the right subtree.
+
+           root "left"  "    right   "
+preorder = [3,    9,    20,   15,    7]
+
+         "left"  root   "    right   "
+inorder = [9,     3,    15,   20,    7]
+
+
 ## 111. Minimum Depth of Binary Tree
 BFS
 
