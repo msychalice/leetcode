@@ -520,6 +520,14 @@ See code for an optimized solution that can reduce the time complexity of Push o
 3. Compare the first length/2 nodes with the last length/2 nodes
 
 
+## 236. Lowest Common Ancestor of a Binary Tree
+An intuitive solution is to find the ancestor path for each node and compare these two paths.
+
+The better solution is to use postorder traversal to calculate the state(left, mid, right) for each node.
+left/right == 1 means found a target in left/right subtree, mid == 1 means node is one of the target nodes
+Whenever left+mid+right >= 2, the lowest common ancestor is found.
+
+
 ## 277. Find the Celebrity
 By calling knows(i,j) we can identify i or j is not a celebrity.
 If i knows j, i is not a celebrity. If i doesn't know j, j is not a celebrity.
