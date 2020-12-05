@@ -535,6 +535,16 @@ Use binary search to find the first bad version.
 A possible optimization is to store all intermediate return results of calling isBadVersion Api.
 
 
+## 297. Serialize and Deserialize Binary Tree
+Serialize:
+    Use preorder traversal to serialize the binary tree.
+    Use ',' to separate each node and '#' to indicate a null child node.
+
+Deserialize:
+    Given only a preorder result, we normally can not build a binary tree.
+    But here we have a full binary tree(null child nodes are filled by '#'), we can build a binary tree in preorder.
+
+
 ## 309. Best Time to Buy and Sell Stock with Cooldown
 Use the same algorithm in 121, except k is infinity and has cooldown limit.
 Since k is infinity, we can ignore it.
