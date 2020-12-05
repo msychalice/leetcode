@@ -718,6 +718,11 @@ for i=1; i<=coins.size(); i++
 ```
 
 
+## 538. Convert BST to Greater Tree
+Use reversed inorder traversal, time O(N), space O(N).
+There is a better solution called Morris traversal which can reduce the space complexity to O(1).
+
+
 ## 547. Friend Circles
 Typical disjoint sets problem, use union find to solve it.
 Use -1 as the initial root value for each node.
