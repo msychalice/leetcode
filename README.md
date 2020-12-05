@@ -499,6 +499,9 @@ The overall time complexity is O(n + Klogn)
 ## 226. Invert Binary Tree
 
 
+## 230. Kth Smallest Element In a BST
+
+
 ## 232. Implement Queue using Stacks
 ```
 Given two stacks, stackPop and stackPush
