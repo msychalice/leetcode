@@ -496,6 +496,25 @@ A better way is to use max heap. Build the max heap is O(n), and pop the top ele
 The overall time complexity is O(n + Klogn)
 
 
+## 222. Count Complete Tree Nodes
+```
+CountNodes(root)
+    height = the height of root
+    leftHeight = height - 1
+    rightHeight = the height of right subtree
+
+    // left subtree is a full binary tree
+    if leftHeight == rightHeight
+        return pow(2, leftHeight) - 1 + CountNodes(root->right) + 1
+
+    // right subtree is a full binary tree
+    if leftHeight > rightHeight
+        return pow(2, rightHeight) - 1 + CountNodes(root->left) + 1
+
+    // leftHeight can not be smaller than rightHeight
+```
+
+
 ## 226. Invert Binary Tree
 
 
