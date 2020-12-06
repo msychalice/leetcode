@@ -411,6 +411,14 @@ for curNode != nil
 ```
 
 
+## 146. LRU Cache
+Need to implement the LinkedHashMap data structure.
+Use the double linked list to keep the least recently used element at the front.
+Use the hash map to access each elemnt in O(1) time.
+
+Beware of handling the prev pointer of the double linked list while adding and removing element of the list.
+
+
 ## 155. Min Stack
 It's pretty easy to implement a stack except the GetMin() which requires in constant time as well.
 The idea is to cache all the previous min number in the stack.
