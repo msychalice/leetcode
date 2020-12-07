@@ -727,6 +727,9 @@ It's a similar problem to #567, except it needs to collect all the permutations.
 ## 450. Delete Node in a BST
 
 
+## 460. LFU Cache
+
+
 ## 480. Sliding Window Median
 Use multiset in C++ to store the sliding window, which is a binary search tree.
 The tricky is to maintain the iterator of the left mid, which is the median for a odd window and left median for an even window.
