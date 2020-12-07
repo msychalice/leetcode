@@ -358,6 +358,13 @@ Use the same algorithm in 121, except 1 <= k <= 2.
 We have to use 3 dimension dp, compression is not feasible.
 
 
+## 130 Surrounded Regions
+It's quite difficult to use DFS to select those surrounds regions, but it's pretty straightforward, if we use DFS in a different direction.
+Every 'O' that links to a 'O' at border is not surrounded by 'X'.
+1.For each 'O' at border, use DFS to mark all its linked 'O' grid.
+2.All the unmarked 'O' are surrounded and need to be changed to 'X'
+
+
 ## 133. Clone Graph
 1. Use Depth First Search to traverse the connected and undirected graph
 2. Cache all reached node
