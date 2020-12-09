@@ -659,6 +659,16 @@ return max(rootRob, rootNotRob)
 ## 341. Flatten Nested List Iterator
 
 
+## 355. Design Twitter
+The gist of the solution is to use priority_queue to get the 10 most latest tweets.
+All the tweets of a user are stored in a single-linked list, which is very convenient to get the next tweet.
+
+Algorithm for getNewsFeed
+1.Get the latest tweet of all the followees, including itself,
+    and push those tweets into a priority_queue which is a max heap.
+2.Pop the top tweet of the priority_queue, and get the next tweet of it.
+
+
 ## 383. Ransom Note
 
 
