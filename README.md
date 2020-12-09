@@ -761,6 +761,10 @@ However, using erase(lower_bound()) will remove the front of those existed value
 1 2 *3(removed)* 3 3 4 4
 
 
+## 496. Next Greater Element I
+Use monotonic increase stack.
+
+
 ## 518. Coin Change 2
 My first attempt is to use naive DP.
 ```
