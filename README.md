@@ -832,6 +832,10 @@ Use the same algorithm in 121, except k is infinity and fee will be deducted fro
 2. Use DFS to recursively traverse all the neighbor grids until the grid is either invalid, ,of wrong color, or reached. 
 
 
+## 739. Daily Temperatures
+Similar to 496
+
+
 ## 752. Open the Lock
 BFS. The start node is "0000" and it has 8 neighbors.
 
