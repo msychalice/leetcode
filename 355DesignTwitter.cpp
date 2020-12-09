@@ -151,10 +151,10 @@ class Twitter {
     class User;
     class Tweet {
     public:
-        explicit Tweet(int tweetId, User* pUser)
+        explicit Tweet(int tweetId, Tweet* next)
             : m_tweetId(tweetId),
               m_timestamp(Twitter::getTimeStamp()),
-              m_pUser(pUser) {}
+              m_next(next) {}
 
         int getTweetId() const {
             return m_tweetId;
@@ -162,27 +162,27 @@ class Twitter {
         int getTimeStamp() const {
             return m_timestamp;
         }
-        User* getUser() const {
-            return m_pUser;
-        }
 
         // used in priority_queue
         bool operator<(const Tweet& rhs) const {
             return m_timestamp < rhs.m_timestamp;
         }
+        const Tweet* getNext() const {
+            return m_next;
+        }
 
     private:
         int m_tweetId;
         int m_timestamp;
-        User* m_pUser;
+        Tweet* m_next;
     };
 
     class User {
     public:
-        explicit User(int userId) : m_userId(userId) {}
+        explicit User(int userId) : m_userId(userId), m_latestTweet(nullptr) {}
 
         void postTweet(int tweetId) {
-            m_tweets.push_back(new Tweet(tweetId, this));
+            m_latestTweet = new Tweet(tweetId, m_latestTweet);
         }
 
         void follow(User* followee) {
@@ -199,12 +199,8 @@ class Twitter {
             m_followees.erase(followee);
         }
 
-        // position = 0 means get the most recent published tweet
-        Tweet* getTweet(int position) const {
-            if (position >= m_tweets.size()) {
-                return nullptr;
-            }
-            return m_tweets[m_tweets.size() - 1 - position];
+        const Tweet* getLatestTweet() const {
+            return m_latestTweet;
         }
 
         const unordered_set<User*>& getFollowees() const {
@@ -213,7 +209,7 @@ class Twitter {
 
     private:
         int m_userId;
-        vector<Tweet*> m_tweets;
+        Tweet* m_latestTweet;
         unordered_set<User*> m_followees;
     };
 
@@ -234,20 +230,16 @@ public:
         priority_queue<Tweet> pqTweets;
         constexpr int MaxTweets = 10;
 
-        unordered_map<User*, int> mapUserTweetPos;
-
         User* pUser = getUser(userId);
-        Tweet* pTweet = pUser->getTweet(0);
+        const Tweet* pTweet = pUser->getLatestTweet();
         if (pTweet != nullptr) {
             pqTweets.push(*pTweet);
-            mapUserTweetPos.emplace(pUser, 0);
         }
 
         for (const auto& followee : pUser->getFollowees()) {
-            pTweet = followee->getTweet(0);
+            pTweet = followee->getLatestTweet();
             if (pTweet != nullptr) {
                 pqTweets.push(*pTweet);
-                mapUserTweetPos.emplace(followee, 0);
             }
         }
 
@@ -258,14 +250,11 @@ public:
                 break;
             }
 
-            pUser = pqTweets.top().getUser();
+            pTweet = pqTweets.top().getNext();
             pqTweets.pop();
 
-            int curTweetPos = mapUserTweetPos[pUser] + 1;
-            pTweet = pUser->getTweet(curTweetPos);
             if (pTweet != nullptr) {
                 pqTweets.push(*pTweet);
-                mapUserTweetPos[pUser] = curTweetPos;
             }
         }
 
