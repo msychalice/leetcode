@@ -147,48 +147,46 @@ public:
         : val(_val), left(_left), right(_right), next(_next) {}
 };
 
-class MyQueue {
+class MyStack {
 public:
     /** Initialize your data structure here. */
-    MyQueue() {}
+    MyStack() {}
 
-    /** Push element x to the back of queue. */
+    /** Push element x onto stack. */
     void push(int x) {
-        m_stkPush.push(x);
+        m_que.push(x);
+        m_top = x;
     }
 
-    /** Removes the element from in front of queue and returns that element. */
+    /** Removes the element on top of the stack and returns that element. */
     int pop() {
-        movePushStkToPopStk();
+        for (int i = 0; i < m_que.size() - 1; i++) {
+            if (i == m_que.size() - 2) {  // new top
+                m_top = m_que.front();
+            }
 
-        int ret = m_stkPop.top();
-        m_stkPop.pop();
-        return ret;
+            m_que.push(m_que.front());
+            m_que.pop();
+        }
+
+        int top = m_que.front();
+        m_que.pop();
+        return top;
     }
 
-    /** Get the front element. */
-    int peek() {
-        movePushStkToPopStk();
-        return m_stkPop.top();
+    /** Get the top element. */
+    int top() {
+        return m_top;
     }
 
-    /** Returns whether the queue is empty. */
+    /** Returns whether the stack is empty. */
     bool empty() {
-        return m_stkPush.empty() && m_stkPop.empty();
+        return m_que.empty();
     }
 
 private:
-    void movePushStkToPopStk() {
-        if (m_stkPop.empty()) {
-            while (!m_stkPush.empty()) {
-                m_stkPop.push(m_stkPush.top());
-                m_stkPush.pop();
-            }
-        }
-    }
-
-    stack<int> m_stkPush;
-    stack<int> m_stkPop;
+    int m_top;
+    queue<int> m_que;
 };
 
 int main() {
