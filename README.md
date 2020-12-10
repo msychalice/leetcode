@@ -765,6 +765,11 @@ However, using erase(lower_bound()) will remove the front of those existed value
 Use monotonic increase stack.
 
 
+## 503. Next Greater Element II
+Similar to 496.
+Double the size of the input array, it's the common practice to address circular input array problem.
+
+
 ## 518. Coin Change 2
 My first attempt is to use naive DP.
 ```
