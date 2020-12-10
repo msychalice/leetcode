@@ -562,6 +562,13 @@ left/right == 1 means found a target in left/right subtree, mid == 1 means node 
 Whenever left+mid+right >= 2, the lowest common ancestor is found.
 
 
+## 239. Sliding Window Maximum
+Use monotonic decreasing queue to be the window.
+The front of the queue is the max num.
+Extend window: remove all the smaller nums before adding the new num.
+Shrink window: remove the front only if the front is equal to its original num(nums[i-k+1])
+
+
 ## 277. Find the Celebrity
 By calling knows(i,j) we can identify i or j is not a celebrity.
 If i knows j, i is not a celebrity. If i doesn't know j, j is not a celebrity.
