@@ -886,6 +886,9 @@ for len(heap) > 0
 ```
 
 
+## 875. Koko eating bananas
+
+
 ## 887. Super Egg Drop
 This is a hard problem.
 If we can have unlimited eggs, we definitely can use binary search to find the answer.
