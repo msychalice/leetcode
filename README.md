@@ -370,6 +370,10 @@ Every 'O' that links to a 'O' at border is not surrounded by 'X'.
 2. Cache all reached node
 
 
+## 141. Linked List Cycle
+Fast slow pointers.
+
+
 ## 144. Binary Tree Preorder Traversal
 The recursive solution is quite straightforward, but the iterative solution is a little trickier.
 ```
