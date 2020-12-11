@@ -374,6 +374,28 @@ Every 'O' that links to a 'O' at border is not surrounded by 'X'.
 Fast slow pointers.
 
 
+## 142. Linked List Cycle II
+Fast slow pointers.
+When slow == fast, set slow to head again, and move slow and fast pointers in the same slow speed.
+When then meet again, the node is the beginning of the cycle.
+```
+| <--- s ---> | <--- m ---> |
+1 ---> 2 ---> 3 ---> 4 ---> 5 ---> 6
+              ^                    |
+              |---------------------
+
+At first, slow and fast pointer will meet at 5.
+Suppose k is the length of cycle.
+We can know the distance between slow and head dist(slow)=s+m, dist(fast)=s+m+k
+We can know that if dist(fast) = dist(slow) + nk, fast and slow pointers will point to the same node.
+Given dist(fast)=s+m+k, dist(slow)=0
+dist(fast) + k-m means fast pointer will point to the beginning of the cycle.
+dist(fast) = dist(fast) + k-m = s+m+k+k-m = s+2k
+dist(slow) = 0 + s = s
+dist(fast) = dist(slow) + 2k means they point to the same node, which is the beginning of the cycle.
+```
+
+
 ## 144. Binary Tree Preorder Traversal
 The recursive solution is quite straightforward, but the iterative solution is a little trickier.
 ```
