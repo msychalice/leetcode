@@ -716,6 +716,12 @@ Algorithm for getNewsFeed
 2.Pop the top tweet of the priority_queue, and get the next tweet of it.
 
 
+## 380. Insert Delete GetRandom O(1)
+It's intuitive to think of using hashset to achieve O(1) insert and delete, but hashset cannot getRandom at O(1).
+The only way to make getRandom at O(1) is to use array, but how can we guarantee O(1) insert and delete on an array?
+The trick is to insert at the back of the array, and swap the element that needs to be deleted with the last one and then delete it.
+
+
 ## 383. Ransom Note
 
 
