@@ -881,6 +881,15 @@ The gist of the solution is to use postorder traversal to serialize all subtrees
 ## 654. Maximum Binary Tree
 
 
+## 710. Random Pick with Blacklist
+The blacklist convert the array into an inconsecutive array.
+How can we convert it back to a consecutive array?
+The solution is to use hashmap to map the nums in the blacklist to the ones that at the back of the original array.
+
+It's worth noting that those nums in the blacklist and greater or equal than N-blacklist.size() will never be selected.
+When we find a candidate from the back of the original array, we have to make sure it is not in the blacklist.
+
+
 ## 714. Best Time to Buy and Sell Stock with Transaction Fee
 Use the same algorithm in 121, except k is infinity and fee will be deducted from profit for each sell.
 
