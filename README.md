@@ -652,6 +652,25 @@ return max(dp[i][k][no_stock], dp[i][k][in_cooldown])
 ```
 
 
+## 316. Remove Duplicate Letters
+The basic idea is to use monotonic increasing stack which is used at 496.
+We can use deque and operate at the back of the deque and output characters from the front.
+
+```
+for each input character c
+    if c is already pushed into deque
+        ignore c
+        continue
+
+    while deque.back() > c and deque.back() will appear later
+        deque.pop_back()
+
+    deque.push_back(c)
+
+string(deque.begin(), deque.end())
+```
+
+
 ## 322. Coin Change
 This is a typical task that can use the result of smaller scale task.
 Note that when get a new solution, need to compare to the existing solution, only update it if the new one is smaller.
