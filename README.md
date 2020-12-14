@@ -626,8 +626,9 @@ A possible optimization is to store all intermediate return results of calling i
 
 
 ## 283. Move Zeroes
+Similar to 27
 Fast and slow pointers.
-Slow is the position of the first zero.
+Make sure [0...slow-1] doesn't include 0
 
 
 ## 295. Find Median From Data Stream

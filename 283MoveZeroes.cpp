@@ -150,44 +150,21 @@ public:
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
-        int slow = 0;  // the position of first zero
-
-        // find the first zero
-        for (; slow < nums.size(); slow++) {
-            if (nums[slow] == 0) {
-                break;
-            }
-        }
-
-        if (slow == nums.size()) {
-            return;
-        }
-
-        int fast = slow + 1;
+        int slow = 0;
+        int fast = 0;
 
         while (fast < nums.size()) {
-            int numFast = nums[fast];
-            int numSlow = nums[slow];
-
-            if (numFast != 0) {
-                nums[slow] = numFast;
-                nums[fast] = 0;
-
-                // find the next zero
-                for (; slow < nums.size(); slow++) {
-                    if (nums[slow] == 0) {
-                        break;
-                    }
-                }
-
-                if (slow >= fast) {
-                    fast = slow + 1;
-                } else {
-                    fast++;
-                }
-            } else {
-                fast++;
+            if (nums[fast] != 0) {
+                nums[slow] = nums[fast];
+                slow++;
             }
+
+            fast++;
+        }
+
+        // [0...slow-1] doesn't incluce 0
+        for (int i = slow; i < nums.size(); i++) {
+            nums[i] = 0;
         }
     }
 };
