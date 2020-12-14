@@ -212,6 +212,11 @@ utilize this function to get all the combinations s = 1, 2, 3,... len(t)
 2.Set reached flag to true when start checking a grid, but needs to set the flag back to false if the check fails at the grid.
 
 
+## 83. Remove Duplicates from Sorted list
+Similar to 26, use fast and slow pointers.
+Beware of handling the last node that is a duplicate.
+
+
 ## 90. Subsets II
 We can use the similar algorithm to get all combinations in #78, but needs to check if the newly generated combination is duplicated.
 Use hash table (key: number of elements, value: alll the combinations that have the same number of elements) to do the comparison.
