@@ -625,6 +625,11 @@ Use binary search to find the first bad version.
 A possible optimization is to store all intermediate return results of calling isBadVersion Api.
 
 
+## 283. Move Zeroes
+Fast and slow pointers.
+Slow is the position of the first zero.
+
+
 ## 295. Find Median From Data Stream
 Similar to 480. Use multiset to store the stream data and maintain the leftmid iterator in the add function.
 
