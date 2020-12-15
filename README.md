@@ -85,6 +85,10 @@ When k == 2, use two pointers to solve it.
 ## 21. Merge Two Sorted Lists
 
 
+## 22. Generate Parentheses
+Backtracking
+
+
 ## 25. Reverse Nodes in k-Group
 
 
