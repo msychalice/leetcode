@@ -195,6 +195,10 @@ Sliding window.
 4. Only update the start and len when moving left index.
 
 
+## 77. Combinations
+Backtracking.
+
+
 ## 78. Subsets
 define recursive function getCombinations that can get all the combinations of selecting s nums from total t nums.
 ```
