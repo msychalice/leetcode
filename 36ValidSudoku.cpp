@@ -149,7 +149,7 @@ public:
 
 class Solution {
 public:
-    void solveSudoku(vector<vector<char>>& board) {
+    bool isValidSudoku(vector<vector<char>>& board) {
         int boardSize = board.size();
         int gridSize = boardSize / 3;
 
@@ -163,64 +163,38 @@ public:
                 if (c == '.') {
                     continue;
                 }
-                vecRows[i].insert(c);
-                vecColumns[j].insert(c);
+
+                if (!vecRows[i].insert(c).second) {
+                    return false;
+                }
+                if (!vecColumns[j].insert(c).second) {
+                    return false;
+                }
+
                 int subboardIndex = (j / 3) * 3 + i / 3;
-                vecSubboards[subboardIndex].insert(c);
+                if (!vecSubboards[subboardIndex].insert(c).second) {
+                    return false;
+                }
             }
         }
-
-        function<bool(int)> backtrack = [&](int gridIndex) {
-            if (gridIndex == boardSize * boardSize) {
-                return true;
-            }
-
-            int rowIndex = gridIndex / boardSize;
-            int colIndex = gridIndex % boardSize;
-            // find the next empty grid
-            while (board[rowIndex][colIndex] != '.') {
-                gridIndex++;
-                if (gridIndex == boardSize * boardSize) {
-                    return true;
-                }
-
-                rowIndex = gridIndex / boardSize;
-                colIndex = gridIndex % boardSize;
-            }
-            int subboardIndex = (colIndex / 3) * 3 + rowIndex / 3;
-
-            // check grid
-            for (char c = '1'; c <= '9'; c++) {
-                // c doesn't appear in the current row, column and subboard
-                if (vecSubboards[subboardIndex].count(c) == 0 &&
-                    vecRows[rowIndex].count(c) == 0 &&
-                    vecColumns[colIndex].count(c) == 0) {
-                    // select c and continue backtracking
-                    vecSubboards[subboardIndex].insert(c);
-                    vecRows[rowIndex].insert(c);
-                    vecColumns[colIndex].insert(c);
-                    board[rowIndex][colIndex] = c;
-                    bool result = backtrack(gridIndex + 1);
-                    if (result) {
-                        return true;
-                    } else {
-                        // unselect c and continue the for loop
-                        board[rowIndex][colIndex] = '.';
-                        vecSubboards[subboardIndex].erase(c);
-                        vecRows[rowIndex].erase(c);
-                        vecColumns[colIndex].erase(c);
-                    }
-                }
-            }
-
-            return false;
-        };
-
-        backtrack(0);
+        return true;
     }
 };
 
 int main() {
+    Solution s;
+    vector<vector<char>> input = {
+        {'.', '8', '7', '6', '5', '4', '3', '2', '1'},
+        {'2', '.', '.', '.', '.', '.', '.', '.', '.'},
+        {'3', '.', '.', '.', '.', '.', '.', '.', '.'},
+        {'4', '.', '.', '.', '.', '.', '.', '.', '.'},
+        {'5', '.', '.', '.', '.', '.', '.', '.', '.'},
+        {'6', '.', '.', '.', '.', '.', '.', '.', '.'},
+        {'7', '.', '.', '.', '.', '.', '.', '.', '.'},
+        {'8', '.', '.', '.', '.', '.', '.', '.', '.'},
+        {'9', '.', '.', '.', '.', '.', '.', '.', '.'}};
+
+    cout << s.isValidSudoku(input) << endl;
 
     cout << "*************output*************" << endl;
 

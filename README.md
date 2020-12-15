@@ -105,6 +105,9 @@ It's worth noting that we can use the first index as min to optimize the process
 ## 35. Search Insert Position
 
 
+## 36. Valid Sudoku
+
+
 ## 37. Sudoku Solver
 Backtracking.
 
