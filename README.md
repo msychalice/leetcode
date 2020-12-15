@@ -105,6 +105,10 @@ It's worth noting that we can use the first index as min to optimize the process
 ## 35. Search Insert Position
 
 
+## 37. Sudoku Solver
+Backtracking.
+
+
 ## 45. Jump Game II
 ```
 4 0 3 4 1 4 2 1
