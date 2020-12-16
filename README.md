@@ -1104,6 +1104,25 @@ Define subtask that checks all the neighbor grids of the given rottedGrids(initi
 Use a counter to store the current number of fresh oranges.
 
 
+## 1109. Corporate Flight Bookings
+Diff array.
+```
+diffArr.size() = nums.size()
+diffArr[0] = nums[0] // base case
+diffArr[i] = nums[i] - nums[i-1]
+nums    10  55  45  25  25
+diffArr 10  45  -10 -20 0
+
+Given diffArr, we can revert it back to nums
+nums[0] = diffArr[0]    //base case
+nums[i] = nums[i-1] + diffArr[i]
+
+If we want add n to a range of numbers nums[i...j]
+diffArr[i] += n
+diffArr[j+1] -= n   // if j+1 is invalid, ignore it
+```
+
+
 ## 1011. Capacity To Ship Packages Within D Days
 
 
