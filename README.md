@@ -914,6 +914,22 @@ This will reduce overall cost of find operation.
 We also use path compression in find operation.
 
 
+## 560. Subarray Sum Equals K
+Cumulative sum.
+```
+cumSum.size() = nums.size() + 1
+cumSum[0] = 0 // base case
+cumSum[i] = sum of nums[0..i-1]
+nums        1   2   3
+cumSum  0   1   3   6
+
+The sum of subarray nums[i...j] = cumSum[j+1] - cumSum[i]
+k = cumSum[j+1] - cumSum[i]
+cumSum[i] = cumSum[j+1] - k
+The answer is to get how many elements which index are less than j+1 in the cumSum are equal to cumSum[i]
+```
+
+
 ## 567. Permutation in String
 Sliding window.
 Beware that the target is to find a substring not a subset, so any incontinuous candidate in window needs to be ruled out.
