@@ -983,6 +983,10 @@ for len(heap) > 0
 ```
 
 
+## 773. Sliding Puzzle
+BFS
+
+
 ## 875. Koko eating bananas
 
 
