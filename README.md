@@ -629,6 +629,10 @@ Extend window: remove all the smaller nums before adding the new num.
 Shrink window: remove the front only if the front is equal to its original num(nums[i-k+1])
 
 
+## 241. Different Ways to Add Parentheses
+Divide and conquer
+
+
 ## 277. Find the Celebrity
 By calling knows(i,j) we can identify i or j is not a celebrity.
 If i knows j, i is not a celebrity. If i doesn't know j, j is not a celebrity.
