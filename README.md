@@ -563,6 +563,10 @@ The first attempt is to sort the input array and then find the Kth largest eleme
 A better way is to use max heap. Build the max heap is O(n), and pop the top element and rebuild the heap is O(logn).
 The overall time complexity is O(n + Klogn)
 
+The most efficient algrithm is to use quick selection, which is similar to quick sort.
+The average time complexity si O(n), but the worst cast of quick selection is O(n*n).
+In order to avoid it, we need to randomize the input array.
+
 
 ## 222. Count Complete Tree Nodes
 ```

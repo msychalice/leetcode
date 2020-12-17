@@ -82,7 +82,7 @@ void printList(const ListNode* node) {
 
 class Solution {
 public:
-    int findKthLargest(vector<int>& nums, int k) {
+    int findKthLargestUsingMaxHeap(vector<int>& nums, int k) {
         make_heap(nums.begin(), nums.end());
 
         int output = 0;
@@ -94,19 +94,88 @@ public:
 
         return output;
     }
+
+    // Quick selection
+    int findKthLargest(vector<int>& nums, int k) {
+        // return pivot index
+        // nums[lo...p-1] < nums[p] < nums[p+1...hi]
+        function<int(vector<int>&, int, int)> partition = [](vector<int>& nums,
+                                                             int lo, int hi) {
+            if (lo == hi) {
+                return lo;
+            }
+
+            int pivot = nums[lo];  // initial pivot index is lo
+
+            // two pointers
+            int i = lo;
+            int j = hi + 1;
+
+            while (true) {
+                while (nums[++i] < pivot) {
+                    if (i == hi) {
+                        break;
+                    }
+                }
+                while (nums[--j] > pivot) {
+                    if (j == lo) {
+                        break;
+                    }
+                }
+
+                if (i >= j) {
+                    break;
+                }
+
+                // Reaching at this point, we must have
+                // nums[i] >= pivot and nums[j] <= pivot,
+                // so we need to swap them
+                swap(nums[i], nums[j]);
+            }
+
+            // swap the pivot to the correct position
+            swap(nums[lo], nums[j]);
+            return j;
+        };
+
+        // randomize nums, make sure this algrothm won't be in the worst case,
+        // which is O(n*n)
+        for (int i = 0; i < nums.size(); i++) {
+            swap(nums[0], nums[rand() % nums.size()]);
+        }
+
+        // convert the original kth largest to the correct index
+        k = nums.size() - k;
+        int lo = 0;
+        int hi = nums.size() - 1;
+        while (lo <= hi) {
+            int p = partition(nums, lo, hi);
+            if (p < k) {  //
+                lo = p + 1;
+            } else if (p > k) {
+                hi = p - 1;
+            } else {
+                return nums[p];
+            }
+        }
+        return -1;
+    }
 };
 
 int main(){
     Solution s;
 
     vector<int> input{3, 2, 1, 5, 6, 4};
-	auto output = s.findKthLargest(input, 2);
+    cout << s.findKthLargestUsingMaxHeap(input, 2) << endl;
     vector<int> input1{3, 2, 3, 1, 2, 4, 5, 5, 6};
-	auto output1 = s.findKthLargest(input1, 4);
+    cout << s.findKthLargestUsingMaxHeap(input1, 4) << endl;
+
+    vector<int> input2{3, 2, 1, 5, 6, 4};
+    cout << s.findKthLargest(input2, 2) << endl;
+    vector<int> input3{3, 2, 3, 1, 2, 4, 5, 5, 6};
+    cout << s.findKthLargest(input3, 4) << endl;
 
     cout << "*************output*************" << endl;
-    cout << output << endl;
-    cout << output1 << endl;
 
     return 0;
 }
