@@ -103,15 +103,16 @@ public:
                 ss << 0;
             }
 
-            int advancedDigit = 0;
+            int carriedOverDigit = 0;
             for (int i = left.size() - 1; i >= 0; i--) {
-                int sumDigit = getDigit(left[i]) * rightDigit + advancedDigit;
-                advancedDigit = sumDigit / 10;
+                int sumDigit =
+                    getDigit(left[i]) * rightDigit + carriedOverDigit;
+                carriedOverDigit = sumDigit / 10;
                 sumDigit = sumDigit % 10;
                 ss << sumDigit;
             }
-            if (advancedDigit > 0) {
-                ss << advancedDigit;
+            if (carriedOverDigit > 0) {
+                ss << carriedOverDigit;
             }
 
             string output = ss.str();
@@ -126,10 +127,10 @@ public:
         }
 
         stringstream ss;
-        int advancedDigit = 0;
+        int carriedOverDigit = 0;
         for (int i = 1; i <= vecIntermediateResults.back().size(); i++) {
-            int sumDigit = advancedDigit;
-            advancedDigit = 0;
+            int sumDigit = carriedOverDigit;
+            carriedOverDigit = 0;
             for (auto& str : vecIntermediateResults) {
                 int index = str.size() - i;
                 if (index < 0) {
@@ -137,14 +138,14 @@ public:
                 }
 
                 sumDigit += getDigit(str[index]);
-                advancedDigit += sumDigit / 10;
+                carriedOverDigit += sumDigit / 10;
                 sumDigit = sumDigit % 10;
             }
             ss << sumDigit;
         }
 
-        if (advancedDigit > 0) {
-            ss << advancedDigit;
+        if (carriedOverDigit > 0) {
+            ss << carriedOverDigit;
         }
 
         string output = ss.str();

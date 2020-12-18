@@ -508,7 +508,7 @@ Low and high pointers.
 
 
 ## 172. Factorial Trailing Zeroes
-answer = n / pow(5,1) + n / pow(5,2) + ... + 0
+answer = n / 5^1 + n / 5^2 + ... + 0
 
 
 ## 188. Best Time to Buy and Sell Stock IV
@@ -579,7 +579,7 @@ A better way is to use max heap. Build the max heap is O(n), and pop the top ele
 The overall time complexity is O(n + Klogn)
 
 The most efficient algrithm is to use quick selection, which is similar to quick sort.
-The average time complexity si O(n), but the worst cast of quick selection is O(n*n).
+The average time complexity si O(n), but the worst cast of quick selection is O(n^2).
 In order to avoid it, we need to randomize the input array.
 
 
@@ -1029,6 +1029,10 @@ for len(heap) > 0
 
 ## 773. Sliding Puzzle
 BFS
+
+
+## 793. Preimage Size of Factorial Zeroes Function
+Use binary search to get the left and right bound of K
 
 
 ## 875. Koko eating bananas
