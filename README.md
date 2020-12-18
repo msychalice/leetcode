@@ -396,6 +396,11 @@ Every 'O' that links to a 'O' at border is not surrounded by 'X'.
 2. Cache all reached node
 
 
+## 136. Single Number
+n ^ n = 0
+n ^ 0 = n
+
+
 ## 141. Linked List Cycle
 Fast slow pointers.
 
