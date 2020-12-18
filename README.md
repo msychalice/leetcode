@@ -602,6 +602,11 @@ CountNodes(root)
 ## 230. Kth Smallest Element In a BST
 
 
+## 231. Power of Two
+n <=0 return false
+n is power of two when (n & (n-1)) == 0 
+
+
 ## 232. Implement Queue using Stacks
 ```
 Given two stacks, stackPop and stackPush
