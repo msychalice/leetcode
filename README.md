@@ -507,6 +507,10 @@ Pop()
 Low and high pointers.
 
 
+## 172. Factorial Trailing Zeroes
+answer = n / pow(5,1) + n / pow(5,2) + ... + 0
+
+
 ## 188. Best Time to Buy and Sell Stock IV
 Use the same algorithm in 121, except 1 <= k <= K.
 
