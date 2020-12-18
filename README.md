@@ -116,6 +116,9 @@ It's worth noting that we can use the first index as min to optimize the process
 Backtracking.
 
 
+## 43. Multiply Strings
+
+
 ## 45. Jump Game II
 ```
 4 0 3 4 1 4 2 1
