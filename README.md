@@ -156,6 +156,19 @@ For each starred grid in the above matrix, swap the all four related coordinates
 Beware of the matrix of odd length, it needs to skip this process when it hits the central grid.
 
 
+## 50. Pow(x, n)
+```
+base cases: n = 0, 1, -1, 2, -2
+
+if n > 2 || n < -2
+    if n is even
+        Pow(x, n) = Pow(Pow(x, n/2), 2)
+
+    if n is odd
+        Pow(x, n) = Pow(x, n-1) * x
+```
+
+
 ## 51. N-Queens
 This is a similar problem with 46Permutations which can be solved by backtracking.
 The ith layer of the decision tree represents selected columns for ith row of the chessboard.
