@@ -542,6 +542,25 @@ return max(dp[nums.size()][rob], dp[nums.size()][notrob])
 Use DFS to search for an island.
 
 
+## 204. Count Primes
+Sieve of Eratosthenes.
+```
+Ruling out all the non primes.
+
+ 12 = 2 * 6
+ 12 = 3 * 4
+ 12 = sqrt(12) * sqrt(12)
+ 12 = 4 * 3
+ 12 = 6 * 2
+
+ Only need to check those multiplier less than sqrt(n)
+ For n = 12
+ rule out
+ 2*2, 2*3, 2*4, 2*5
+ 3*2, 3*3   // 3*2 is already set, so actually we can start from 3^2
+```
+
+
 ## 206. Reverse Linked List
 
 
