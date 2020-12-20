@@ -911,6 +911,12 @@ return cachedResult[target]
 It's a similar problem to #567, except it needs to collect all the permutations.
 
 
+## 448. Find All Numbers Disappeared in an Array
+Swap nums[i] to the right position, which is nums[i] - 1
+For example, value 3 needs to be swapped to nums[2]
+Beware of the case the nums[i] is duplicated and is already at the right position.
+
+
 ## 450. Delete Node in a BST
 
 
