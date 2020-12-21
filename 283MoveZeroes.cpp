@@ -153,6 +153,7 @@ public:
         int slow = 0;
         int fast = 0;
 
+        /*
         while (fast < nums.size()) {
             if (nums[fast] != 0) {
                 nums[slow] = nums[fast];
@@ -165,6 +166,19 @@ public:
         // [0...slow-1] doesn't incluce 0
         for (int i = slow; i < nums.size(); i++) {
             nums[i] = 0;
+        }
+        */
+
+        // second approach
+        while (fast < nums.size()) {
+            if (nums[fast] != 0) {
+                // Use swap here and
+                // Setting [slow...nums.size()-1] to 0 is not required
+                swap(nums[slow], nums[fast]);
+                slow++;
+            }
+
+            fast++;
         }
     }
 };
