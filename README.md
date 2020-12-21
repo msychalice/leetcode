@@ -845,6 +845,10 @@ GetRandom over a list of unknown size with constant space, we need to use reserv
 ## 389. Find the Difference
 
 
+## 398. Random Pick Index
+Reservoir sampling
+
+
 ## 399. Evaluate Division
 1. convert all variable names into int index.
 2. build a two dimension array calcResult to store division results.
