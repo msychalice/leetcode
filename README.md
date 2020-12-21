@@ -835,6 +835,10 @@ The only way to make getRandom at O(1) is to use array, but how can we guarantee
 The trick is to insert at the back of the array, and swap the element that needs to be deleted with the last one and then delete it.
 
 
+## 382. Linked List Random Node
+GetRandom over a list of unknown size with constant space, we need to use reservoir sampling algorithm.
+
+
 ## 383. Ransom Note
 
 
