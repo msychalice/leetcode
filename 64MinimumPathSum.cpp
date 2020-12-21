@@ -86,30 +86,7 @@ void printList(const ListNode* node) {
 
 class Solution {
 public:
-    int minPathSum(vector<vector<int>>& grid) {
-        int colSize = grid[0].size();
-        int rowSize = grid.size();
-        vector<int> dp(colSize,
-                       numeric_limits<int>::max());  // compressed 1D array
-
-        // bottom up
-        for (int i = rowSize - 1; i >= 0; i--) {
-            for (int j = colSize - 1; j >= 0; j--) {
-                if (j < colSize - 1) {
-                    dp[j] = grid[i][j] + min(dp[j], dp[j + 1]);
-                } else {  // there is no grid at right
-                    if (dp[j] ==
-                        numeric_limits<int>::max()) {  // the bottom right grid
-                        dp[j] = grid[i][j];
-                    } else {
-                        dp[j] = grid[i][j] + dp[j];
-                    }
-                }
-            }
-        }
-
-        return dp[0];
-    }
+    int calculate(string s) {}
 };
 
 int main(){
