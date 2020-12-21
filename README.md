@@ -202,6 +202,11 @@ Beware of the edge case (1,1), needs to be checked before running the recursive 
 The solution is similar to #62
 
 
+## 64. Minimum Path Sum
+DP.
+The 2D DP array can be compressed into 1D.
+
+
 ## 66. Plus One
 
 
