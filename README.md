@@ -842,6 +842,10 @@ GetRandom over a list of unknown size with constant space, we need to use reserv
 ## 383. Ransom Note
 
 
+## 384. Shuffle an Array
+Fisher-Yates Algorithm
+
+
 ## 389. Find the Difference
 
 
