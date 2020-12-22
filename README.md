@@ -116,6 +116,16 @@ It's worth noting that we can use the first index as min to optimize the process
 Backtracking.
 
 
+## 42. Trapping Rain Water
+```
+leftMax[i] = max of height[0...i]                   // the max height of all left heights
+rightMax[i] = max of height[i...height.size()-1]    // the max height of all right heights
+
+for each height[i]
+    the capacity of trapping water = min(leftMax[i], rightMax[i]) - height[i]
+```
+
+
 ## 43. Multiply Strings
 
 
