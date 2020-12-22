@@ -138,9 +138,11 @@ rightMax = height[height.size()-1]
 while left <= right
     if leftMax < rightMax 
         output += leftMax - height[left]
+        leftMax = max(leftMax, height[left])
         left++
     else
         output += rightMax - height[right]
+        rightMax = max(rightMax, height[right])
         right--
 
 return output;
