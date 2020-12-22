@@ -91,6 +91,7 @@ public:
             return 0;
         }
 
+        /* memoization
         vector<int> leftMax(height.size());
         vector<int> rightMax(height.size());
 
@@ -108,6 +109,29 @@ public:
         for (int i = 0; i < height.size(); i++) {
             int capacity = min(leftMax[i], rightMax[i]) - height[i];
             output += capacity > 0 ? capacity : 0;
+        }
+        return output;
+        */
+
+        // two pointers
+        int left = 0;
+        int right = height.size() - 1;
+        int leftMaxHeight = height[left];
+        int rightMaxHeight = height[right];
+
+        int output = 0;
+        while (left <= right) {
+            if (leftMaxHeight < rightMaxHeight) {
+                int capacity = leftMaxHeight - height[left];
+                output += capacity > 0 ? capacity : 0;
+                leftMaxHeight = max(leftMaxHeight, height[left]);
+                left++;
+            } else {
+                int capacity = rightMaxHeight - height[right];
+                output += capacity > 0 ? capacity : 0;
+                rightMaxHeight = max(rightMaxHeight, height[right]);
+                right--;
+            }
         }
         return output;
     }

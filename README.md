@@ -125,6 +125,27 @@ for each height[i]
     the capacity of trapping water = min(leftMax[i], rightMax[i]) - height[i]
 ```
 
+Take a closer look to the above algorithm, the capacity is only related to the minimum one of leftMax[i] and rightMax[i]
+We can optimize the procedure by using two pointers to traverse the array once.
+```
+left = 0
+right = height.size() - 1
+output = 0
+
+leftMax = height[0]
+rightMax = height[height.size()-1]
+
+while left <= right
+    if leftMax < rightMax 
+        output += leftMax - height[left]
+        left++
+    else
+        output += rightMax - height[right]
+        right--
+
+return output;
+```
+
 
 ## 43. Multiply Strings
 
