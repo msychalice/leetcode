@@ -1146,6 +1146,14 @@ BFS
 Use binary search to get the left and right bound of K
 
 
+## 855. Exam Room
+Use set to store line segments [a,b], all the segments will be sorted by their distance.
+The definition of distance is (b - a + 1) / 2, which is the middle position, not b - a + 1
+We need to add two virtual seats -1 and N, otherwise we will lose control of left-most and right-most segments.
+The distance of left-most segment [-1, b] is b
+The distance of right-most segment [a, N] is N-a-1
+
+
 ## 875. Koko eating bananas
 
 
