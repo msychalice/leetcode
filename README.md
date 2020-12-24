@@ -898,6 +898,13 @@ Fisher-Yates Algorithm
 ## 389. Find the Difference
 
 
+## 392. Is Subsequence
+The simple solution is to use two pointers. Time O(n)
+
+For the follow up question.
+Use a map to store all the indices of a character in ascending order
+
+
 ## 398. Random Pick Index
 Reservoir sampling
 
