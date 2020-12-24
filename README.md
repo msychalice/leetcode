@@ -769,6 +769,16 @@ Deserialize:
     But here we have a full binary tree(null child nodes are filled by '#'), we can build a binary tree in preorder.
 
 
+## 300. Longest Increasing Subsequence
+The first approach is to use DP.
+dp[i] means the LIS of input ended with ith element.
+if we can find an element nums[j] that is less than nums[i], j ranges from 0 to i-1,
+we can know that nums[i] can be appended to the LIS of dp[j] and form a new LIS with length of dp[j]+1
+
+The second approach that uses binary search is quicker than the above one.
+<https://leetcode.com/problems/longest-increasing-subsequence/solution/>
+
+
 ## 309. Best Time to Buy and Sell Stock with Cooldown
 Use the same algorithm in 121, except k is infinity and has cooldown limit.
 Since k is infinity, we can ignore it.
