@@ -895,6 +895,12 @@ return max(rootRob, rootNotRob)
 Low and high pointers
 
 
+## 354. Russian Doll Envelopes
+The gist of the solution is to sort the input properly and the original problem can be converted into finding Longest Increasing Subsequence.
+Sort the input by width in ascending order and by height in descending order if two widths are the same.
+Then we can find LIS in the sequence of heights.
+
+
 ## 355. Design Twitter
 The gist of the solution is to use priority_queue to get the 10 most latest tweets.
 All the tweets of a user are stored in a single-linked list, which is very convenient to get the next tweet.
