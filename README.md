@@ -254,6 +254,31 @@ f(n) = f(n-2) + f(n-1)
 ```
 
 
+## 72. Edit Distance
+DP.
+Given word1 "horse" and word2 "ros"
+dp[i][j] means the min distance between the substring of word1 containing first i characters and the substring of word2 containing first j characters.
+for example, dp[1][2] means the min distance between "h" and "ro"
+```
+//base case
+dp[i][0] = i    0 <= i <= word1.size()
+dp[0][j] = j    0 <= j <= word2.size()
+
+//transition
+if word1[i] == word2[j]
+    // no operation is needed
+    dp[i+1][j+1] = dp[i][j] 
+else
+    // starting from dp[i][j] means replacing, dp[i+1][j] means inserting, dp[i][j+1] means deleting
+    dp[i+1][j+1] = min(dp[i][j], dp[i+1][j], dp[i][j+1]) + 1
+
+return dp[word1.size()][word2.size()]
+```
+
+This problem may looks like 752, having begin and end state and asking minimum operations.
+It seems that it can be solved by BFS as well, however the key difference is that the initial state of 72 can be shrinked into samller scale state.
+
+
 ## 76. Minimum Window Substring
 Sliding window.
 1. Use start and len to store the valid minimum substring.
