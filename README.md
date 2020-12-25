@@ -1127,6 +1127,11 @@ Sliding window.
 Beware that the target is to find a substring not a subset, so any incontinuous candidate in window needs to be ruled out.
 
 
+## 583. Delete Operation for Two Strings
+1.Get the length of LCS(longest common subsequence)
+2.return word1.size() - lenLCS + word2.size() - lenLCS
+
+
 ## 645. Set Mismatch
 Same as 448
 
