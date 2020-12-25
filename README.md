@@ -1334,6 +1334,26 @@ diffArr[j+1] -= n   // if j+1 is invalid, ignore it
 ## 1011. Capacity To Ship Packages Within D Days
 
 
+## 1143. Longest Common Subsequence
+DP.
+dp[i][j] represents the longest common subsequence of text1[0...i-1] and text2[0...j-1]
+```
+//base case 
+dp[i][0] = 0
+dp[0][i] = 0
+
+for i from [1, text1.size()]
+    for j from [1, text2.size()]
+        if text1[i-1] == text2[j-1] // add a new char to LCS
+            dp[i][j] = dp[i-1][j-1] + 1
+        else                        // at least one of text1[i-1] and text2[j-1] is not in LCS
+            dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+
+return dp[text1.size()][text2.size()]
+```
+dp[i][j] can be compressed into dp[2][j] which only needs O(N) space.
+
+
 ## 1288. Remove Covered Intervals
 
 
