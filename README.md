@@ -218,7 +218,7 @@ dp[i] is the max sum of the subarray ending with nums[i]
 dp[0] = nums[0] // base case
 dp[i] = max(dp[i-1] + nums[i], nums[i])
 
-the final result is the maximum number of dp
+the final result is the maximum number of dp, not dp[nums.size()-1]
 
 
 ## 54. Spiral Matrix
@@ -1058,6 +1058,24 @@ Use monotonic increase stack.
 ## 503. Next Greater Element II
 Similar to 496.
 Double the size of the input array, it's the common practice to address circular input array problem.
+
+
+## 516. Longest Palindromic Subsequence
+DP.
+dp[i][j] represents the longest palindromic subsequence of s[i...j]
+```
+//base case
+dp[i][i] = 1
+
+for i from [s.size()-2, 0]          // iterate reversely
+    for j from [i+1, s.size()-1]
+        if s[i] == s[j]
+            dp[i][j] = dp[i+1][j-1] + 2
+        else
+            dp[i][j] = max(dp[i+1][j], dp[i][j-1])
+
+return dp[0][s.size()-1]
+```
 
 
 ## 518. Coin Change 2
