@@ -1152,6 +1152,27 @@ It's worth noting that those nums in the blacklist and greater or equal than N-b
 When we find a candidate from the back of the original array, we have to make sure it is not in the blacklist.
 
 
+## 712. Minimum ASCII Delete Sum for Two Strings
+DP.
+Similar to 1143. find LCS(Longest Common Subsequence)
+dp[i][j] represents the minimum ASCII delete sum of s1[0...i-1] and s2[0...j-1]
+```
+//base case 
+dp[i][0] = dp[i-1][0] + s1[i-1]
+dp[0][i] = dp[0][i-1] + s2[i-1] 
+
+for i from [1, text1.size()]
+    for j from [1, text2.size()]
+        if text1[i-1] == text2[j-1] // text1[i-1] is in LCS, delete nothing
+            dp[i][j] = dp[i-1][j-1] 
+        else                        // at least one of text1[i-1] and text2[j-1] is not in LCS
+            dp[i][j] = min(dp[i-1][j] + s1[i-1], dp[i][j-1] + s2[j-1])
+
+return dp[text1.size()][text2.size()]
+```
+Similarly, we can compress dp array, but the base case dp[i][0] needs to be moved in to the inner loop of text1. See code.
+
+
 ## 714. Best Time to Buy and Sell Stock with Transaction Fee
 Use the same algorithm in 121, except k is infinity and fee will be deducted from profit for each sell.
 
