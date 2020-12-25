@@ -211,6 +211,14 @@ The ith layer of the decision tree represents selected columns for ith row of th
 The way of checking two queens are in same diagonal is by checking abs(row1-row2) == abs(col1-col2)
 
 
+## 53. Maximum Subarray
+DP.
+dp[i] is the max sum of the subarray ending with nums[i]
+dp[0] = nums[0] // base case
+dp[i] = max(dp[i-1] + nums[i], nums[i])
+
+the final result is the maximum number of dp
+
 
 ## 54. Spiral Matrix
 See code
