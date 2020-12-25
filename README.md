@@ -213,6 +213,7 @@ The way of checking two queens are in same diagonal is by checking abs(row1-row2
 
 ## 53. Maximum Subarray
 DP.
+The definition of dp array is similar to 300.Longest Increasing Subsequence.
 dp[i] is the max sum of the subarray ending with nums[i]
 dp[0] = nums[0] // base case
 dp[i] = max(dp[i-1] + nums[i], nums[i])
@@ -804,7 +805,7 @@ Deserialize:
 
 ## 300. Longest Increasing Subsequence
 The first approach is to use DP.
-dp[i] means the LIS of input ended with ith element.
+dp[i] means the LIS of the subarray ending with ith element.
 if we can find an element nums[j] that is less than nums[i], j ranges from 0 to i-1,
 we can know that nums[i] can be appended to the LIS of dp[j] and form a new LIS with length of dp[j]+1
 
