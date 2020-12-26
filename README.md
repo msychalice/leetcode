@@ -1025,6 +1025,22 @@ return cachedResult[target]
 ```
 
 
+## 435. Non-overlapping Intervals
+Greedy.
+```
+Sort all the intervals [lo, hi] by hi in ascending order
+
+curHi = intervals[0][1] // hi of the first interval
+
+for i from [2, intervals.size() -1]
+    if intervals[i][0] < curHi
+        // find an overlapping interval
+    else 
+        // jump to the next non-overlapping interval
+        curHi = intervals[i][1]
+```
+
+
 ## 438. Find All Anagrams in a String
 It's a similar problem to #567, except it needs to collect all the permutations.
 
