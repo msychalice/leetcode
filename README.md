@@ -838,6 +838,22 @@ return max(dp[i][k][no_stock], dp[i][k][in_cooldown])
 ```
 
 
+## 312. Burst Balloon
+DP.
+Add two virtual balloon at the beginning and at the end of nums
+dp[i][j] represents the max coins we can get by shooting balloons from (i,j)  0 <= i,j <= nums.size()+1
+if we choose k as the last bursted balloon between i and j, we can get following transition function
+```
+//base case 
+dp[i][i+1] = 0   0 <= i <= nums.size()
+
+for k from (i,j)
+    dp[i][j] = max(dp[i][j], dp[i][k] + dp[k][j] + nums[i-1] * nums[k-1] * nums[j-1])
+
+return dp[0][nums.size()+1]
+```
+
+
 ## 316. Remove Duplicate Letters
 The basic idea is to use monotonic increasing stack which is used at 496.
 We can use deque and operate at the back of the deque and output characters from the front.
