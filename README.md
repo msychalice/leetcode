@@ -47,6 +47,13 @@ if (x < a) {
 ```
 
 
+## 10. Regular Expression Matching
+DP. 
+The gist of the approach is to use recursion + memoization to handle infinite matching cases of '*'
+Normally, there are infinite matching cases of '*' 0, 1, 2, 3, ...
+In each step of recursion, we only need to take care of 0 and 1, call recursive dp function to get the answer of the rest cases
+
+
 ## 15. 3Sum
 Sort the input vector, convert it to a 2sum problem and use two pointers algorithm.
 Beware of skipping all the duplicate answers.
