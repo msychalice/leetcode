@@ -1404,6 +1404,29 @@ Use a counter to store the current number of fresh oranges.
 Max heap.
 
 
+## 1049. Last Stone Weight II
+DP.
+The gist of the approach is to convert the original problem into the minimum difference between two groups of numbers.
+If we can find a way to separate those stones into two piles, s1 and s2 are the sum of their weights, and get the minimum value of |s1-s2|,
+we find the answer for the original problem as well.
+In another words, we need to find a subsequence of stones with a sum of weights close to sum/2
+
+sum = the weights of all stones
+target = sum / 2
+dp[i][j] means we can find a sum weight of j by select a number of stones from first i stones.
+```
+//base case
+dp[i][0] = true     0 <= i <= stones.size()
+dp[0][i] = false    1 <= i <= target
+
+dp[i][j] = dp[i-1][j] || dp[i-1][j - stones[i-1]]   //if j < stones[i-1] return false
+
+for i from [target, 0]
+    if dp[stones.size()][i]  // i is the minimum difference
+        return sum - 2 * i
+```
+
+
 ## 1109. Corporate Flight Bookings
 Diff array.
 ```
