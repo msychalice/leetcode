@@ -1445,6 +1445,24 @@ dp[i][j] can be compressed into dp[2][j] which only needs O(N) space.
 ## 1288. Remove Covered Intervals
 
 
+## 1312. Minimum Insertion Steps to Make a String Palindrome
+DP.
+dp[i][j] represents the minimum insertion steps for s[i...j]
+```
+//base case
+dp[i][i] = 0
+
+for i from [s.size() - 2, 0]
+    for j from [i + 1, s.size() - 1]
+        if s[i] == s[j]
+            dp[i][j] = dp[i+1][j-1]
+        else
+            dp[i][j] = min(dp[i+1][j], dp[i][j-1]) + 1
+
+return dp[0][s.size()-1]
+```
+
+
 ## 1351. Count Negative Numbers in a Sorted Matrix
 Use binary search on the first num of all rows.
 All the nums of the row that has a first negative num are negative.
