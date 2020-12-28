@@ -1400,6 +1400,10 @@ Define subtask that checks all the neighbor grids of the given rottedGrids(initi
 Use a counter to store the current number of fresh oranges.
 
 
+## 1046. Last Stone Weight
+Max heap.
+
+
 ## 1109. Corporate Flight Bookings
 Diff array.
 ```
