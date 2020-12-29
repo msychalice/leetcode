@@ -1095,6 +1095,38 @@ However, using erase(lower_bound()) will remove the front of those existed value
 1 2 *3(removed)* 3 3 4 4
 
 
+## 494. Target Sum
+DP.
+It not difficult to summarize the definition of dp, but there are some details that we need to pay attention to.
+1. '+0' and '-0' are two valid cases
+2. S can be negative
+3. the result of all possible choices are within [-sum, sum], here we need to shift it to [0, 2 * sum]
+4. when we do space compression, dp[i][j] needs to be reset at first
+5. recursion + memoization is faster than bottom up dp table, but it uses more space.
+
+dp[i][j] represents how many ways to assign symbols of first i numbers to make a sum that equals to j(original sum is shifted from [-sum,sum] to [0, 2*sum]
+```
+//base case
+// can not use =, have to use +=
+// in case nums[0] == 0, dp[0][sum] needs to be set to 2
+// the rest of dp[0][i]s are set to 0 by default
+dp[0][sum - abs(nums[0])] += 1;
+dp[0][sum + abs(nums[0])] += 1;
+
+for i from [1, nums.size()-1]
+    for j from [0, 2*sum]
+        if j - nums[i] >= 0 && j - nums[i] <= 2 * sum
+            // put '-' in front of nums[i]
+            dp[i][j] += dp[i - 1][j - nums[i]]
+
+        if j + nums[i] >= 0 && j + nums[i] <= 2 * sum
+            // put '+' in front of nums[i]
+            dp[i][j] += dp[i - 1][j + nums[i]]
+
+return dp[nums.size()-1][S+sum] // shift by adding sum
+```
+
+
 ## 496. Next Greater Element I
 Use monotonic increase stack.
 
