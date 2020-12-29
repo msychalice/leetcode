@@ -496,6 +496,13 @@ n ^ n = 0
 n ^ 0 = n
 
 
+## 139. Word Break
+DP.
+dp[i][j] is the result of s[i...j]
+we can convert s[i...j] into two substrings s[i...n-1] and s[n...j]
+dp[i][j] = dp[i][n-1] && dp[n][j]
+
+
 ## 141. Linked List Cycle
 Fast slow pointers.
 
