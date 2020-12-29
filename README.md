@@ -790,6 +790,24 @@ Use binary search to find the first bad version.
 A possible optimization is to store all intermediate return results of calling isBadVersion Api.
 
 
+## 279. Perfect Squares
+DP.
+dp[i] is the least number perfect square numbers that sum to i.
+dp[0] is used for padding only.
+
+```
+// base case
+dp[i*i] = 1     1 <= i <= sqrt(n)
+dp[0] = 0
+
+for i from [2, n]
+    for j from [1, sqrt(i)]
+        dp[i] = min(dp[i], dp[i-j*j] + 1)
+
+return dp[n]
+```
+
+
 ## 283. Move Zeroes
 Similar to 27
 Fast and slow pointers.
