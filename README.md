@@ -976,6 +976,27 @@ a^k % base = (a % base) * (a^(k-1) % base) % base   // recursive
 ```
 
 
+## 375. Guess Number Higher or Lower II
+DP.
+dp[i][j] is the minimum money to win a game with number [i, j]
+```
+//padding dp[0][j] dp[i][0]
+//base case
+dp[i][i] = 0
+
+for i from [n-1, 1]
+    for j from [i+1, n]
+        dp[i][j] = INT_MAX
+
+        for x from [i, j]
+            left = x > i ? dp[i][x-1] : 0   //boundary check
+            right = x < j ? dp[x+1][j] : 0  //boundary check
+            dp[i][j] = min(dp[i][j], max(left, right) + x)
+
+return dp[1][n]
+```
+
+
 ## 380. Insert Delete GetRandom O(1)
 It's intuitive to think of using hashset to achieve O(1) insert and delete, but hashset cannot getRandom at O(1).
 The only way to make getRandom at O(1) is to use array, but how can we guarantee O(1) insert and delete on an array?
