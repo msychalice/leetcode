@@ -782,6 +782,28 @@ Shrink window: remove the front only if the front is equal to its original num(n
 Divide and conquer
 
 
+## 276. Paint Fence
+Locked.
+DP.
+The gist of the solution is to define the dp state properly.
+If we define dp[i][j] as the ways of painting i fences with j colors, we can not get a state transition function.
+We need to define dp[i][j] as follows
+dp[i][j] is the ways of painting i fences with the last two fences painted with the same color or different colors.
+0 <= i < n,  0 <= j <= 1, j == 0 means the last two fences painted with the same color, j == 1 means different colors, k is the number of colors
+```
+//base case
+dp[0][0] = k            // one fence, there are k ways to paint it
+dp[0][1] = 0            // one fence, impossible to paint it with different colors
+dp[1][0] = k            // two fences, there are k ways to paint them with the same color
+dp[1][1] = k * (k-1)    // two fences, there are k * (k-1) ways to paint them with two different colors
+
+dp[i][0] = dp[i-1][1]                                   // x y (y)
+dp[i][1] = dp[i-1][0] * (k-1) + dp[i-1][1] * (k-1)      // x x (not x)  or  x y (not y)
+
+return dp[i][0] + dp[i][1]  // x x and x y
+```
+
+
 ## 277. Find the Celebrity
 By calling knows(i,j) we can identify i or j is not a celebrity.
 If i knows j, i is not a celebrity. If i doesn't know j, j is not a celebrity.
