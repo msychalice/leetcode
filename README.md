@@ -631,6 +631,25 @@ Low and high pointers.
 answer = n / 5^1 + n / 5^2 + ... + 0
 
 
+## 174. Dungeon Game
+DP.
+It's not right if we define dp[i][j] as the minimum damage the knight will get when he reaches dungeon[i][j]
+We have to think it reversely and define the dp table as follows
+dp[i][j] represents the minimum health the knight needs when he starts from dungeon[i][j]
+```
+row = dungeon.size()
+col = dungeon[0].size()
+dp[i][j] is initialized with INT_MAX        0 <= i <= row, 0 <= j <= col
+dp[row][col-1] = dp[row-1][col] = 1         // faciliate the calculation of dp[row-1][col-1]
+
+for i from [row-1, 0]
+    for j from [col-1, 0]
+        dp[i][j] = max(1, min(dp[i+1][j], dp[i][j+1]) - dungeon[i][j])
+
+return dp[0][0]
+```
+
+
 ## 188. Best Time to Buy and Sell Stock IV
 Use the same algorithm in 121, except 1 <= k <= K.
 
