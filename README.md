@@ -380,6 +380,24 @@ for curNode != nil
 ```
 
 
+## 97 Interleaving String
+DP.
+dp[i][j] represents whether first ith substring of s1 and first jth substring of s2 can form first (i+j) substring of s3
+```
+//base case
+dp[0][0] = true
+dp[i][0] = dp[i-1][0] && s1[i-1] == s3[i-1]         1 <= i <= s1.size()
+dp[0][i] = dp[0][i-1] && s2[i-1] == s3[i-1]         1 <= i <= s2.size()
+
+for i from [1, s1.size()]
+    for j from [1, s2.size()]
+        dp[i][j] = (dp[i-1][j] && s1[i-1] == s3[i+j-1]) ||
+                (dp[i][j-1] && s2[j-1] == s3[i+j-1])
+
+return dp[s1.size()][s2.size()]
+```
+
+
 ## 100. Same Tree
 
 
