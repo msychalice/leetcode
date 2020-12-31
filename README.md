@@ -741,6 +741,39 @@ The average time complexity si O(n), but the worst cast of quick selection is O(
 In order to avoid it, we need to randomize the input array.
 
 
+## 221. Maximal Square
+DP.
+Similar to 174, we needs to think it reversely.
+dp[i][j] means the area of the maximal square starting from (i,j) to (row, col)
+```
+row = matrix.size()
+col = matrix[0].size()
+
+//base case
+dp[row-1][i] = martix[row-1][i] == '1' ? 1 : 0
+dp[i][col-1] = martix[i][col-1] == '1' ? 1 : 0
+
+for i from [row-2, 0]
+    for j from [col-2, 0]
+        dp[i][j] = matrix[i][j] == '1' ? 1 : 0
+        
+        if dp[i][j] == 1    // it's possible to form a larger square
+            len_i1_j = sqrt(dp[i+1][j])
+            len_i_j1 = sqrt(dp[i][j+1])
+            len_i1_j1 = sqrt(dp[i+1][j+1])
+            len = min(min(len_i1_j, len_i_j1), len_i1_j1) + 1
+            dp[i][j] = len * len
+
+
+//find the maximal square
+output = 0
+for i,j in dp
+    output = max(output, dp[i][j])
+
+return output
+```
+
+
 ## 222. Count Complete Tree Nodes
 ```
 CountNodes(root)
