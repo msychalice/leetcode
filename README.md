@@ -330,6 +330,26 @@ Similar to 26, use fast and slow pointers.
 Beware of handling the last node that is a duplicate.
 
 
+## 85. Maximal Rectangle
+It looks like 221. Maximal Square, but the way to solve it is completely different.
+The approach needs to use the function used in 84. Largest Rectangle in Histogram
+```
+Given the function largestRectangleInHistogram
+
+row = matrix.size()
+col = matrix[0].size()
+heights[col+1]  //the last padding height[col] is used to faciliate the calculation of largestRectangleInHistogram
+
+output = 0
+for i from [0, row-1]   // for each histogram using ith row as its bottom
+    for j from [0, col-1]
+        heights[j] = matrix[i][j] == '1' ? heights[j] + 1 : 0
+        output = max(output, largestRectangleInHistogram(heights))
+
+return output
+```
+
+
 ## 90. Subsets II
 We can use the similar algorithm to get all combinations in #78, but needs to check if the newly generated combination is duplicated.
 Use hash table (key: number of elements, value: alll the combinations that have the same number of elements) to do the comparison.
