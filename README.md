@@ -330,6 +330,29 @@ Similar to 26, use fast and slow pointers.
 Beware of handling the last node that is a duplicate.
 
 
+## 84. Largest Rectangle in Histogram
+Monotonic non-decreasing stack.
+```
+heights.push_back(0);  // add a padding 0 to faciliate the calculation of the real last height
+stack stk
+output = 0
+
+for i from [0, heights.size()-1]
+    while !stk.empty()
+        if heights[i] < heights[stk.top()]
+        else
+            //heights[i] >= heights[stk.top()]
+            //For the special case that these two heights are equal, there are identical heights in the stack.
+            //This will lead to an error of calculating the area for the first one of the two identical heights,
+            //but this won't affect the final result, since the calculation for the last one of the two identical heights is correct.
+            break;
+
+        stk.push(i)
+
+return output
+```
+
+
 ## 85. Maximal Rectangle
 It looks like 221. Maximal Square, but the way to solve it is completely different.
 The approach needs to use the function used in 84. Largest Rectangle in Histogram
