@@ -1103,6 +1103,29 @@ Algorithm for getNewsFeed
 2.Pop the top tweet of the priority_queue, and get the next tweet of it.
 
 
+## 363. Max Sum of Rectangle No Larger Than K
+1. Compress the matrix into 1D array, 
+2. Given the 1D array, the original problem is now converted to finding the max subarray sum no larger than k
+3. Similar to finding the subarray sum equals K(#560), we can use prefix sum, but cannot use hashmap, since we have to find the sum no larger than k.
+The following is how to find the sum no larger than k
+```
+sumRectangle == preSum[j] - preSum[i]        // j >= i
+preSum[j] - sumRectangle == preSum[i]
+
+res = INT_MIN   // preSum can be negative
+for each preSum[j]
+    // lower_bound is the value in set no larger than preSum[j] - k
+    lower_bound = set.lower_bound(preSum[j]- k)
+
+    // (preSum[j] - lower_bound) is a candidate sum of rectangle
+    res = max(res, preSum[j] - lower_bound);
+
+return res
+```
+In step1, different than #85, here we need to compress rows from [i,j]  0 <= i, j <= row.
+And if row is larger than col, we need to compress the matrix horizontally, not vertically.
+
+
 ## 372. Super Pow
 ```
 (a * b) % base = (a % base) * (b % base) % base
