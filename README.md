@@ -1,9 +1,9 @@
-## 1. Two Sum
+##1. Two Sum
 1.Build a hash table(key is the value of input array, value is the index of input array)\
 2.Traverse the input array and use the hash table to search for the second number
 
 
-## 3. Longest Substring Without Repeating Characters
+##3. Longest Substring Without Repeating Characters
 1.Use headIndex and endIndex to indicate current substring\
 2.Use hash table curSubstr to store all characters in current substring\
 3.
@@ -22,13 +22,13 @@ solution2.
 Sliding window. The most important part is to find the place where to update the final result.
 
 
-## 4. Median of Two Sorted Arrays
+##4. Median of Two Sorted Arrays
 Gist of the algorithm.
 Use binary search to find the boundry that separate both arrays into left and right part.
 Make sure all the elemnts in the left part of the first array are smaller than the elements in the right part of the second array, and the elements in the left part of the second array are smaller than the elements in the right part of the first array.
 
 
-## 7. Reverse Integer
+##7. Reverse Integer
 The solution is quite straightforward.
 What if we can not use a larger integer(int64) to store the intermediate result?
 How do we check the overflow for the add and multiple operation?
@@ -47,14 +47,14 @@ if (x < a) {
 ```
 
 
-## 10. Regular Expression Matching
+##10. Regular Expression Matching
 DP. 
 The gist of the approach is to use recursion + memoization to handle infinite matching cases of '*'
 Normally, there are infinite matching cases of '*' 0, 1, 2, 3, ...
 In each step of recursion, we only need to take care of 0 and 1, call recursive dp function to get the answer of the rest cases
 
 
-## 15. 3Sum
+##15. 3Sum
 Sort the input vector, convert it to a 2sum problem and use two pointers algorithm.
 Beware of skipping all the duplicate answers.
 ```
@@ -81,52 +81,52 @@ for (i = 0; i < nums.size(); i++)
 ```
 
 
-## 18. 4Sum
+##18. 4Sum
 Implement a recursive kSum solution.
 When k == 2, use two pointers to solve it.
 
 
-## 19. Remove Nth Node From End of List
+##19. Remove Nth Node From End of List
 
 
-## 20. Valid Parentheses
+##20. Valid Parentheses
 
 
-## 21. Merge Two Sorted Lists
+##21. Merge Two Sorted Lists
 
 
-## 22. Generate Parentheses
+##22. Generate Parentheses
 Backtracking
 
 
-## 25. Reverse Nodes in k-Group
+##25. Reverse Nodes in k-Group
 
 
-## 26. Remove Duplicates from Sorted Array
+##26. Remove Duplicates from Sorted Array
 
 
-## 27. Remove Element
+##27. Remove Element
 
 
-## 28. Implement strStr()
+##28. Implement strStr()
 
 
-## 34. Find First and Last Position of Element in Sorted Array
+##34. Find First and Last Position of Element in Sorted Array
 Use binary search to find the first and last index.
 It's worth noting that we can use the first index as min to optimize the process of finding the last index.
 
 
-## 35. Search Insert Position
+##35. Search Insert Position
 
 
-## 36. Valid Sudoku
+##36. Valid Sudoku
 
 
-## 37. Sudoku Solver
+##37. Sudoku Solver
 Backtracking.
 
 
-## 42. Trapping Rain Water
+##42. Trapping Rain Water
 ```
 leftMax[i] = max of height[0...i]                   // the max height of all left heights
 rightMax[i] = max of height[i...height.size()-1]    // the max height of all right heights
@@ -159,10 +159,15 @@ return output;
 ```
 
 
-## 43. Multiply Strings
+##43. Multiply Strings
 
 
-## 45. Jump Game II
+##44. Wildcard Matching
+DP.
+The approach is pretty the same as #10.
+
+
+##45. Jump Game II
 ```
 4 0 3 4 1 4 2 1
 ---------
@@ -172,12 +177,12 @@ return output;
 ```
 
 
-## 46. Permutations
+##46. Permutations
 Typical backtracking problem.
 Beware of updating both curPath and curSelection.
 
 
-## 48. Rotate Image
+##48. Rotate Image
 The new coordinate rotating 90 degrees clockwisely can be get through the following formula
 ```
 x' = y
@@ -199,7 +204,7 @@ For each starred grid in the above matrix, swap the all four related coordinates
 Beware of the matrix of odd length, it needs to skip this process when it hits the central grid.
 
 
-## 50. Pow(x, n)
+##50. Pow(x, n)
 ```
 base cases: n = 0, 1, -1, 2, -2
 
@@ -212,15 +217,15 @@ if n > 2 || n < -2
 ```
 
 
-## 51. N-Queens
+##51. N-Queens
 This is a similar problem with 46Permutations which can be solved by backtracking.
 The ith layer of the decision tree represents selected columns for ith row of the chessboard.
 The way of checking two queens are in same diagonal is by checking abs(row1-row2) == abs(col1-col2)
 
 
-## 53. Maximum Subarray
+##53. Maximum Subarray
 DP.
-The definition of dp array is similar to 300.Longest Increasing Subsequence.
+The definition of dp array is similar to #300.Longest Increasing Subsequence.
 dp[i] is the max sum of the subarray ending with nums[i]
 dp[0] = nums[0] // base case
 dp[i] = max(dp[i-1] + nums[i], nums[i])
@@ -228,14 +233,14 @@ dp[i] = max(dp[i-1] + nums[i], nums[i])
 the final result is the maximum number of dp, not dp[nums.size()-1]
 
 
-## 54. Spiral Matrix
+##54. Spiral Matrix
 See code
 
 
-## 56. Merge Intervals
+##56. Merge Intervals
 
 
-## 62. Unique Paths
+##62. Unique Paths
 Typical DP problem.
 The robot can only move to either right or down, if it moves right, all the left grids are unavailabe, so the problem turns into a smaller scale one (m-1,n).
 Similar case we can get when it moves down.
@@ -250,19 +255,19 @@ Need to check the hash table that caches all the intermediate results.
 Beware of the edge case (1,1), needs to be checked before running the recursive function.
 
 
-## 63. Unique Paths II
+##63. Unique Paths II
 The solution is similar to #62
 
 
-## 64. Minimum Path Sum
+##64. Minimum Path Sum
 DP.
 The 2D DP array can be compressed into 1D.
 
 
-## 66. Plus One
+##66. Plus One
 
 
-## 70. Climbing Stairs
+##70. Climbing Stairs
 ```
 f(1) = 1
 f(2) = 2
@@ -270,7 +275,7 @@ f(n) = f(n-2) + f(n-1)
 ```
 
 
-## 72. Edit Distance
+##72. Edit Distance
 DP.
 Given word1 "horse" and word2 "ros"
 dp[i][j] means the min distance between the substring of word1 containing first i characters and the substring of word2 containing first j characters.
@@ -295,7 +300,7 @@ This problem may looks like 752, having begin and end state and asking minimum o
 It seems that it can be solved by BFS as well, however the key difference is that the initial state of 72 can be shrinked into samller scale state.
 
 
-## 76. Minimum Window Substring
+##76. Minimum Window Substring
 Sliding window.
 1. Use start and len to store the valid minimum substring.
 2. Use left and right to store the window index [left, right).
@@ -304,11 +309,11 @@ Sliding window.
 4. Only update the start and len when moving left index.
 
 
-## 77. Combinations
+##77. Combinations
 Backtracking.
 
 
-## 78. Subsets
+##78. Subsets
 define recursive function getCombinations that can get all the combinations of selecting s nums from total t nums.
 ```
 getCombinations(t, s)
@@ -320,17 +325,17 @@ utilize this function to get all the combinations s = 1, 2, 3,... len(t)
 ```
 
 
-## 79. Word Search
+##79. Word Search
 1.Define the subtask that checks the existence of subword with a given starting grid.
 2.Set reached flag to true when start checking a grid, but needs to set the flag back to false if the check fails at the grid.
 
 
-## 83. Remove Duplicates from Sorted list
+##83. Remove Duplicates from Sorted list
 Similar to 26, use fast and slow pointers.
 Beware of handling the last node that is a duplicate.
 
 
-## 84. Largest Rectangle in Histogram
+##84. Largest Rectangle in Histogram
 Monotonic non-decreasing stack.
 ```
 heights.push_back(0);  // add a padding 0 to faciliate the calculation of the real last height
@@ -353,9 +358,9 @@ return output
 ```
 
 
-## 85. Maximal Rectangle
-It looks like 221. Maximal Square, but the way to solve it is completely different.
-The approach needs to use the function used in 84. Largest Rectangle in Histogram
+##85. Maximal Rectangle
+It looks like #221. Maximal Square, but the way to solve it is completely different.
+The approach needs to use the function used in #84. Largest Rectangle in Histogram
 ```
 Given the function largestRectangleInHistogram
 
@@ -373,8 +378,8 @@ return output
 ```
 
 
-## 90. Subsets II
-We can use the similar algorithm to get all combinations in #78, but needs to check if the newly generated combination is duplicated.
+##90. Subsets II
+We can use the similar algorithm to get all combinations in #78., but needs to check if the newly generated combination is duplicated.
 Use hash table (key: number of elements, value: alll the combinations that have the same number of elements) to do the comparison.
 Note that the newly generated combination needs to be sorted before inserting into the above hash table or doing the comparison.
 
@@ -396,7 +401,7 @@ DFS the above tree and check the current node with its previous sibling node, if
 For exampe, if [s[1]] == [s[0]] we can skip the search for the subtree s[1].
 
 
-## 91. Decode Ways
+##91. Decode Ways
 DP.
 ```
 dp[i] means how many ways to decode substring [0...i]
@@ -413,10 +418,10 @@ However, there are several edge cases need to take care of.
 2. "01" -- s[0] is '0'
 
 
-## 92. Reverse Linked List II
+##92. Reverse Linked List II
 
 
-## 94. Binary Tree Inorder Traversal
+##94. Binary Tree Inorder Traversal
 The recursive solution is quite straightforward, but the iterative solution is a little trickier.
 ```
 // iterative solution
@@ -440,7 +445,7 @@ for curNode != nil
 ```
 
 
-## 97 Interleaving String
+##97 Interleaving String
 DP.
 dp[i][j] represents whether first ith substring of s1 and first jth substring of s2 can form first (i+j) substring of s3
 ```
@@ -458,10 +463,10 @@ return dp[s1.size()][s2.size()]
 ```
 
 
-## 100. Same Tree
+##100. Same Tree
 
 
-## 102. Binary Tree Level Order Traversal
+##102. Binary Tree Level Order Traversal
 ```
 func calcLayer(parentLayer int, curNode *TreeNode)
     add curNode's value into (parentLayer+1) layer
@@ -478,7 +483,7 @@ calcLayer(-1, root)
 ```
 
 
-## 105. Construct Binary Tree from Preorder and Inorder Traversal
+##105. Construct Binary Tree from Preorder and Inorder Traversal
 1. The first node of preorder array is the root.
 2. Find the root index in inorder array.
     All the left nodes belong to the left subtree and right nodes are the right subtree.
@@ -495,14 +500,14 @@ inorder = [9,     3,    15,   20,    7]
 ```
 
 
-## 111. Minimum Depth of Binary Tree
+##111. Minimum Depth of Binary Tree
 BFS
 
 
-## 114. Flatten Binary Tree to Linked List
+##114. Flatten Binary Tree to Linked List
 
 
-## 116. Populate Next Right Pointers in Each Node
+##116. Populate Next Right Pointers in Each Node
 Extra space is not allowed, so at first I ruled out using BFS which normally needs a queue.
 But after trying to find out a recursive solution and failed, I rethink about the iterative solution.
 Actually I can use the result of current level and traverse all the nodes at the same level from left to right.
@@ -523,11 +528,11 @@ connectNode(root->left, root->right)
 ```
 
 
-## 117. Populate Next Right Pointers in Each Node II
+##117. Populate Next Right Pointers in Each Node II
 Similar idea to 116, but needs to change the way of finding the head of each level and the next non-nullptr sibling node.
 
 
-## 121. Best Time to Buy and Sell Stock
+##121. Best Time to Buy and Sell Stock
 DP.
 ```
 1 <= i <= prices.size()  // ith day
@@ -548,44 +553,44 @@ return dp[i][k][no_stock]  // ith day with k transaction and no stock
 ```
 
 
-## 122. Best Time to Buy and Sell Stock II
-Use the same algorithm in 121, except k is infinity.
+##122. Best Time to Buy and Sell Stock II
+Use the same algorithm in #121., except k is infinity.
 
 
-## 123. Best Time to Buy and Sell Stock III
-Use the same algorithm in 121, except 1 <= k <= 2.
+##123. Best Time to Buy and Sell Stock III
+Use the same algorithm in #121., except 1 <= k <= 2.
 We have to use 3 dimension dp, compression is not feasible.
 
 
-## 130 Surrounded Regions
+##130 Surrounded Regions
 It's quite difficult to use DFS to select those surrounds regions, but it's pretty straightforward, if we use DFS in a different direction.
 Every 'O' that links to a 'O' at border is not surrounded by 'X'.
 1.For each 'O' at border, use DFS to mark all its linked 'O' grid.
 2.All the unmarked 'O' are surrounded and need to be changed to 'X'
 
 
-## 133. Clone Graph
+##133. Clone Graph
 1. Use Depth First Search to traverse the connected and undirected graph
 2. Cache all reached node
 
 
-## 136. Single Number
+##136. Single Number
 n ^ n = 0
 n ^ 0 = n
 
 
-## 139. Word Break
+##139. Word Break
 DP.
 dp[i][j] is the result of s[i...j]
 we can convert s[i...j] into two substrings s[i...n-1] and s[n...j]
 dp[i][j] = dp[i][n-1] && dp[n][j]
 
 
-## 141. Linked List Cycle
+##141. Linked List Cycle
 Fast slow pointers.
 
 
-## 142. Linked List Cycle II
+##142. Linked List Cycle II
 Fast slow pointers.
 When slow == fast, set slow to head again, and move slow and fast pointers in the same slow speed.
 When then meet again, the node is the beginning of the cycle.
@@ -607,7 +612,7 @@ dist(fast) = dist(slow) + 2k means they point to the same node, which is the beg
 ```
 
 
-## 144. Binary Tree Preorder Traversal
+##144. Binary Tree Preorder Traversal
 The recursive solution is quite straightforward, but the iterative solution is a little trickier.
 ```
 // iterative solution
@@ -631,7 +636,7 @@ for curNode != nil
 ```
 
 
-## 145. Binary Tree Postorder Traversal
+##145. Binary Tree Postorder Traversal
 The recursive solution is quite straightforward, but the iterative solution is a little trickier.
 ```
 // iterative solution
@@ -655,7 +660,7 @@ for curNode != nil
 ```
 
 
-## 146. LRU Cache
+##146. LRU Cache
 Need to implement the LinkedHashMap data structure.
 Use the double linked list to keep the least recently used element at the front.
 Use the hash map to access each elemnt in O(1) time.
@@ -663,7 +668,7 @@ Use the hash map to access each elemnt in O(1) time.
 Beware of handling the prev pointer of the double linked list while adding and removing element of the list.
 
 
-## 155. Min Stack
+##155. Min Stack
 It's pretty easy to implement a stack except the GetMin() which requires in constant time as well.
 The idea is to cache all the previous min number in the stack.
 ``` 
@@ -683,15 +688,15 @@ Pop()
 ```
 
 
-## 167. Two Sum II
+##167. Two Sum II
 Low and high pointers.
 
 
-## 172. Factorial Trailing Zeroes
+##172. Factorial Trailing Zeroes
 answer = n / 5^1 + n / 5^2 + ... + 0
 
 
-## 174. Dungeon Game
+##174. Dungeon Game
 DP.
 It's not right if we define dp[i][j] as the minimum damage the knight will get when he reaches dungeon[i][j]
 We have to think it reversely and define the dp table as follows
@@ -710,8 +715,8 @@ return dp[0][0]
 ```
 
 
-## 188. Best Time to Buy and Sell Stock IV
-Use the same algorithm in 121, except 1 <= k <= K.
+##188. Best Time to Buy and Sell Stock IV
+Use the same algorithm in #121., except 1 <= k <= K.
 
 Because every transaction needs days at least,
 when k is greater or equal to prices.size()/2, we can treat k as infinity.
@@ -719,10 +724,10 @@ In such case, k == k - 1, and we can compress the dp to 2 dimension.
 But when k is less than prices.size()/2, we can't apply this compression.
 
 
-## 191. Number of 1 Bits
+##191. Number of 1 Bits
 
 
-## 198. House Robber
+##198. House Robber
 DP.
 ```
 1 <= i <= nums.size()
@@ -737,11 +742,11 @@ return max(dp[nums.size()][rob], dp[nums.size()][notrob])
 ```
 
 
-## 200. Number of Islands
+##200. Number of Islands
 Use DFS to search for an island.
 
 
-## 204. Count Primes
+##204. Count Primes
 Sieve of Eratosthenes.
 ```
 Ruling out all the non primes.
@@ -760,12 +765,12 @@ Ruling out all the non primes.
 ```
 
 
-## 206. Reverse Linked List
+##206. Reverse Linked List
 
 
-## 213. House Robber II
+##213. House Robber II
 DP.
-The solution is similar to 198, but it needs to add a new state "firstrob/firstnotrob".
+The solution is similar to #198., but it needs to add a new state "firstrob/firstnotrob".
 The new state needs to be passed down all the way to the last one.
 ```
 2 <= i <= nums.size()
@@ -790,7 +795,7 @@ return max(dp[nums.size()][rob][firstrob], dp[nums.size()][notrob][firstrob], dp
 ```
 
 
-## 215. Kth Largest Element in an Array
+##215. Kth Largest Element in an Array
 The first attempt is to sort the input array and then find the Kth largest element. The time complexity is O(nlogn).
 
 A better way is to use max heap. Build the max heap is O(n), and pop the top element and rebuild the heap is O(logn).
@@ -801,9 +806,9 @@ The average time complexity si O(n), but the worst cast of quick selection is O(
 In order to avoid it, we need to randomize the input array.
 
 
-## 221. Maximal Square
+##221. Maximal Square
 DP.
-Similar to 174, we needs to think it reversely.
+Similar to #174., we needs to think it reversely.
 dp[i][j] means the area of the maximal square starting from (i,j) to (row, col)
 ```
 row = matrix.size()
@@ -834,7 +839,7 @@ return output
 ```
 
 
-## 222. Count Complete Tree Nodes
+##222. Count Complete Tree Nodes
 ```
 CountNodes(root)
     height = the height of root
@@ -853,29 +858,29 @@ CountNodes(root)
 ```
 
 
-## 224. Basic Calculator
+##224. Basic Calculator
 See code
 
 
-## 225. Implement stack using queues
+##225. Implement stack using queues
 
 
-## 226. Invert Binary Tree
+##226. Invert Binary Tree
 
 
-## 227. Basic Calculator
+##227. Basic Calculator
 See code
 
 
-## 230. Kth Smallest Element In a BST
+##230. Kth Smallest Element In a BST
 
 
-## 231. Power of Two
+##231. Power of Two
 n <=0 return false
 n is power of two when (n & (n-1)) == 0 
 
 
-## 232. Implement Queue using Stacks
+##232. Implement Queue using Stacks
 ```
 Given two stacks, stackPop and stackPush
 
@@ -887,13 +892,13 @@ For the Push operation:
 See code for an optimized solution that can reduce the time complexity of Push operation from O(n) to O(1).
 
 
-## 234. Palindrome Linked List
+##234. Palindrome Linked List
 1. Calculate the length
 2. Reverse the first length/2 nodes
 3. Compare the first length/2 nodes with the last length/2 nodes
 
 
-## 236. Lowest Common Ancestor of a Binary Tree
+##236. Lowest Common Ancestor of a Binary Tree
 An intuitive solution is to find the ancestor path for each node and compare these two paths.
 
 The better solution is to use postorder traversal to calculate the state(left, mid, right) for each node.
@@ -901,18 +906,18 @@ left/right == 1 means found a target in left/right subtree, mid == 1 means node 
 Whenever left+mid+right >= 2, the lowest common ancestor is found.
 
 
-## 239. Sliding Window Maximum
+##239. Sliding Window Maximum
 Use monotonic decreasing queue to be the window.
 The front of the queue is the max num.
 Extend window: remove all the smaller nums before adding the new num.
 Shrink window: remove the front only if the front is equal to its original num(nums[i-k+1])
 
 
-## 241. Different Ways to Add Parentheses
+##241. Different Ways to Add Parentheses
 Divide and conquer
 
 
-## 276. Paint Fence
+##276. Paint Fence
 Locked.
 DP.
 The gist of the solution is to define the dp state properly.
@@ -934,7 +939,7 @@ return dp[i][0] + dp[i][1]  // x x and x y
 ```
 
 
-## 277. Find the Celebrity
+##277. Find the Celebrity
 By calling knows(i,j) we can identify i or j is not a celebrity.
 If i knows j, i is not a celebrity. If i doesn't know j, j is not a celebrity.
 We can use two passes to find the celebrity.
@@ -942,14 +947,14 @@ We can use two passes to find the celebrity.
 2.Make sure the candidate doesn't know anyone and is known by all the others.
 
 
-## 278. First Bad Version
+##278. First Bad Version
 Typical binary search problem.
 If n is bad and n-1 is good, n is the first bad version.
 Use binary search to find the first bad version.
 A possible optimization is to store all intermediate return results of calling isBadVersion Api.
 
 
-## 279. Perfect Squares
+##279. Perfect Squares
 DP.
 dp[i] is the least number perfect square numbers that sum to i.
 dp[0] is used for padding only.
@@ -967,17 +972,17 @@ return dp[n]
 ```
 
 
-## 283. Move Zeroes
+##283. Move Zeroes
 Similar to 27
 Fast and slow pointers.
 Make sure [0...slow-1] doesn't include 0
 
 
-## 295. Find Median From Data Stream
+##295. Find Median From Data Stream
 Similar to 480. Use multiset to store the stream data and maintain the leftmid iterator in the add function.
 
 
-## 297. Serialize and Deserialize Binary Tree
+##297. Serialize and Deserialize Binary Tree
 Serialize:
     Use preorder traversal to serialize the binary tree.
     Use ',' to separate each node and '#' to indicate a null child node.
@@ -987,7 +992,7 @@ Deserialize:
     But here we have a full binary tree(null child nodes are filled by '#'), we can build a binary tree in preorder.
 
 
-## 300. Longest Increasing Subsequence
+##300. Longest Increasing Subsequence
 The first approach is to use DP.
 dp[i] means the LIS of the subarray ending with ith element.
 if we can find an element nums[j] that is less than nums[i], j ranges from 0 to i-1,
@@ -997,8 +1002,8 @@ The second approach that uses binary search is quicker than the above one.
 <https://leetcode.com/problems/longest-increasing-subsequence/solution/>
 
 
-## 309. Best Time to Buy and Sell Stock with Cooldown
-Use the same algorithm in 121, except k is infinity and has cooldown limit.
+##309. Best Time to Buy and Sell Stock with Cooldown
+Use the same algorithm in #121., except k is infinity and has cooldown limit.
 Since k is infinity, we can ignore it.
 Since we have cooldown limit, we need to introduce the third state "in_cooldown"
 
@@ -1015,7 +1020,7 @@ return max(dp[i][k][no_stock], dp[i][k][in_cooldown])
 ```
 
 
-## 312. Burst Balloon
+##312. Burst Balloon
 DP.
 Add two virtual balloon at the beginning and at the end of nums
 dp[i][j] represents the max coins we can get by shooting balloons from (i,j)  0 <= i,j <= nums.size()+1
@@ -1031,8 +1036,8 @@ return dp[0][nums.size()+1]
 ```
 
 
-## 316. Remove Duplicate Letters
-The basic idea is to use monotonic increasing stack which is used at 496.
+##316. Remove Duplicate Letters
+The basic idea is to use monotonic increasing stack which is used at #496.
 We can use deque and operate at the back of the deque and output characters from the front.
 
 ```
@@ -1050,12 +1055,12 @@ string(deque.begin(), deque.end())
 ```
 
 
-## 322. Coin Change
+##322. Coin Change
 This is a typical task that can use the result of smaller scale task.
 Note that when get a new solution, need to compare to the existing solution, only update it if the new one is smaller.
 
 
-## 332. Reconstruct Itinerary
+##332. Reconstruct Itinerary
 1. build graph
 2. for each vertices, sort its edges
 3. DFS(root)
@@ -1076,7 +1081,7 @@ We can also optimize the above algorithm by using min heap, so we can save the s
 It's worth noting that we can have multiple identical tickets.
 
 
-## 337. House Robber III
+##337. House Robber III
 DP.
 Set the root node as the target, and the bottom up procedure is to use postorder traversal.
 ```
@@ -1097,20 +1102,20 @@ return max(rootRob, rootNotRob)
 ```
 
 
-## 341. Flatten Nested List Iterator
+##341. Flatten Nested List Iterator
 
 
-## 344. Reverse String
+##344. Reverse String
 Low and high pointers
 
 
-## 354. Russian Doll Envelopes
+##354. Russian Doll Envelopes
 The gist of the solution is to sort the input properly and the original problem can be converted into finding Longest Increasing Subsequence.
 Sort the input by width in ascending order and by height in descending order if two widths are the same.
 Then we can find LIS in the sequence of heights.
 
 
-## 355. Design Twitter
+##355. Design Twitter
 The gist of the solution is to use priority_queue to get the 10 most latest tweets.
 All the tweets of a user are stored in a single-linked list, which is very convenient to get the next tweet.
 
@@ -1120,7 +1125,7 @@ Algorithm for getNewsFeed
 2.Pop the top tweet of the priority_queue, and get the next tweet of it.
 
 
-## 363. Max Sum of Rectangle No Larger Than K
+##363. Max Sum of Rectangle No Larger Than K
 1. Compress the matrix into 1D array, 
 2. Given the 1D array, the original problem is now converted to finding the max subarray sum no larger than k
 3. Similar to finding the subarray sum equals K(#560), we can use prefix sum, but cannot use hashmap, since we have to find the sum no larger than k.
@@ -1143,7 +1148,7 @@ In step1, different than #85, here we need to compress rows from [i,j]  0 <= i, 
 And if row is larger than col, we need to compress the matrix horizontally, not vertically.
 
 
-## 372. Super Pow
+##372. Super Pow
 ```
 (a * b) % base = (a % base) * (b % base) % base
 
@@ -1151,7 +1156,7 @@ a^k % base = (a % base) * (a^(k-1) % base) % base   // recursive
 ```
 
 
-## 375. Guess Number Higher or Lower II
+##375. Guess Number Higher or Lower II
 DP.
 dp[i][j] is the minimum money to win a game with number [i, j]
 ```
@@ -1172,38 +1177,38 @@ return dp[1][n]
 ```
 
 
-## 380. Insert Delete GetRandom O(1)
+##380. Insert Delete GetRandom O(1)
 It's intuitive to think of using hashset to achieve O(1) insert and delete, but hashset cannot getRandom at O(1).
 The only way to make getRandom at O(1) is to use array, but how can we guarantee O(1) insert and delete on an array?
 The trick is to insert at the back of the array, and swap the element that needs to be deleted with the last one and then delete it.
 
 
-## 382. Linked List Random Node
+##382. Linked List Random Node
 GetRandom over a list of unknown size with constant space, we need to use reservoir sampling algorithm.
 
 
-## 383. Ransom Note
+##383. Ransom Note
 
 
-## 384. Shuffle an Array
+##384. Shuffle an Array
 Fisher-Yates Algorithm
 
 
-## 389. Find the Difference
+##389. Find the Difference
 
 
-## 392. Is Subsequence
+##392. Is Subsequence
 The simple solution is to use two pointers. Time O(n)
 
 For the follow up question.
 Use a map to store all the indices of a character in ascending order
 
 
-## 398. Random Pick Index
+##398. Random Pick Index
 Reservoir sampling
 
 
-## 399. Evaluate Division
+##399. Evaluate Division
 1. convert all variable names into int index.
 2. build a two dimension array calcResult to store division results.
 
@@ -1229,7 +1234,7 @@ DFS(u, v, mapVisited):
 ```
 
 
-## 416. Partition Equal Subset Sum
+##416. Partition Equal Subset Sum
 It is similar to the Knapsack problem and we can use DP to solve it as well.
 1. Check if the totalSum is even or not. If it is not even, return false.
 ```
@@ -1269,7 +1274,7 @@ return cachedResult[target]
 ```
 
 
-## 435. Non-overlapping Intervals
+##435. Non-overlapping Intervals
 Greedy.
 ```
 Sort all the intervals [lo, hi] by hi in ascending order
@@ -1285,28 +1290,28 @@ for i from [2, intervals.size() -1]
 ```
 
 
-## 438. Find All Anagrams in a String
+##438. Find All Anagrams in a String
 It's a similar problem to #567, except it needs to collect all the permutations.
 
 
-## 448. Find All Numbers Disappeared in an Array
+##448. Find All Numbers Disappeared in an Array
 Swap nums[i] to the right position, which is nums[i] - 1
 For example, value 3 needs to be swapped to nums[2]
 Beware of the case the nums[i] is duplicated and is already at the right position.
 
 
-## 450. Delete Node in a BST
+##450. Delete Node in a BST
 
 
-## 452. Minimum Number of Arrows to Burst Ballons
+##452. Minimum Number of Arrows to Burst Ballons
 Greedy.
 Similar to 435
 
 
-## 460. LFU Cache
+##460. LFU Cache
 
 
-## 480. Sliding Window Median
+##480. Sliding Window Median
 Use multiset in C++ to store the sliding window, which is a binary search tree.
 The tricky is to maintain the iterator of the left mid, which is the median for a odd window and left median for an even window.
 
@@ -1316,7 +1321,7 @@ However, using erase(lower_bound()) will remove the front of those existed value
 1 2 *3(removed)* 3 3 4 4
 
 
-## 494. Target Sum
+##494. Target Sum
 DP.
 It not difficult to summarize the definition of dp, but there are some details that we need to pay attention to.
 1. '+0' and '-0' are two valid cases
@@ -1348,16 +1353,16 @@ return dp[nums.size()-1][S+sum] // shift by adding sum
 ```
 
 
-## 496. Next Greater Element I
+##496. Next Greater Element I
 Use monotonic increase stack.
 
 
-## 503. Next Greater Element II
+##503. Next Greater Element II
 Similar to 496.
 Double the size of the input array, it's the common practice to address circular input array problem.
 
 
-## 516. Longest Palindromic Subsequence
+##516. Longest Palindromic Subsequence
 DP.
 dp[i][j] represents the longest palindromic subsequence of s[i...j]
 ```
@@ -1375,7 +1380,7 @@ return dp[0][s.size()-1]
 ```
 
 
-## 518. Coin Change 2
+##518. Coin Change 2
 My first attempt is to use naive DP.
 ```
 f[i][j] means using first i coins to make the changes for j amount.
@@ -1407,12 +1412,12 @@ for i=1; i<=coins.size(); i++
 ```
 
 
-## 538. Convert BST to Greater Tree
+##538. Convert BST to Greater Tree
 Use reversed inorder traversal, time O(N), space O(N).
 There is a better solution called Morris traversal which can reduce the space complexity to O(1).
 
 
-## 547. Friend Circles
+##547. Friend Circles
 Typical disjoint sets problem, use union find to solve it.
 Use -1 as the initial root value for each node.
 -2 means it's a root node and there are 2 nodes in the set.
@@ -1421,7 +1426,7 @@ This will reduce overall cost of find operation.
 We also use path compression in find operation.
 
 
-## 560. Subarray Sum Equals K
+##560. Subarray Sum Equals K
 Cumulative sum.
 ```
 cumSum.size() = nums.size() + 1
@@ -1437,28 +1442,28 @@ The answer is to get how many elements which index are less than j+1 in the cumS
 ```
 
 
-## 567. Permutation in String
+##567. Permutation in String
 Sliding window.
 Beware that the target is to find a substring not a subset, so any incontinuous candidate in window needs to be ruled out.
 
 
-## 583. Delete Operation for Two Strings
+##583. Delete Operation for Two Strings
 1.Get the length of LCS(longest common subsequence)
 2.return word1.size() - lenLCS + word2.size() - lenLCS
 
 
-## 645. Set Mismatch
+##645. Set Mismatch
 Same as 448
 
 
-## 652. Find Duplicate Subtrees
+##652. Find Duplicate Subtrees
 The gist of the solution is to use postorder traversal to serialize all subtrees, and use hashtable to find the duplicate ones.
 
 
-## 654. Maximum Binary Tree
+##654. Maximum Binary Tree
 
 
-## 710. Random Pick with Blacklist
+##710. Random Pick with Blacklist
 The blacklist convert the array into an inconsecutive array.
 How can we convert it back to a consecutive array?
 The solution is to use hashmap to map the nums in the blacklist to the ones that at the back of the original array.
@@ -1467,7 +1472,7 @@ It's worth noting that those nums in the blacklist and greater or equal than N-b
 When we find a candidate from the back of the original array, we have to make sure it is not in the blacklist.
 
 
-## 712. Minimum ASCII Delete Sum for Two Strings
+##712. Minimum ASCII Delete Sum for Two Strings
 DP.
 Similar to 1143. find LCS(Longest Common Subsequence)
 dp[i][j] represents the minimum ASCII delete sum of s1[0...i-1] and s2[0...j-1]
@@ -1488,24 +1493,24 @@ return dp[text1.size()][text2.size()]
 Similarly, we can compress dp array, but the base case dp[i][0] needs to be moved in to the inner loop of text1. See code.
 
 
-## 714. Best Time to Buy and Sell Stock with Transaction Fee
+##714. Best Time to Buy and Sell Stock with Transaction Fee
 Use the same algorithm in 121, except k is infinity and fee will be deducted from profit for each sell.
 
 
-## 733. Flood Fill
+##733. Flood Fill
 1. Cache all reached grids
 2. Use DFS to recursively traverse all the neighbor grids until the grid is either invalid, ,of wrong color, or reached. 
 
 
-## 739. Daily Temperatures
+##739. Daily Temperatures
 Similar to 496
 
 
-## 752. Open the Lock
+##752. Open the Lock
 BFS. The start node is "0000" and it has 8 neighbors.
 
 
-## 763. Partition Labels
+##763. Partition Labels
 ```
 for each characters in the input string
     create a new partition for the character
@@ -1518,7 +1523,7 @@ for each characters in the input string
 ```
 
 
-## 767. Reorganize String
+##767. Reorganize String
 ```
 type charInfo struct {
     character   byte
@@ -1536,15 +1541,15 @@ for len(heap) > 0
 ```
 
 
-## 773. Sliding Puzzle
+##773. Sliding Puzzle
 BFS
 
 
-## 793. Preimage Size of Factorial Zeroes Function
+##793. Preimage Size of Factorial Zeroes Function
 Use binary search to get the left and right bound of K
 
 
-## 855. Exam Room
+##855. Exam Room
 Use set to store line segments [a,b], all the segments will be sorted by their distance.
 The definition of distance is (b - a + 1) / 2, which is the middle position, not b - a + 1
 We need to add two virtual seats -1 and N, otherwise we will lose control of left-most and right-most segments.
@@ -1552,10 +1557,10 @@ The distance of left-most segment [-1, b] is b
 The distance of right-most segment [a, N] is N-a-1
 
 
-## 875. Koko eating bananas
+##875. Koko eating bananas
 
 
-## 887. Super Egg Drop
+##887. Super Egg Drop
 This is a hard problem.
 If we can have unlimited eggs, we definitely can use binary search to find the answer.
 However now we only have K eggs, when K == 1, we have to use linear search to find the answer.
@@ -1630,34 +1635,34 @@ return dp(K, N)
 ```
 
 
-## 909. Snakes and Ladders
+##909. Snakes and Ladders
 Do not use DFS to calculate the steps needed to reach the destination grid for each next grid(+1,+2,+3,+4,+5,+6), this may end up having an infinite loop.
 Use BFS to calculate the distance to the start grid for each next grid until hit the destination.
 
 
-## 973. K Closest Points to Origin
+##973. K Closest Points to Origin
 Intuitively, we can calculate the distance for all the points (O(n)), sort (O(nlog n)) and get the first K points.
 However, we can optimize the previous procedure by using max heap instead of sorting all the points. Since updating an element in max heap is O(log n).
 We can initiate a max heap with the first K points (O(K)) and update the max heap ((n-K)O(log K)).
 
 
-## 986. Interval List Intersections
+##986. Interval List Intersections
 
 
-## 990. Satisfiability of Equality Equations
+##990. Satisfiability of Equality Equations
 Union find.
 
 
-## 994. Rotting Oranges
+##994. Rotting Oranges
 Define subtask that checks all the neighbor grids of the given rottedGrids(initial rottedGrids) and recursively call the subtask to check the newly rottedGrids.
 Use a counter to store the current number of fresh oranges.
 
 
-## 1046. Last Stone Weight
+##1046. Last Stone Weight
 Max heap.
 
 
-## 1049. Last Stone Weight II
+##1049. Last Stone Weight II
 DP.
 The gist of the approach is to convert the original problem into the minimum difference between two groups of numbers.
 If we can find a way to separate those stones into two piles, s1 and s2 are the sum of their weights, and get the minimum value of |s1-s2|,
@@ -1680,7 +1685,7 @@ for i from [target, 0]
 ```
 
 
-## 1109. Corporate Flight Bookings
+##1109. Corporate Flight Bookings
 Diff array.
 ```
 diffArr.size() = nums.size()
@@ -1699,10 +1704,10 @@ diffArr[j+1] -= n   // if j+1 is invalid, ignore it
 ```
 
 
-## 1011. Capacity To Ship Packages Within D Days
+##1011. Capacity To Ship Packages Within D Days
 
 
-## 1143. Longest Common Subsequence
+##1143. Longest Common Subsequence
 DP.
 dp[i][j] represents the longest common subsequence of text1[0...i-1] and text2[0...j-1]
 ```
@@ -1722,10 +1727,10 @@ return dp[text1.size()][text2.size()]
 dp[i][j] can be compressed into dp[2][j] which only needs O(N) space.
 
 
-## 1288. Remove Covered Intervals
+##1288. Remove Covered Intervals
 
 
-## 1312. Minimum Insertion Steps to Make a String Palindrome
+##1312. Minimum Insertion Steps to Make a String Palindrome
 DP.
 dp[i][j] represents the minimum insertion steps for s[i...j]
 ```
@@ -1743,7 +1748,7 @@ return dp[0][s.size()-1]
 ```
 
 
-## 1351. Count Negative Numbers in a Sorted Matrix
+##1351. Count Negative Numbers in a Sorted Matrix
 Use binary search on the first num of all rows.
 All the nums of the row that has a first negative num are negative.
 Use binary search on each row that has a first non-negative num.
