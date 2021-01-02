@@ -396,6 +396,23 @@ DFS the above tree and check the current node with its previous sibling node, if
 For exampe, if [s[1]] == [s[0]] we can skip the search for the subtree s[1].
 
 
+## 91. Decode Ways
+DP.
+```
+dp[i] means how many ways to decode substring [0...i]
+
+if s[i] is '0' and needs to append to s[i-1]
+    dp[i] == dp[i-2]
+if s[i] is not '0' and can not append to s[i-1]
+    dp[i] == dp[i-1]
+if s[i] is not '0' and can append to s[i-1]
+    dp[i] == dp[i-1] + dp[i-2]
+```
+However, there are several edge cases need to take care of.
+1. "301" or "1001"  -- s[i] is '0' and s[i-1] is not '1' or '2'
+2. "01" -- s[0] is '0'
+
+
 ## 92. Reverse Linked List II
 
 
