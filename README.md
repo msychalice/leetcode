@@ -1587,6 +1587,11 @@ for len(heap) > 0
 BFS
 
 
+##785. Is Graph Bipartite
+Graph coloring + BFS
+Note that different with regular BFS, we have to traverse all the vertices to handle the isolated vertices.
+
+
 ##793. Preimage Size of Factorial Zeroes Function
 Use binary search to get the left and right bound of K
 
