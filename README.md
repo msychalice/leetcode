@@ -1588,7 +1588,7 @@ BFS
 
 
 ##785. Is Graph Bipartite
-Graph coloring + BFS
+Graph coloring + BFS \
 Note that different with regular BFS, we have to traverse all the vertices to handle the isolated vertices.
 
 
