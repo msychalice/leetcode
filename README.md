@@ -768,6 +768,35 @@ Ruling out all the non primes.
 ##206. Reverse Linked List
 
 
+##207. Course Schedule
+Topological sort. DFS.
+```
+build adjacency list
+
+hasCircle(node)
+    if node is visited 
+        return false
+    if node is visiting
+        return true
+
+    mark node as visiting
+
+    for each neighbor node
+        if hasCircle(neighbor)
+            return true
+
+    mark node as visited
+    //add node at the head of ordered_list(topological sort)
+    return false
+
+for each node
+    if node is not visited
+        if hasCircle(node)
+            return false
+return true
+```
+
+
 ##213. House Robber II
 DP.
 The solution is similar to #198., but it needs to add a new state "firstrob/firstnotrob".
