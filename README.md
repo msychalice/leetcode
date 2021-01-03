@@ -1020,6 +1020,13 @@ return max(dp[i][k][no_stock], dp[i][k][in_cooldown])
 ```
 
 
+## 310. Minimum Height Trees
+1.Tree is a special graph with n vertices and n-1 edges.
+2.Use adjacency sets to store the graph data
+3.Use BFS to trim the leaf nodes until there are at most two nodes left.
+4.The reason why there are at most two centroids, see <https://leetcode.com/problems/minimum-height-trees/solution/>
+
+
 ##312. Burst Balloon
 DP.
 Add two virtual balloon at the beginning and at the end of nums
