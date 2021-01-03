@@ -797,6 +797,12 @@ return true
 ```
 
 
+##210. Course Schedule II
+Similar to #207.
+Topological sort. DFS.
+Note that needs to handle all the nodes, even if it is not connected with anyone else.
+
+
 ##213. House Robber II
 DP.
 The solution is similar to #198., but it needs to add a new state "firstrob/firstnotrob".
