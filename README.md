@@ -1505,6 +1505,10 @@ The gist of the solution is to use postorder traversal to serialize all subtrees
 ## 654. Maximum Binary Tree
 
 
+## 684. Redundant Connection
+Union find.
+
+
 ## 710. Random Pick with Blacklist
 The blacklist convert the array into an inconsecutive array.
 How can we convert it back to a consecutive array?
