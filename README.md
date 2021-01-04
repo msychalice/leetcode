@@ -1709,6 +1709,11 @@ Define subtask that checks all the neighbor grids of the given rottedGrids(initi
 Use a counter to store the current number of fresh oranges.
 
 
+## 997. Find the Town Judge
+Find the vertex with N-1 indegree and 0 outdegree.
+Attention to the edge case with one vertex and zero edge.
+
+
 ## 1046. Last Stone Weight
 Max heap.
 
