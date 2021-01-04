@@ -90,11 +90,12 @@ public:
     vector<int> findRedundantConnection(vector<vector<int>>& edges) {
         vector<int> disjointSets(edges.size() + 1, -1);  // padding 0
 
-        // find
+        // find root
         function<int(int)> f = [&](int v) {
             int root = disjointSets[v];
+            // v is a root ,return itself
             if (root < 0) {
-                return root;
+                return v;
             }
 
             while (disjointSets[root] > 0) {
@@ -110,40 +111,6 @@ public:
         function<bool(int, int)> u = [&](int v1, int v2) {
             int root1 = f(v1);
             int root2 = f(v2);
-            // v1 and v2 are both root
-            if (root1 < 0 && root2 < 0) {
-                disjointSets[v1]--;
-                disjointSets[v2] = v1;
-                return true;
-            }
-            // v1 is root, v2 isn't
-            if (root1 < 0 && root2 > 0) {
-                if (v1 < root2) {
-                    disjointSets[v1] += disjointSets[root2];
-                    disjointSets[root2] = v1;
-                } else if (v1 > root2) {
-                    disjointSets[root2] += disjointSets[v1];
-                    disjointSets[v1] = root2;
-                } else {
-                    // find a circle
-                    return false;
-                }
-                return true;
-            }
-            // v2 is root, v1 isn't
-            if (root1 > 0 && root2 < 0) {
-                if (root1 < v2) {
-                    disjointSets[root1] += disjointSets[v2];
-                    disjointSets[v2] = root1;
-                } else if (root1 > v2) {
-                    disjointSets[v2] += disjointSets[root1];
-                    disjointSets[root1] = v2;
-                } else {
-                    // find a circle
-                    return false;
-                }
-                return true;
-            }
 
             if (root1 < root2) {
                 disjointSets[root1] += disjointSets[root2];
@@ -158,7 +125,6 @@ public:
             return true;
         };
 
-
         for (auto& e : edges) {
             if (!u(e[0], e[1])) {
                 return e;
@@ -172,9 +138,9 @@ public:
 int main(){
     Solution s;
     /*
+     */
     vector<vector<int>> input{{1, 2}, {1, 3}, {2, 3}};
     printContainer(s.findRedundantConnection(input));
-     */
     vector<vector<int>> input1{{1, 2}, {2, 3}, {3, 4}, {1, 4}, {1, 5}};
     printContainer(s.findRedundantConnection(input1));
     /*
