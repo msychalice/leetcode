@@ -218,9 +218,9 @@ if n > 2 || n < -2
 
 
 ## 51. N-Queens
-This is a similar problem with 46Permutations which can be solved by backtracking.
-The ith layer of the decision tree represents selected columns for ith row of the chessboard.
-The way of checking two queens are in same diagonal is by checking abs(row1-row2) == abs(col1-col2)
+This is a similar problem with 46Permutations which can be solved by backtracking. \
+The ith layer of the decision tree represents selected columns for ith row of the chessboard. \
+The way of checking two queens are in same diagonal is by checking abs(row1-row2) == abs(col1-col2) \
 
 
 ## 53. Maximum Subarray
@@ -1606,6 +1606,10 @@ The distance of right-most segment [a, N] is N-a-1
 
 ## 875. Koko eating bananas
 
+
+## 886. Possible Bipartition
+Graph coloring + BFS.
+Similar to #785.
 
 ## 887. Super Egg Drop
 This is a hard problem.
