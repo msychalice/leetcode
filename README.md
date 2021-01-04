@@ -1596,6 +1596,10 @@ Note that different with regular BFS, we have to traverse all the vertices to ha
 Use binary search to get the left and right bound of K
 
 
+## 841. Keys and Rooms
+Graph traversal. DFS/BFS
+
+
 ## 855. Exam Room
 Use set to store line segments [a,b], all the segments will be sorted by their distance.
 The definition of distance is (b - a + 1) / 2, which is the middle position, not b - a + 1
