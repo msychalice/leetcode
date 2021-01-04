@@ -1787,6 +1787,12 @@ return dp[text1.size()][text2.size()]
 dp[i][j] can be compressed into dp[2][j] which only needs O(N) space.
 
 
+## 1202. Smallest String with Swaps
+1. DFS find connected vertices.
+2. Sort the vertices, which are the indices, and the character separately.
+3. Make the final swaps
+
+
 ## 1288. Remove Covered Intervals
 
 
