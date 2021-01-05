@@ -1513,7 +1513,7 @@ Union find.
 Union find.\
 There are 2 major cases.
 1. There isn't a vertex having two parents. In such case, it is the same problem as #684.
-2. There is a vertex v having two parents p1 and p2. And there are two subcases \
+2. There is a vertex v having two parents p1 and p2. And there are two subcases.
 2.1. Adding one of these two edges will form a circle.
 2.2. Adding neither the first edge nor the second edge will form a circle.
 We still need to use union find, but delete the second edge (p2, v) before using the union find.\
