@@ -562,6 +562,10 @@ Use the same algorithm in #121., except 1 <= k <= 2.
 We have to use 3 dimension dp, compression is not feasible.
 
 
+## 127. Word Ladder
+BFS. Same as #433.
+
+
 ## 130 Surrounded Regions
 It's quite difficult to use DFS to select those surrounds regions, but it's pretty straightforward, if we use DFS in a different direction.
 Every 'O' that links to a 'O' at border is not surrounded by 'X'.
@@ -1317,7 +1321,7 @@ return cachedResult[target]
 
 
 ## 433. Minimum Genetic Mutation
-BFS.
+BFS. Same as #127.
 
 
 ## 435. Non-overlapping Intervals
