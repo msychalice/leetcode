@@ -1831,6 +1831,13 @@ return dp[0][s.size()-1]
 ```
 
 
+## 1319. Number of Operations to Make Network Connected
+Union find.\
+circleCount represents the number of circle we find, which is the number of spare cables. \
+disjointSetCount represents the number of disjoint sets after running union find. \
+Therefore disjointSetCount-1 is the number of cables we need to use.
+
+
 ## 1351. Count Negative Numbers in a Sorted Matrix
 Use binary search on the first num of all rows.
 All the nums of the row that has a first negative num are negative.
