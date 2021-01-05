@@ -1316,6 +1316,10 @@ return cachedResult[target]
 ```
 
 
+## 433. Minimum Genetic Mutation
+BFS.
+
+
 ## 435. Non-overlapping Intervals
 Greedy.
 ```
