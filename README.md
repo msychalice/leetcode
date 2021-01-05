@@ -1509,6 +1509,17 @@ The gist of the solution is to use postorder traversal to serialize all subtrees
 Union find.
 
 
+## 685. Redundant Connection II
+Union find.\
+There are 3 cases.\
+1. There isn't a vertex having two parents. In such case, it is the same problem as #684.
+2. There is a vertex v having two parents p1 and p2. There are two subcases, adding one of these two edges will form a circle or not form a circle.\
+We still need to use union find, but delete the second edge (p2, v) before using the union find.\
+If we find a circle by adding all the edges except the deleted one, return the first edge.\
+Otherwise, return the second edge. Because if adding the second edge form a circle, we should return the second edge.\
+If not form a circle, which means adding one of these two edges won't form a circle, in such case return the second edge as well.\
+
+
 ## 710. Random Pick with Blacklist
 The blacklist convert the array into an inconsecutive array.
 How can we convert it back to a consecutive array?
