@@ -1511,9 +1511,11 @@ Union find.
 
 ## 685. Redundant Connection II
 Union find.\
-There are 3 cases.\
+There are 2 major cases.
 1. There isn't a vertex having two parents. In such case, it is the same problem as #684.
-2. There is a vertex v having two parents p1 and p2. There are two subcases, adding one of these two edges will form a circle or not form a circle.\
+2. There is a vertex v having two parents p1 and p2. And there are two subcases \
+2.1 Adding one of these two edges will form a circle.
+2.2 Adding neither the first edge nor the second edge will form a circle.
 We still need to use union find, but delete the second edge (p2, v) before using the union find.\
 If we find a circle by adding all the edges except the deleted one, return the first edge.\
 Otherwise, return the second edge. Because if adding the second edge form a circle, we should return the second edge.\
