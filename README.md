@@ -1639,6 +1639,12 @@ The distance of left-most segment [-1, b] is b
 The distance of right-most segment [a, N] is N-a-1
 
 
+## 863. All Nodes Distance K in Binary Tree
+BFS.\
+The next layer contains all the child nodes and the parent node. \
+When BFS reaches the target distance layer, stop searching for the next layer, and all the nodes in the queue are the result.
+
+
 ## 875. Koko eating bananas
 
 
