@@ -1621,6 +1621,12 @@ Note that different with regular BFS, we have to traverse all the vertices to ha
 Use binary search to get the left and right bound of K
 
 
+## 815. Bus Routes
+BFS.\
+For each stop s, the next layer contains all the stops that can be reached by taking all the buses going through stop s.\
+Ignore visited stops and buses to speed up the BFS.
+
+
 ## 841. Keys and Rooms
 Graph traversal. DFS/BFS
 
