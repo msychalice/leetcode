@@ -1804,6 +1804,10 @@ diffArr[j+1] -= n   // if j+1 is invalid, ignore it
 ## 1011. Capacity To Ship Packages Within D Days
 
 
+## 1129. Shortest Path with Alternating Colors
+BFS, but with two queues storing the neighbors connected with red or blue edges separately
+
+
 ## 1143. Longest Common Subsequence
 DP.
 dp[i][j] represents the longest common subsequence of text1[0...i-1] and text2[0...j-1]
