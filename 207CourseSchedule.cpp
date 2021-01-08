@@ -118,7 +118,10 @@ public:
                 }
             }
 
+            // it's unnecessary to set visiting[node] = true,
+            // since we always check visited[node] first
             visited[node] = true;
+
             // insert node into the head of the ordered_list(topological sort)
             return false;
         };

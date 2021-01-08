@@ -789,8 +789,12 @@ hasCircle(node)
         if hasCircle(neighbor)
             return true
 
+    // it's unnecessary to unmark node as not visiting
+    // since we always check whether node is visited first
     mark node as visited
+
     //add node at the head of ordered_list(topological sort)
+
     return false
 
 for each node
