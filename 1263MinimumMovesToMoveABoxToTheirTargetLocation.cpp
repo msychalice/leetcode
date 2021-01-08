@@ -154,13 +154,17 @@ public:
         int by;  // box y
         int px;  // player x
         int py;  // player y
+        int g;   // steps away from starting position
+        int h;  // heuristic distance(Manhattan distance)
+        int f() const {
+            return g + h;
+        }
         int hashvalue() const {
             return bx << 24 | by << 16 | px << 8 | py;
         }
     };
 
     int minPushBox(vector<vector<char>>& grid) {
-        // print2DimVec(grid);
         // locate the position of S B T
         int height = grid.size();
         int width = grid[0].size();
@@ -182,11 +186,6 @@ public:
             }
         }
 
-        /*
-        cout << "tx, ty, bx, by, px, py" << tx << "," << ty << "," << bx << ","
-             << by << "," << px << "," << py << endl;
-             */
-
         // four directions
         static const vector<vector<int>> directions{
             {0, 1}, {1, 0}, {-1, 0}, {0, -1}};
@@ -203,25 +202,13 @@ public:
                 return false;
             }
 
-            bool isPrint = false;
-            /*
-            if (px1 == 2 && py1 == 5 && px2 == 3 && py2 == 6) {
-                isPrint = true;
-            }
-            */
-
             vector<vector<bool>> visited(height, vector<bool>(width));
 
             /*
             // DFS
-
             function<bool(int, int)> dfs = [&](int x, int y) {
                 if (x == px2 && y == py2) {
                     return true;
-                }
-
-                if (isPrint) {
-                    cout << "mark visited " << x << "," << y << endl;
                 }
 
                 visited[x][y] = true;
@@ -231,25 +218,7 @@ public:
                     if (nextX < 0 || nextY < 0 || nextX >= height ||
                         nextY >= width || grid[nextX][nextY] == 'B' ||
                         grid[nextX][nextY] == '#' || visited[nextX][nextY]) {
-                        if (isPrint) {
-                            if (nextX < 0 || nextY < 0 || nextX >= height ||
-                                nextY >= width) {
-                                cout << "not valid next " << nextX << ","
-                                     << nextY << endl;
-                            } else if (visited[nextX][nextY]) {
-                                cout << "visited next " << nextX << "," << nextY
-                                     << endl;
-                            } else {
-                                cout << "1not valid next " << nextX << ","
-                                     << nextY << endl;
-                            }
-                        }
                         continue;
-                    } else {
-                        if (isPrint) {
-                            cout << "dfs next " << nextX << "," << nextY
-                                 << endl;
-                        }
                     }
 
                     if (dfs(nextX, nextY)) {
@@ -261,7 +230,7 @@ public:
             };
 
             return dfs(px1, py1);
-            */
+             */
 
             // we can use either DFS or BFS to find the path, but BFS will be
             // faster. In mose cases,the next player's position is around the
@@ -318,17 +287,6 @@ public:
                     bool res = hasPath(curNode.px, curNode.py, curNode.bx - dx,
                                        curNode.by - dy);
 
-                    if (nextBX == 3 && nextBY == 4 && nextPX == 3 &&
-                        nextPY == 5) {
-                        /*
-                        cout << "hasPath " << curNode.px << "," << curNode.py
-                             << "->" << curNode.bx - dx << ","
-                             << curNode.by - dy << endl;
-                        print2DimVec(grid);
-                        cout << "isvalid " << res << endl;
-                        */
-                    }
-
                     // after pathfinding, restore the position of box
                     swap(grid[bx][by], grid[curNode.bx][curNode.by]);
                     return make_pair(res, Node{nextBX, nextBY, nextPX, nextPY});
@@ -338,62 +296,46 @@ public:
             };
 
         unordered_set<int> visited;
-        queue<Node> queNeighbor;
+        function<bool(const Node&, const Node&)> greaterNode =
+            [](const Node& n1, const Node& n2) -> bool {
+            return n1.f() > n2.f();
+        };
+        priority_queue<Node, vector<Node>,
+                       function<bool(const Node&, const Node&)>>
+            queNeighbor(greaterNode);
 
         // push all possible initial nodes, 4 at most
         for (auto dir : directions) {
             if (hasPath(px, py, bx + dir[0], by + dir[1])) {
-                Node initialNode{bx, by, bx + dir[0], by + dir[1]};
-                /*
-                cout << "initialNode " << initialNode.bx << ","
-                     << initialNode.by << "," << initialNode.px << ","
-                     << initialNode.py << endl;
-                     */
+                // manhattan distance
+                Node initialNode{bx,          by, bx + dir[0],
+                                 by + dir[1], 0,  abs(bx - tx) + abs(by - ty)};
                 queNeighbor.push(initialNode);
                 visited.insert(initialNode.hashvalue());
             }
         }
 
-        int steps = 0;
-
         while (!queNeighbor.empty()) {
-            int queSize = queNeighbor.size();
-            while (queSize--) {
-                Node curNode = queNeighbor.front();
-                queNeighbor.pop();
+            Node curNode = queNeighbor.top();
+            queNeighbor.pop();
 
+            // check all four directions
+            for (auto dir : directions) {
+                auto [isValid, nextNode] = canPush(curNode, dir[0], dir[1]);
 
-                // check all four directions
-                for (auto dir : directions) {
-                    auto [isValid, nextNode] = canPush(curNode, dir[0], dir[1]);
+                // next node is reachable and not visited
+                if (isValid && visited.count(nextNode.hashvalue()) == 0) {
+                    nextNode.g = curNode.g + 1;
+                    nextNode.h = abs(nextNode.bx - tx) + abs(nextNode.by - ty);
 
-                    // next node is reachable and not visited
-                    if (isValid && visited.count(nextNode.hashvalue()) == 0) {
-                        if (nextNode.bx == tx && nextNode.by == ty) {
-                            return steps + 1;
-                        }
-
-                        queNeighbor.push(nextNode);
-                        visited.insert(nextNode.hashvalue());
-                        /*
-                        cout << "pushNode " << nextNode.bx << "," << nextNode.by
-                             << "," << nextNode.px << "," << nextNode.py
-                             << endl;
-                    } else {
-                        if (!isValid) {
-                            cout << "!isvalid" << endl;
-                        }
-                        if (visited.count(nextNode.hashvalue()) > 0) {
-                            cout << "visited" << endl;
-                        }
-                        cout << "not push node " << nextNode.bx << ","
-                             << nextNode.by << "," << nextNode.px << ","
-                             << nextNode.py << endl;
-                             */
+                    if (nextNode.bx == tx && nextNode.by == ty) {
+                        return nextNode.g;
                     }
+
+                    queNeighbor.push(nextNode);
+                    visited.insert(nextNode.hashvalue());
                 }
             }
-            steps++;
         }
 
         return -1;

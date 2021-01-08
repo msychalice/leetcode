@@ -1836,10 +1836,10 @@ dp[i][j] can be compressed into dp[2][j] which only needs O(N) space.
 
 ## 1263. Minimum Moves to Move a Box to Their Target Location
 DFS/BFS/A*.
-1.Define the node state that includes box's position and player's position.
-2.Use DFS or BFS to find a path from current player's position to the position where player do the next push.\
+1. Define the node state that includes box's position and player's position.
+2. Use DFS or BFS to find a path from current player's position to the position where player do the next push.\
 BFS is faster than DFS, since the target position is around the start position in most cases.
-3.Use BFS to find a valid path from box's original position to the target position.\
+3. Use BFS to find a valid path from box's original position to the target position.\
 We can also use A* to speed up the searching process.
 
 Note that before step 2, we need to update the box's position.
