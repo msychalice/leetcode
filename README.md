@@ -1577,6 +1577,10 @@ Use the same algorithm in 121, except k is infinity and fee will be deducted fro
 Similar to 496
 
 
+## 743. Network Delay Time
+Dijkstra.
+
+
 ## 752. Open the Lock
 BFS. The start node is "0000" and it has 8 neighbors.
 
