@@ -118,7 +118,7 @@ public:
                 }
             }
 
-            // it's unnecessary to set visiting[node] = true,
+            // it's unnecessary to set visiting[node] back to false,
             // since we always check visited[node] first
             visited[node] = true;
 
