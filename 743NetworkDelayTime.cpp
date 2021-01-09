@@ -155,6 +155,8 @@ public:
             adjList[e[0]].push_back(make_pair(e[1], e[2]));
         }
 
+        /*
+        // Dijkstra
         vector<int> visited(N + 1, -1);  // weight is >=0 if it is visited
         using GreaterFunc =
             function<bool(const pair<int, int>&, const pair<int, int>&)>;
@@ -199,6 +201,35 @@ public:
         };
 
         return reachableCount == N ? res : -1;
+        */
+
+        // Bellman-Ford
+        vector<int> dist(N + 1, numeric_limits<int>::max());
+        dist[K] = 0;
+        for (int i = 1; i < N; i++) {
+            bool isChanged = false;
+            for (auto& e : times) {
+                int from = e[0];
+                int to = e[1];
+                int w = e[2];
+                if (dist[from] != numeric_limits<int>::max()) {
+                    dist[to] = min(dist[to], dist[from] + w);
+                    isChanged = true;
+                }
+            }
+
+            if (!isChanged) {
+                break;
+            }
+        }
+        // since all the cost are non-negative value,
+        // don't check the N time for negative weight circle
+
+        int res = 0;
+        for (int i = 1; i <= N; i++) {
+            res = max(res, dist[i]);
+        }
+        return res == numeric_limits<int>::max() ? -1 : res;
     }
 };
 

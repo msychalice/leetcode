@@ -1850,7 +1850,9 @@ BFS is faster than DFS, since the target position is around the start position i
 3. Use BFS to find a valid path from box's original position to the target position.\
 We can also use A* to speed up the searching process.
 
-Note that before step 2, we need to update the box's position.
+Note that before step 2, we need to update the box's position.\
+Dijkstra is essentially the same with BFS in this 2D grid path finding case.\
+A* is the optimized version of BFS with the heuristic distance.
 
 
 ## 1288. Remove Covered Intervals
