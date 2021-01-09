@@ -150,13 +150,13 @@ public:
 class Solution {
 public:
     int networkDelayTime(vector<vector<int>>& times, int N, int K) {
+        /*
+        // Dijkstra
         vector<vector<pair<int, int>>> adjList(N + 1);  // pair(vertex, weight)
         for (auto& e : times) {
             adjList[e[0]].push_back(make_pair(e[1], e[2]));
         }
 
-        /*
-        // Dijkstra
         vector<int> visited(N + 1, -1);  // weight is >=0 if it is visited
         using GreaterFunc =
             function<bool(const pair<int, int>&, const pair<int, int>&)>;
@@ -203,6 +203,7 @@ public:
         return reachableCount == N ? res : -1;
         */
 
+        /*
         // Bellman-Ford
         vector<int> dist(N + 1, numeric_limits<int>::max());
         dist[K] = 0;
@@ -228,6 +229,38 @@ public:
         int res = 0;
         for (int i = 1; i <= N; i++) {
             res = max(res, dist[i]);
+        }
+        return res == numeric_limits<int>::max() ? -1 : res;
+        */
+
+        // Floyd-Warshall
+        vector<vector<int>> dist(
+            N + 1, vector<int>(N + 1, numeric_limits<int>::max()));
+        for (int i = 1; i <= N; i++) {
+            // add a 0 weight self-pointing edge
+            dist[i][i] = 0;
+        }
+        for (auto& e : times) {
+            dist[e[0]][e[1]] = e[2];
+        }
+
+        for (int n = 1; n <= N; n++) {
+            for (int i = 1; i <= N; i++) {
+                for (int j = 1; j <= N; j++) {
+                    // check weight before the addition, otherwise it might
+                    // overflow
+                    if (dist[i][n] == numeric_limits<int>::max() ||
+                        dist[n][j] == numeric_limits<int>::max()) {
+                        continue;
+                    }
+                    dist[i][j] = min(dist[i][j], dist[i][n] + dist[n][j]);
+                }
+            }
+        }
+
+        int res = 0;
+        for (int i = 1; i <= N; i++) {
+            res = max(res, dist[K][i]);
         }
         return res == numeric_limits<int>::max() ? -1 : res;
     }

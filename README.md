@@ -1578,7 +1578,9 @@ Similar to 496
 
 
 ## 743. Network Delay Time
-Dijkstra.
+Dijkstra.\
+Bellman-Ford.\
+Floyd-Warshall.
 
 
 ## 752. Open the Lock
