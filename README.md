@@ -1630,6 +1630,9 @@ Note that different with regular BFS, we have to traverse all the vertices to ha
 ## 787. Cheapest Flights Within K Stops
 1. DFS. Similar to backtracking, set visited to true before recursively calling dfs and set visited back to false after the recursive call.
 2. BFS. Different from regular BFS, don't need to check whether it is visited or not, just make sure the current steps won't exceed K.
+
+It's worth noting that in approach 1 and 2, we need to prune the cases in which the cost exceeds the minimum cost we have found.
+
 3. Bellman-Ford DP. The best approach for this problem. Different from regular Bellman-Ford used in #743., here we need to get a intermediate result within k steps.
 ```
 dp[k][v] represents the minimum cost from src to v within k steps
@@ -1644,7 +1647,7 @@ for i from [1, K+1]
 return dp[K+1][dst]
 ```
 
-It's worth noting that in approach 1 and 2, we need to prune the cases in which the cost exceeds the minimum cost we have found.
+4. Dijkstra
 
 
 ## 793. Preimage Size of Factorial Zeroes Function
