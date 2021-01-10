@@ -1681,6 +1681,11 @@ When BFS reaches the target distance layer, stop searching for the next layer, a
 ## 875. Koko eating bananas
 
 
+## 882. Reachable Nodes in Subdivided Graph
+Dijkstra/BFS. \
+Calculate all the reachable nodes and how many steps left when reached at those nodes.
+
+
 ## 886. Possible Bipartition
 Graph coloring + BFS.
 Similar to #785.
