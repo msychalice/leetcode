@@ -1684,6 +1684,11 @@ The next layer contains all the child nodes and the parent node. \
 When BFS reaches the target distance layer, stop searching for the next layer, and all the nodes in the queue are the result.
 
 
+## 864. Shortest Path to Get All Keys
+BFS. Similar to #847.\
+Define the node state as (x,y, acquiredKeys, moves).
+
+
 ## 875. Koko eating bananas
 
 
