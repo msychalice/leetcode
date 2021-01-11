@@ -1770,6 +1770,13 @@ Do not use DFS to calculate the steps needed to reach the destination grid for e
 Use BFS to calculate the distance to the start grid for each next grid until hit the destination.
 
 
+## 924. Minimize Malware Spread
+The problem is quite ambiguous.\
+The final answer is to filter out those disjoint sets with only one node affected.\
+If there is no such DS, return the sorted initial[0]\
+If there are multiple DS meet the above requirement, return the one has the most nodes.(It will eventually save the most nodes)
+
+
 ## 973. K Closest Points to Origin
 Intuitively, we can calculate the distance for all the points (O(n)), sort (O(nlog n)) and get the first K points.
 However, we can optimize the previous procedure by using max heap instead of sorting all the points. Since updating an element in max heap is O(log n).
