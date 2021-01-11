@@ -1664,6 +1664,12 @@ Ignore visited stops and buses to speed up the BFS.
 Graph traversal. DFS/BFS
 
 
+## 847. Shortest Path Visiting All Nodes
+BFS.\
+The gist of the approach is to define the node state as (node, coveredNodes, pathLen).\
+Since the number of node is less than 12, coveredNodes can be compressed into an int by bit operations.
+
+
 ## 855. Exam Room
 Use set to store line segments [a,b], all the segments will be sorted by their distance.
 The definition of distance is (b - a + 1) / 2, which is the middle position, not b - a + 1
