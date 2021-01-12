@@ -155,18 +155,18 @@ public:
             int x;
             int y;
             int acquiredkeys;  // compressed by bit operation
-            int moves;         // current moves
-            void acquireKey(char key) {
-                acquiredkeys |= 1 << (key - 'a');
-            }
-            bool isKeyAcquired(int key) const {
-                return acquiredkeys & (1 << key);
-            }
+        };
+
+        auto acquireKey = [](int curKeys, char newKey) {
+            return curKeys | (1 << (newKey - 'a'));
+        };
+        auto isKeyAcquired = [](int curKeys, int key) {
+            return curKeys & (1 << key);
         };
 
         int srcX = 0;
         int srcY = 0;
-        Node dstNode{0, 0, 0, 0};  // leverage the Node::acquireKey method
+        int dstKeys = 0;  // the keys in the grid
         for (int i = 0; i < grid.size(); i++) {
             for (int j = 0; j < grid[i].size(); j++) {
                 if (grid[i][j] == '@') {
@@ -174,7 +174,7 @@ public:
                     srcY = j;
                 }
                 if (grid[i][j] >= 'a' && grid[i][j] <= 'f') {
-                    dstNode.acquireKey(grid[i][j]);
+                    dstKeys = acquireKey(dstKeys, grid[i][j]);
                 }
             }
         }
@@ -183,7 +183,7 @@ public:
         // unordered_set contains all the visited node states
         vector<vector<unordered_set<int>>> visited(
             grid.size(), vector<unordered_set<int>>(grid[0].size()));
-        que.push(Node{srcX, srcY, 0, 0});
+        que.push(Node{srcX, srcY, 0});
         visited[srcX][srcY].insert(0);
         int moves = 0;
         static const vector<pair<int, int>> directions{
@@ -208,19 +208,19 @@ public:
                         continue;
                     }
                     if (adjNodeChar >= 'A' && adjNodeChar <= 'F' &&
-                        !curNode.isKeyAcquired(adjNodeChar -
-                                               'A')) {  // unlocked lock
+                        !isKeyAcquired(curNode.acquiredkeys,
+                                       adjNodeChar - 'A')) {  // unlocked lock
                         continue;
                     }
 
-                    Node adjNode{adjNodeX, adjNodeY, curNode.acquiredkeys,
-                                 curNode.moves + 1};
+                    int adjNodeAcquiredKeys = curNode.acquiredkeys;
                     if (adjNodeChar >= 'a' && adjNodeChar <= 'f') {  // key
-                        adjNode.acquireKey(adjNodeChar);
+                        adjNodeAcquiredKeys =
+                            acquireKey(adjNodeAcquiredKeys, adjNodeChar);
                     }
 
                     // all keys are acquired
-                    if (adjNode.acquiredkeys == dstNode.acquiredkeys) {
+                    if (adjNodeAcquiredKeys == dstKeys) {
                         return moves;
                     }
 
@@ -229,12 +229,12 @@ public:
                     // since BFS guarantees the least moves node state will be
                     // reached first
                     if (visited[adjNodeX][adjNodeY].count(
-                            adjNode.acquiredkeys)) {
+                            adjNodeAcquiredKeys)) {
                         continue;
                     }
 
-                    que.push(adjNode);
-                    visited[adjNodeX][adjNodeY].insert(adjNode.acquiredkeys);
+                    que.push(Node{adjNodeX, adjNodeY, adjNodeAcquiredKeys});
+                    visited[adjNodeX][adjNodeY].insert(adjNodeAcquiredKeys);
                 }
             }
         }
