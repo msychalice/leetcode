@@ -1906,6 +1906,14 @@ A* is the optimized version of BFS with the heuristic distance.
 ## 1288. Remove Covered Intervals
 
 
+## 1298. Maximum Candies You Can Get from Boxes
+BFS.\
+At first, the solution looks like the same as #864.\
+However, it is not the case. \
+The keys we have are global data, not local status for each node, so we don't need to define curKeys for each node and save it into queue.\
+Each box is contained in one box at most, which means for each node, it only has one chance to be pushed into queue, so the visited array is unnecessary as well.
+
+
 ## 1312. Minimum Insertion Steps to Make a String Palindrome
 DP.
 dp[i][j] represents the minimum insertion steps for s[i...j]
