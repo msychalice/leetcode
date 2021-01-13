@@ -1884,6 +1884,54 @@ return dp[text1.size()][text2.size()]
 dp[i][j] can be compressed into dp[2][j] which only needs O(N) space.
 
 
+## 1192 Critical Connections in a Network
+Tarjan.\
+The first attempt exceeds time limit.\
+```
+for each edge (u,v)
+    remove edge (u,v)
+    use dfs to find another path leads u to v
+    restore edge (u,v)
+```
+The time complexity is O(|E|^2), which is not accepted.
+
+```
+// Tarjan
+time = 0                // global counter for labelling each node while doing DFS
+disc[0...n-1] = -1      // the time label when the node is visited, can be used to 
+parent[0...n-1] = -1    // parent node for each node
+low[0...n-1] = -1       // For node i, low[i] represents the node with the lowest time label i can visit during DFS
+
+
+dfs(curNode)
+    if disc[curNode] != -1  // visited
+        return
+
+    // label the node by the visiting order of DFS
+    disc[curNode] == low[curNode] == time++ 
+
+    for each adjNode of curNode
+        if disc[adjNode] == -1  // not visited
+            parent[adjNode] = curNode
+            dfs(adjNode)
+            //update low[curNode] if found a back edge in child's DFS
+            low[curNode] = min(low[curNode], low[adjNode])
+
+            if low[adjNode] > disc[curNode]
+                // edge(curNode, adjNode) is a critical connection / bridge edge
+
+        else if disc[adjNode] != -1 && adjNode != parent[curNode]   // visited and it is not parent
+            // found a back edge, which means disc[adjNode] < disc[curNode]
+            // initially low[curNode] == disc[curNode], now we can update the low[curNode]
+            low[curNode] = min(low[curNode], disc[adjNode])
+
+
+for each node n
+    if disc[n] == -1 // not visited
+        dfs(n)
+```
+
+
 ## 1202. Smallest String with Swaps
 1. DFS find connected vertices.
 2. Sort the vertices, which are the indices, and the character separately.
