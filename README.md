@@ -1901,6 +1901,11 @@ return dp[text1.size()][text2.size()]
 dp[i][j] can be compressed into dp[2][j] which only needs O(N) space.
 
 
+## 1190 Reverse Substrings Between Each Pair of Parentheses
+Use stack to store the index of '(', and when it meets a ')', reverse the substring from the '(' at the top of the stack to the current ')'\
+At last, use two pointers, similar to removing 0 in an array, to remove all those '(' and ')' in the string.
+
+
 ## 1192 Critical Connections in a Network
 Tarjan.\
 The first attempt exceeds time limit.\
