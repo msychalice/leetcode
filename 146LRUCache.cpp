@@ -6,6 +6,7 @@
 #include <iostream>
 #include <iterator>
 #include <limits>
+#include <list>
 #include <map>
 #include <queue>
 #include <set>
@@ -146,10 +147,9 @@ public:
         : val(_val), left(_left), right(_right), next(_next) {}
 };
 
+/*
 class LRUCache {
-    /**
-     * Definition for double-linked list.
-     */
+    // Definition for double-linked list.
     struct DoubleLinkedListNode {
         int key;
         int val;
@@ -228,6 +228,58 @@ private:
     DoubleLinkedListNode* m_front;
     DoubleLinkedListNode* m_back;
 
+    int m_capacity;
+};
+*/
+
+class LRUCache {
+    using DoubleLinkedList = list<pair<int, int>>;  // pair(key, value)
+
+public:
+    LRUCache(int capacity) : m_capacity(capacity) {}
+
+    int get(int key) {
+        if (m_mapKeyToListIt.count(key)) {
+            int value = m_mapKeyToListIt[key]->second;
+
+            // move the (key, value) to the front of the list
+            m_list.erase(m_mapKeyToListIt[key]);
+            m_list.push_front({key, value});
+            m_mapKeyToListIt[key] = m_list.begin();
+
+            return value;
+        }
+
+        return -1;
+    }
+
+    void put(int key, int value) {
+        if (m_capacity == 0) {
+            return;
+        }
+
+        if (m_mapKeyToListIt.count(key)) {
+            m_mapKeyToListIt[key]->second = value;
+
+            // move the (key, value) to the front of the list
+            m_list.erase(m_mapKeyToListIt[key]);
+            m_list.push_front({key, value});
+            m_mapKeyToListIt[key] = m_list.begin();
+        } else {
+            if (m_mapKeyToListIt.size() == m_capacity) {
+                // remove the least recently used one
+                m_mapKeyToListIt.erase(m_list.back().first);
+                m_list.pop_back();
+            }
+
+            m_list.push_front({key, value});
+            m_mapKeyToListIt[key] = m_list.begin();
+        }
+    }
+
+private:
+    unordered_map<int, DoubleLinkedList::iterator> m_mapKeyToListIt;
+    DoubleLinkedList m_list;
     int m_capacity;
 };
 
