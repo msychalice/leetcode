@@ -1254,6 +1254,13 @@ For the follow up question.
 Use a map to store all the indices of a character in ascending order
 
 
+## 395. Longest Substring with At Least K Repeating Characters
+Sliding window.\
+Have to add a special condition to the window, otherwise the right pointer will expand all the way to the end.\
+The condition is that there are m different characters in window.\
+So we have to run the sliding window for 26 times.
+
+
 ## 398. Random Pick Index
 Reservoir sampling
 
