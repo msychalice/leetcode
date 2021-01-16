@@ -296,6 +296,7 @@ public:
             n, vector<int>(K + 2, numeric_limits<int>::max()));
 
         que.push(Node{src, 0, 0});
+        visited[src][0] = 0;
         while (!que.empty()) {
             auto [curVertex, curCost, curSteps] = que.top();
             que.pop();
