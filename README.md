@@ -463,6 +463,10 @@ return dp[s1.size()][s2.size()]
 ```
 
 
+## 98. Validate Binary Search Tree
+Inorder traversal of a BST is sorted.
+
+
 ## 100. Same Tree
 
 
