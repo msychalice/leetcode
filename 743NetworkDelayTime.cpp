@@ -151,6 +151,7 @@ class Solution {
 public:
     int networkDelayTime(vector<vector<int>>& times, int N, int K) {
         /*
+         */
         // Dijkstra
         vector<vector<pair<int, int>>> adjList(N + 1);  // pair(vertex, weight)
         for (auto& e : times) {
@@ -164,6 +165,9 @@ public:
                                      const pair<int, int>& v2) {
             return v1.second > v2.second;
         };
+
+        int reachableCount = 0;
+        int res = 0;
         priority_queue<pair<int, int>, vector<pair<int, int>>, GreaterFunc>
             queNeighbor(greaterFunc);
 
@@ -176,8 +180,9 @@ public:
             if (visited[vertex] >= 0) {
                 continue;
             }
-
             visited[vertex] = weight;
+            reachableCount++;
+            res = max(res, weight);
 
             for (auto& e : adjList[vertex]) {
                 int nextVertex = e.first;
@@ -191,17 +196,7 @@ public:
             }
         }
 
-        int reachableCount = 0;
-        int res = 0;
-        for (auto& v : visited) {
-            if (v >= 0) {
-                reachableCount++;
-            }
-            res = max(res, v);
-        };
-
         return reachableCount == N ? res : -1;
-        */
 
         /*
         // Bellman-Ford
@@ -233,6 +228,7 @@ public:
         return res == numeric_limits<int>::max() ? -1 : res;
         */
 
+        /*
         // Floyd-Warshall
         vector<vector<int>> dist(
             N + 1, vector<int>(N + 1, numeric_limits<int>::max()));
@@ -263,6 +259,7 @@ public:
             res = max(res, dist[K][i]);
         }
         return res == numeric_limits<int>::max() ? -1 : res;
+        */
     }
 };
 
