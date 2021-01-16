@@ -700,6 +700,11 @@ Pop()
 ```
 
 
+## 160. Intersection of Two Linked Lists
+Move curA and curB, when they reach the end, jump to the head of the other list.\
+There only one jump is allowed for each list, otherwise this process will be endless if A and B are not intersected.
+
+
 ## 167. Two Sum II
 Low and high pointers.
 
