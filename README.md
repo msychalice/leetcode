@@ -1223,6 +1223,19 @@ a^k % base = (a % base) * (a^(k-1) % base) % base   // recursive
 ```
 
 
+## 373. Find K Pairs with Smallest Sums
+Binary search on sorted matrix.\
+But we actually don't need to build the matrix.\
+1. Binary search the matrix to find out the target that there are AT LEAST k numbers are less or equal to target.
+2. Search the matrix (usually from bottom left corner) to find all the pairs that are less or equal to target.
+3. Sort all the pairs and resize to k. \
+
+time complexity of step 1 is O(n*log(n^2)) == O(n*2*logn),  step 2 is O(n) \
+
+
+There is another interesting way to solve this problem is to use BFS and priority_queue to search the matrix from the top left corner.
+
+
 ## 375. Guess Number Higher or Lower II
 DP.
 dp[i][j] is the minimum money to win a game with number [i, j]
