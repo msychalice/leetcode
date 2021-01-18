@@ -1257,6 +1257,10 @@ return dp[1][n]
 ```
 
 
+## 378 Kth Smallest Element in a Sorted Matrix
+Similar to #373.
+
+
 ## 380. Insert Delete GetRandom O(1)
 It's intuitive to think of using hashset to achieve O(1) insert and delete, but hashset cannot getRandom at O(1).
 The only way to make getRandom at O(1) is to use array, but how can we guarantee O(1) insert and delete on an array?
