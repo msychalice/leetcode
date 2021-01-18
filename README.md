@@ -99,6 +99,10 @@ When k == 2, use two pointers to solve it.
 Backtracking
 
 
+## 23. Merge k Sorted Lists
+Use min_heap to store all the current head node of k sorted lists.
+
+
 ## 25. Reverse Nodes in k-Group
 
 
