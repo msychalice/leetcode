@@ -108,7 +108,7 @@ public:
         if (nums.size() == 0) {
             return 0;
         }
-        vector<int> dp(nums.size());
+        vector<int> dp;
         // binary search [lo, hi)
         // if target is in dp, return the index of target,
         // otherwise return index that target is supposed to be inserted into
@@ -126,18 +126,17 @@ public:
             return lo;
         };
 
-        dp[0] = nums[0];
-        int len = 1;
+        dp.push_back(nums[0]);
         for (int i = 1; i < nums.size(); i++) {
-            int index = bs(nums[i], 0, len);
-            dp[index] = nums[i];
-
-            if (index == len) {
-                len++;
+            int index = bs(nums[i], 0, dp.size());
+            if (index == dp.size()) {
+                dp.push_back(nums[i]);
+            } else {
+                dp[index] = nums[i];
             }
         }
 
-        return len;
+        return dp.size();
     }
 };
 
