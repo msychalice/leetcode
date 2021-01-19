@@ -1589,6 +1589,11 @@ Otherwise, return the second edge. Because if adding the second edge form a circ
 If not form a circle, which means adding one of these two edges won't form a circle, in such case return the second edge as well.
 
 
+## 692. Top K Frequent Words
+It's not difficult to come up with the approach using priority_queue, but be careful with the user-defined compare function.\
+We need to put frequency in ascending order but put word with same frequency in descending order.
+
+
 ## 710. Random Pick with Blacklist
 The blacklist convert the array into an inconsecutive array.
 How can we convert it back to a consecutive array?
