@@ -941,8 +941,8 @@ CountNodes(root)
 
 ## 227. Basic Calculator
 Similar to #224.\
-The only difference is that when hit a sign "+, -, *, /", if the current sign is "*, /", \
-need to pop the front number from the stack and do the "*, /' calculation and push the result back into the stack.
+The only difference is that when hit a sign "+, -, \*, /", if the current sign is "\*, /", \
+need to pop the front number from the stack and do the "\*, /' calculation and push the result back into the stack.
 
 
 ## 230. Kth Smallest Element In a BST
