@@ -115,6 +115,11 @@ Use min_heap to store all the current head node of k sorted lists.
 ## 28. Implement strStr()
 
 
+## 33. Search in Rotated Sorted Array
+Binary search.\
+Need to check whether left or right subarray is a rotated sorted array.
+
+
 ## 34. Find First and Last Position of Element in Sorted Array
 Use binary search to find the first and last index.
 It's worth noting that we can use the first index as min to optimize the process of finding the last index.
