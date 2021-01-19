@@ -928,7 +928,9 @@ CountNodes(root)
 
 
 ## 224. Basic Calculator
-See code
+1. hit a '(' recursively call the calc function
+2. hit a sign '+,-' push the num into stack and update the current sign
+3. when hit the end of the input string, don't forget to push the last num into stack, and then add all the numbers in the stack.
 
 
 ## 225. Implement stack using queues
@@ -938,7 +940,9 @@ See code
 
 
 ## 227. Basic Calculator
-See code
+Similar to #224.\
+The only difference is that when hit a sign '+,-,*,/', if the current sign is '*,/', \
+need to pop the front number from the stack and do the '*,/' calculation and push the result back into the stack.
 
 
 ## 230. Kth Smallest Element In a BST
