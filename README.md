@@ -304,6 +304,11 @@ This problem may looks like 752, having begin and end state and asking minimum o
 It seems that it can be solved by BFS as well, however the key difference is that the initial state of 72 can be shrinked into samller scale state.
 
 
+## 75. Sort Colors
+Similar to #283.\
+Move all the 0 to the front and all the 2 to the end.
+
+
 ## 76. Minimum Window Substring
 Sliding window.
 1. Use start and len to store the valid minimum substring.
