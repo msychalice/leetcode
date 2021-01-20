@@ -888,6 +888,10 @@ In order to avoid it, we need to randomize the input array.
 Hashset.
 
 
+## 219. Contains Duplicate II
+Hashmap.
+
+
 ## 221. Maximal Square
 DP.
 Similar to #174., we needs to think it reversely.
