@@ -884,6 +884,10 @@ The average time complexity si O(n), but the worst cast of quick selection is O(
 In order to avoid it, we need to randomize the input array.
 
 
+## 217. Contains Duplicate
+Hashset.
+
+
 ## 221. Maximal Square
 DP.
 Similar to #174., we needs to think it reversely.
