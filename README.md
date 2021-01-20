@@ -892,6 +892,15 @@ Hashset.
 Hashmap.
 
 
+## 220. Contains Duplicate III
+The idea is similar to sliding the window.\
+However, there are lots of pitfalls in the problem.\
+1. when input size is smaller than 2, return false
+2. handle overflow while calculating the diff
+3. initial minDiff needs to be set to int64_t::max()
+4. need to check nums[0...nums.size()-2], otherwise might miss some cases, which means needs to shrink the window size from k to 1
+
+
 ## 221. Maximal Square
 DP.
 Similar to #174., we needs to think it reversely.
