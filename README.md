@@ -1250,8 +1250,9 @@ But we actually don't need to build the matrix.\
 
 time complexity of step 1 is O(n*log(n^2)) == O(n*2*logn),  step 2 is O(n) \
 
+There is another interesting way to solve this problem is to use BFS and priority_queue to search the matrix from the top left corner.\
 
-There is another interesting way to solve this problem is to use BFS and priority_queue to search the matrix from the top left corner.
+Note that we can not use two pointers to solve this problem.
 
 
 ## 375. Guess Number Higher or Lower II
@@ -1472,7 +1473,8 @@ return dp[nums.size()-1][S+sum] // shift by adding sum
 
 
 ## 496. Next Greater Element I
-Use monotonic increase stack.
+Use monotonic increase stack.\
+Traverse the input array reversely.
 
 
 ## 503. Next Greater Element II
@@ -1568,6 +1570,13 @@ Beware that the target is to find a substring not a subset, so any incontinuous 
 ## 583. Delete Operation for Two Strings
 1.Get the length of LCS(longest common subsequence)
 2.return word1.size() - lenLCS + word2.size() - lenLCS
+
+
+## 632. Smallest Range Covering Elements from K Lists
+K pointers and priority_queue.\
+It's worth noting 2 things(see code):\
+1. the way that keep track of curMax
+2. the condition of ending the whole procedure
 
 
 ## 645. Set Mismatch
