@@ -120,6 +120,11 @@ Binary search.\
 Need to check whether left or right subarray is a rotated sorted array.
 
 
+## 32. Longest Valid Parentheses
+For s[i] == ')' the left boundary of the longest valid parentheses for i is the index of the top element in stack.\
+If stack is empty, the left boundary is the beginning of s.
+
+
 ## 34. Find First and Last Position of Element in Sorted Array
 Use binary search to find the first and last index.
 It's worth noting that we can use the first index as min to optimize the process of finding the last index.
