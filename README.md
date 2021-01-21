@@ -249,6 +249,11 @@ See code
 ## 56. Merge Intervals
 
 
+## 57. Insert Interval
+The non-recursive approach is quite difficult to cover all the details.\
+Prefer to use recursive approach.
+
+
 ## 62. Unique Paths
 Typical DP problem.
 The robot can only move to either right or down, if it moves right, all the left grids are unavailabe, so the problem turns into a smaller scale one (m-1,n).
