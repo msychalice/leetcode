@@ -151,102 +151,41 @@ public:
             return nullptr;
         }
 
-        // if the node is found and deleted, return the deleted node and the new
-        // root, otherwise return [nullptr, node]
-        function<pair<TreeNode*, TreeNode*>(TreeNode*)> findAndDelete =
-            [&findAndDelete,
-             &key](TreeNode* node) -> pair<TreeNode*, TreeNode*> {
-            if (node == nullptr) {
-                return make_pair(nullptr, nullptr);
+        if (root->val == key) {
+            if (root->left == nullptr && root->right == nullptr) {
+                delete root;
+                return nullptr;
+            }
+            if (root->left != nullptr && root->right == nullptr) {
+                TreeNode* retNode = root->left;
+                delete root;
+                return retNode;
+            }
+            if (root->left == nullptr && root->right != nullptr) {
+                TreeNode* retNode = root->right;
+                delete root;
+                return retNode;
             }
 
-            if (key == node->val) {
-                // delete the largest node in a subtree
-                // return the deleted node and the new root for the subtree
-                function<pair<TreeNode*, TreeNode*>(TreeNode*)> deleteLargest =
-                    [&deleteLargest](
-                        TreeNode* node) -> pair<TreeNode*, TreeNode*> {
-                    if (node == nullptr) {
-                        return make_pair(nullptr, nullptr);
-                    }
+            // elevate minimum node in right tree
+            int minNode = getMin(root->right);
+            TreeNode* retNode = new TreeNode(minNode, root->left,
+                                             deleteNode(root->right, minNode));
+            delete root;
+            return retNode;
+        } else if (key < root->val) {
+            root->left = deleteNode(root->left, key);
+        } else if (key > root->val) {
+            root->right = deleteNode(root->right, key);
+        }
+        return root;
+    }
 
-                    auto [deletedNode, newRightSubtree] =
-                        deleteLargest(node->right);
-                    if (deletedNode != nullptr) {
-                        node->right = newRightSubtree;
-                        return make_pair(deletedNode, node);
-                    }
-
-                    // no right subtree, have to delete itself
-                    return make_pair(node, node->left);
-                };
-
-                // delete the smallest node in a subtree
-                // return the deleted node and the new root for the subtree
-                function<pair<TreeNode*, TreeNode*>(TreeNode*)> deleteSmallest =
-                    [&deleteSmallest](
-                        TreeNode* node) -> pair<TreeNode*, TreeNode*> {
-                    if (node == nullptr) {
-                        return make_pair(nullptr, nullptr);
-                    }
-
-                    auto [deletedNode, newLeftSubtree] =
-                        deleteSmallest(node->left);
-                    if (deletedNode != nullptr) {
-                        node->left = newLeftSubtree;
-                        return make_pair(deletedNode, node);
-                    }
-
-                    // no left subtree, have to delete itself
-                    return make_pair(node, node->right);
-                };
-
-                TreeNode* newRoot = nullptr;
-
-                auto [deletedNodeLeft, newLeftSubtree] =
-                    deleteLargest(node->left);
-                if (deletedNodeLeft != nullptr) {
-                    newRoot = deletedNodeLeft;
-                    newRoot->left = newLeftSubtree;
-                    newRoot->right = node->right;
-                    return make_pair(node, newRoot);
-                }
-
-                auto [deletedNodeRight, newRightSubtree] =
-                    deleteSmallest(node->right);
-                if (deletedNodeRight != nullptr) {
-                    newRoot = deletedNodeRight;
-                    newRoot->right = newRightSubtree;
-                    newRoot->left = node->left;
-                    return make_pair(node, newRoot);
-                }
-
-                return make_pair(node, nullptr);
-            }
-
-            if (key < node->val) {
-                auto [deletedNode, newLeftSubtree] = findAndDelete(node->left);
-                if (deletedNode != nullptr) {
-                    node->left = newLeftSubtree;
-                    return make_pair(deletedNode, node);
-                }
-            }
-
-            if (key > node->val) {
-                auto [deletedNode, newRightSubtree] =
-                    findAndDelete(node->right);
-                if (deletedNode != nullptr) {
-                    node->right = newRightSubtree;
-                    return make_pair(deletedNode, node);
-                }
-            }
-
-            return make_pair(nullptr, node);
-        };
-
-        auto [deletedNode, newRoot] = findAndDelete(root);
-
-        return newRoot;
+    int getMin(TreeNode* root) {
+        while (root->left != nullptr) {
+            root = root->left;
+        }
+        return root->val;
     }
 };
 

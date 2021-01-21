@@ -1442,6 +1442,10 @@ Beware of the case the nums[i] is duplicated and is already at the right positio
 
 
 ## 450. Delete Node in a BST
+First of all, find the node, and check for the 3 following cases\
+1. left and right both are nullptr, delete node itself
+2. left or right is nullptr, delete node itself and elevate the left or right node.
+3. left and right are not nullptr, find and elevate the minimum node of right tree and delete the minimum node in the right tree
 
 
 ## 452. Minimum Number of Arrows to Burst Ballons
