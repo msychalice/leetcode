@@ -478,7 +478,8 @@ return dp[s1.size()][s2.size()]
 
 
 ## 98. Validate Binary Search Tree
-Inorder traversal of a BST is sorted.
+Inorder traversal of a BST is sorted.\
+There is another approach using preorder traversal to validate the tree.
 
 
 ## 100. Same Tree

@@ -149,8 +149,8 @@ public:
 
 class Solution {
 public:
-    bool traverse(TreeNode* node, pair<bool, int>& prev) {
-        if (node->left != nullptr && !traverse(node->left, prev)) {
+    bool inorderTraverse(TreeNode* node, pair<bool, int>& prev) {
+        if (node->left != nullptr && !inorderTraverse(node->left, prev)) {
             return false;
         }
 
@@ -160,17 +160,39 @@ public:
         prev.first = true;
         prev.second = node->val;
 
-        if (node->right != nullptr && !traverse(node->right, prev)) {
+        if (node->right != nullptr && !inorderTraverse(node->right, prev)) {
             return false;
         }
         return true;
     }
+
+    bool preorderTraverse(TreeNode* node, TreeNode* min, TreeNode* max) {
+        if (node == nullptr) {
+            return true;
+        }
+
+        if (min != nullptr && node->val <= min->val) {
+            return false;
+        }
+        if (max != nullptr && node->val >= max->val) {
+            return false;
+        }
+
+        return preorderTraverse(node->left, min, node) &&
+               preorderTraverse(node->right, node, max);
+    }
+
     bool isValidBST(TreeNode* root) {
+        /*
         if (root == nullptr) {
             return true;
         }
+
         pair<bool, int> prev = {false, 0};  // pair(initialized, value)
-        return traverse(root, prev);
+        return inorderTraverse(root, prev);
+        */
+
+        return preorderTraverse(root, nullptr, nullptr);
     }
 };
 
