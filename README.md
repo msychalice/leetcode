@@ -734,6 +734,12 @@ Move curA and curB, when they reach the end, jump to the head of the other list.
 There only one jump is allowed for each list, otherwise this process will be endless if A and B are not intersected.
 
 
+## 162. Find Peak Element
+Binary search.\
+If mid number is on an ascending slope, the peak is at its right range, otherwise at its left range.\
+Be careful with the INT_MIN case. Need to use int64_t
+
+
 ## 167. Two Sum II
 Low and high pointers.
 
