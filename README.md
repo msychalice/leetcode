@@ -1382,6 +1382,10 @@ DFS(u, v, mapVisited):
 ```
 
 
+## 404. Sum of Left Leaves
+Recursion.
+
+
 ## 416. Partition Equal Subset Sum
 It is similar to the Knapsack problem and we can use DP to solve it as well.
 1. Check if the totalSum is even or not. If it is not even, return false.
