@@ -1033,6 +1033,23 @@ Shrink window: remove the front only if the front is equal to its original num(n
 Divide and conquer
 
 
+## 246. Strobogrammatic Number
+Locked.\
+Define a hashtable {{0,0}, {1,1}, {6,9}, {8,8}, {9,6}} to check characters.
+
+
+## 247. Strobogrammatic Number II
+Locked.\
+The brute force approach is to check each number <= n, use the function defined in #246. to see if it is a valid number. O(n^2)\
+The second approach is to use backtracking.
+```
+The idea is to extend the number both at left and right, until it is greater than n
+These are the valid extentions {0,0}, {1,1}, {6,9}, {8,8}, {9,6}
+For example, we can extend 1 to 111, 619, 818, 916. Don't forget 010, although it's not a valid number but it is a valid non-leaf node during backtracing.
+The base nodes for backtracking are {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 00, 11, 69, 88, 96}
+```
+
+
 ## 276. Paint Fence
 Locked.
 DP.
