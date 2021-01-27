@@ -890,6 +890,10 @@ return max(dp[nums.size()][rob][firstrob], dp[nums.size()][notrob][firstrob], dp
 ```
 
 
+## 214. Shortest Palindrome
+Convert this problem to finding the longest palindomic substring starting at the beginning. 
+
+
 ## 215. Kth Largest Element in an Array
 The first attempt is to sort the input array and then find the Kth largest element. The time complexity is O(nlogn).
 
