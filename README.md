@@ -603,11 +603,18 @@ Postorder.\
 BFS. Same as #433.
 
 
-## 130 Surrounded Regions
+## 130. Surrounded Regions
 It's quite difficult to use DFS to select those surrounds regions, but it's pretty straightforward, if we use DFS in a different direction.
 Every 'O' that links to a 'O' at border is not surrounded by 'X'.
 1.For each 'O' at border, use DFS to mark all its linked 'O' grid.
 2.All the unmarked 'O' are surrounded and need to be changed to 'X'
+
+
+## 131. Palindrome Partitioning
+Backtracking.\
+For a string of length n, there are 2^n-1 ways to partition.\
+For example, given a string "abc", there are n-1 position to partition a|b|c.\
+For each position, we can choose to do partitioning or not.
 
 
 ## 133. Clone Graph
