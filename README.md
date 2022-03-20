@@ -1580,7 +1580,7 @@ My first attempt is to use naive DP.
 f[i][j] means using first i coins to make the changes for j amount.
 
 f[0][...] = 0 // first row is assigned to 0
-f[...][0] = 1 // first column is assigned to 0, if amount is 0, we only have one combination which is not using any coins.
+f[...][0] = 1 // first column is assigned to 1, if amount is 0, we only have one combination which is not using any coins.
 
 for i=1; i<=coins.size(); i++
     for j=1; j<=amount; j++
